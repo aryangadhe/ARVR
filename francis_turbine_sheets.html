@@ -1,0 +1,2023 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DRG. NO. FT-001 · Francis Turbine Laboratory Posters (5 Sheets)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* =====================================================================
+   PRINT & SHEET CAD DIMENSIONS
+   A3 Landscape: 420mm x 297mm (Ratio 1.414)
+   ===================================================================== */
+@page {
+    size: 420mm 297mm;
+    margin: 0;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --bg-cream: #fbf9f4;
+    --grid-line: rgba(180, 170, 150, 0.22);
+    --border-dark: #1e242b;
+    --border-mid: #9ca3af;
+    --border-light: #d1d5db;
+    --text-primary: #111827;
+    --text-secondary: #4b5563;
+    --text-muted: #6b7280;
+    --accent-red: #d33c2f;
+    --accent-blue: #0284c7;
+    --accent-teal: #0d9488;
+    --accent-navy: #0f233a;
+    --accent-amber: #d97706;
+    --card-bg: #ffffff;
+    --font-heading: 'Barlow Condensed', -apple-system, sans-serif;
+    --font-body: 'Inter', -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+}
+
+body {
+    background-color: #262b32;
+    font-family: var(--font-body);
+    color: var(--text-primary);
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+}
+
+/* Screen Navigation Toolbar */
+.screen-toolbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 56px;
+    background: #14181f;
+    color: #e2e8f0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    z-index: 9999;
+    box-shadow: 0 3px 16px rgba(0,0,0,0.5);
+    font-family: var(--font-heading);
+}
+
+.toolbar-title {
+    font-size: 18px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.toolbar-title span.badge {
+    background: var(--accent-red);
+    color: #fff;
+    padding: 2px 7px;
+    border-radius: 3px;
+    font-size: 11.5px;
+    font-weight: 800;
+}
+
+.toolbar-nav {
+    display: flex;
+    gap: 6px;
+}
+.nav-btn {
+    background: #232b36;
+    color: #cbd5e1;
+    border: 1px solid #3d4a59;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+.nav-btn:hover, .nav-btn.active {
+    background: var(--accent-blue);
+    color: white;
+    border-color: var(--accent-blue);
+}
+
+.action-buttons {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.config-domain-box {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: #1f2733;
+    padding: 4px 8px;
+    border-radius: 4px;
+    border: 1px solid #374151;
+    font-size: 12px;
+}
+.config-domain-box label {
+    color: #94a3b8;
+    font-weight: 600;
+}
+.config-domain-box input {
+    background: #0f172a;
+    border: 1px solid #475569;
+    color: #38bdf8;
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    width: 210px;
+}
+
+.web-sim-btn {
+    background: #0d9488;
+    color: white;
+    border: none;
+    padding: 7px 14px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.print-btn {
+    background: var(--accent-red);
+    color: white;
+    border: none;
+    padding: 7px 16px;
+    border-radius: 4px;
+    font-size: 13.5px;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(211,60,47,0.4);
+}
+.print-btn:hover { background: #b92f23; }
+
+/* Sheets Container */
+.sheets-wrapper {
+    margin-top: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 48px;
+    padding-bottom: 90px;
+}
+
+/* SINGLE SHEET CAD CANVAS (Exact A3 Landscape proportions) */
+.sheet-page {
+    width: 1588px;
+    height: 1123px;
+    background-color: var(--bg-cream);
+    background-image: 
+        linear-gradient(var(--grid-line) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+    background-size: 24px 24px;
+    position: relative;
+    box-shadow: 0 14px 40px rgba(0,0,0,0.45);
+    overflow: hidden;
+    page-break-after: always;
+    page-break-inside: avoid;
+}
+
+/* CAD Outer Border */
+.cad-outer-border {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    right: 14px;
+    bottom: 14px;
+    border: 2px solid var(--border-dark);
+    pointer-events: none;
+}
+
+/* CAD Inner Border */
+.cad-inner-border {
+    position: absolute;
+    top: 32px;
+    left: 32px;
+    right: 32px;
+    bottom: 32px;
+    border: 1.5px solid var(--border-dark);
+    pointer-events: auto;
+}
+
+/* Coordinate strip markings (1-8 and A-F) */
+.coord-strip {
+    position: absolute;
+    display: flex;
+    justify-content: space-around;
+    font-family: var(--font-heading);
+    font-size: 11px;
+    font-weight: 800;
+    color: #4b5563;
+    pointer-events: none;
+}
+.coord-top { top: 17px; left: 32px; right: 32px; height: 14px; }
+.coord-bottom { bottom: 17px; left: 32px; right: 32px; height: 14px; }
+.coord-left { top: 32px; bottom: 32px; left: 17px; width: 14px; flex-direction: column; align-items: center; }
+.coord-right { top: 32px; bottom: 32px; right: 17px; width: 14px; flex-direction: column; align-items: center; }
+
+/* CAD Title Block (Bottom Right) */
+.cad-title-block {
+    position: absolute;
+    right: 32px;
+    bottom: 32px;
+    width: 270px;
+    height: 52px;
+    border-top: 1.5px solid var(--border-dark);
+    border-left: 1.5px solid var(--border-dark);
+    background: #ffffff;
+    display: grid;
+    grid-template-columns: 154px 58px 58px;
+    z-index: 100;
+}
+.cad-title-block .field {
+    border-right: 1px solid var(--border-dark);
+    padding: 3px 6px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.cad-title-block .field:last-child { border-right: none; }
+.cad-title-block .lbl {
+    font-family: var(--font-heading);
+    font-size: 9px;
+    font-weight: 800;
+    color: #64748b;
+    letter-spacing: 0.6px;
+}
+.cad-title-block .val {
+    font-family: var(--font-heading);
+    font-size: 13px;
+    font-weight: 900;
+    color: var(--text-primary);
+    line-height: 1.1;
+    text-transform: uppercase;
+}
+.cad-bottom-note {
+    position: absolute;
+    left: 48px;
+    bottom: 38px;
+    font-size: 10px;
+    color: #64748b;
+    font-family: var(--font-body);
+}
+
+/* TOP HEADER STRIP */
+.cad-header {
+    position: absolute;
+    top: 44px;
+    left: 48px;
+    right: 48px;
+    height: 86px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+.header-left {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    width: 280px;
+}
+.drg-badge {
+    display: inline-flex;
+    align-items: center;
+    background: var(--accent-navy);
+    color: #ffffff;
+    font-family: var(--font-heading);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    padding: 2.5px 8px;
+    width: fit-content;
+    text-transform: uppercase;
+}
+.brand-row {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-top: 4px;
+}
+.brand-logo {
+    font-family: var(--font-heading);
+    font-size: 38px;
+    font-weight: 900;
+    letter-spacing: -0.5px;
+    line-height: 0.9;
+    color: var(--accent-navy);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+.brand-logo span.red { color: var(--accent-red); }
+.brand-sub {
+    font-family: var(--font-heading);
+    font-size: 12.5px;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    color: #475569;
+    text-transform: uppercase;
+    margin-top: 2px;
+}
+
+.header-center {
+    flex: 1;
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.section-label {
+    font-family: var(--font-heading);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    color: var(--accent-red);
+    text-transform: uppercase;
+    margin-bottom: 2px;
+}
+.main-sheet-title {
+    font-family: var(--font-heading);
+    font-size: 30px;
+    font-weight: 900;
+    color: var(--text-primary);
+    line-height: 1.05;
+}
+.main-sheet-subtitle {
+    font-size: 11.5px;
+    color: #52525b;
+    margin-top: 3px;
+    max-width: 760px;
+    line-height: 1.35;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border: 1px solid var(--border-light);
+    background: #ffffff;
+    padding: 6px 12px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+.qr-box {
+    width: 58px;
+    height: 58px;
+    position: relative;
+    background: #fff;
+}
+.qr-corners {
+    position: absolute;
+    inset: -3px;
+    pointer-events: none;
+}
+.qr-corners::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 8px; height: 8px;
+    border-top: 2px solid var(--accent-red);
+    border-left: 2px solid var(--accent-red);
+}
+.qr-corners::after {
+    content: '';
+    position: absolute;
+    bottom: 0; right: 0;
+    width: 8px; height: 8px;
+    border-bottom: 2px solid var(--accent-red);
+    border-right: 2px solid var(--accent-red);
+}
+.qr-text {
+    display: flex;
+    flex-direction: column;
+}
+.qr-text .t1 {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 14px;
+    color: var(--text-primary);
+}
+.qr-text .t2 {
+    font-size: 10px;
+    color: #64748b;
+    max-width: 95px;
+    line-height: 1.2;
+}
+
+/* CAD CARD STYLES */
+.cad-card {
+    background: var(--card-bg);
+    border: 1px solid #1e242b;
+    padding: 12px;
+    position: relative;
+}
+.card-fig-label {
+    font-family: var(--font-heading);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    color: #64748b;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.card-fig-label .pill {
+    background: #e2e8f0;
+    color: #1e293b;
+    padding: 1px 5px;
+    font-size: 9px;
+    font-weight: 800;
+    border-radius: 2px;
+}
+.card-title {
+    font-family: var(--font-heading);
+    font-size: 19px;
+    font-weight: 800;
+    color: var(--text-primary);
+    line-height: 1.1;
+    margin-bottom: 4px;
+}
+.card-desc {
+    font-size: 11px;
+    color: #475569;
+    line-height: 1.35;
+    margin-bottom: 8px;
+}
+
+ul.cad-bullets {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+ul.cad-bullets li {
+    font-size: 11px;
+    line-height: 1.36;
+    color: #334155;
+    margin-bottom: 4px;
+    position: relative;
+    padding-left: 13px;
+}
+ul.cad-bullets li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 5px;
+    width: 5px;
+    height: 5px;
+    background: var(--accent-red);
+}
+.group-sign {
+    margin-top: 8px;
+    padding-top: 5px;
+    border-top: 1px dashed #cbd5e1;
+    font-size: 9.5px;
+    color: #64748b;
+    font-family: var(--font-mono);
+}
+
+.callout-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    border: 1.5px solid #1e242b;
+    font-family: var(--font-heading);
+    font-size: 11px;
+    font-weight: 800;
+    color: #1e242b;
+    background: #ffffff;
+    margin-right: 4px;
+}
+.bracket-val {
+    color: var(--accent-red);
+    font-weight: 700;
+    font-family: var(--font-mono);
+}
+.math-badge {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    padding: 4px 8px;
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    font-weight: 700;
+    color: #0f172a;
+    display: inline-block;
+    border-left: 3px solid var(--accent-blue);
+}
+
+/* =====================================================================
+   SHEET 1 SPECIFIC STYLES
+   ===================================================================== */
+.sheet1-grid {
+    position: absolute;
+    top: 138px;
+    left: 48px;
+    right: 48px;
+    bottom: 92px;
+    display: grid;
+    grid-template-columns: 920px 572px;
+    grid-template-rows: 490px 240px 120px;
+    gap: 14px;
+}
+.fig-1a-box {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    display: flex;
+    position: relative;
+    padding: 10px 14px;
+}
+.fig-1a-left {
+    width: 440px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+.exploded-canvas {
+    flex: 1;
+    position: relative;
+    border: 1px solid #e5e7eb;
+    background: #ffffff;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.fig-1a-right {
+    flex: 1;
+    padding-left: 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.spec-strip {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    padding: 8px 10px;
+    margin-bottom: 8px;
+}
+.spec-strip-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 6px;
+}
+.spec-tag {
+    font-family: var(--font-heading);
+    font-size: 10px;
+    font-weight: 800;
+    color: white;
+    background: var(--accent-navy);
+    padding: 2px 6px;
+    border-radius: 2px;
+}
+.spec-desc { font-size: 9.5px; color: #64748b; font-family: var(--font-mono); }
+.spec-row { font-size: 10.5px; line-height: 1.45; color: #334155; display: flex; gap: 8px; }
+.spec-row strong { font-family: var(--font-heading); color: #0f172a; width: 68px; font-size: 11px; }
+.parts-list { display: flex; flex-direction: column; gap: 4.5px; }
+.part-item { font-size: 11px; line-height: 1.35; color: #334155; display: flex; align-items: baseline; }
+.part-item strong { color: #0f172a; font-weight: 600; }
+
+.fig-1b-box {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    padding: 10px 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.triangles-canvas { height: 250px; background: #ffffff; border: 1px solid #e5e7eb; position: relative; }
+.axes-points { display: flex; flex-direction: column; gap: 5px; margin: 8px 0; }
+.axes-point { font-size: 11px; color: #334155; display: flex; align-items: baseline; line-height: 1.3; }
+.rule-box { background: #fffbeb; border: 1px solid #fef3c7; border-left: 3px solid var(--accent-amber); padding: 6px 8px; margin-top: 4px; }
+.rule-box .rule-hdr { font-family: var(--font-heading); font-size: 9.5px; font-weight: 800; color: #b45309; letter-spacing: 0.8px; }
+.rule-box .rule-txt { font-size: 10px; color: #78350f; line-height: 1.3; }
+
+.fig-1c-box {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+    padding: 10px 14px;
+    display: flex;
+    gap: 16px;
+}
+.instruments-canvas { width: 380px; height: 100%; background: #ffffff; border: 1px solid #e5e7eb; }
+.instruments-list { flex: 1; display: flex; flex-direction: column; justify-content: space-around; }
+
+.fig-1d-box {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    padding: 10px 14px;
+    display: flex;
+    gap: 14px;
+}
+.runner-canvas { width: 190px; height: 100%; background: #ffffff; border: 1px solid #e5e7eb; }
+.runner-theory { flex: 1; display: flex; flex-direction: column; justify-content: space-between; }
+
+.change-thing-box {
+    grid-column: 1 / 3;
+    grid-row: 3 / 4;
+    padding: 8px 14px;
+    display: flex;
+    align-items: center;
+    background: #ffffff;
+    border: 1px solid #1e242b;
+    gap: 20px;
+}
+.change-intro { width: 200px; }
+.change-intro .title { font-family: var(--font-heading); font-size: 17px; font-weight: 800; color: var(--text-primary); line-height: 1.1; }
+.change-intro .desc { font-size: 9.5px; color: #64748b; line-height: 1.3; margin-top: 2px; }
+.change-bars { flex: 1; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; }
+.bar-col { display: flex; flex-direction: column; gap: 4px; }
+.bar-col .col-label { font-family: var(--font-heading); font-size: 11px; font-weight: 800; color: #0f172a; letter-spacing: 0.5px; }
+.bar-row { display: flex; align-items: center; gap: 8px; font-size: 10px; color: #475569; }
+.bar-row span.label { width: 54px; }
+.bar-track { flex: 1; height: 14px; background: #f1f5f9; border: 1px solid #cbd5e1; position: relative; }
+.bar-fill { height: 100%; background: #1e293b; }
+.bar-fill.hatched {
+    background: repeating-linear-gradient(-45deg, #0284c7, #0284c7 4px, #38bdf8 4px, #38bdf8 8px);
+}
+.bar-row span.val { font-family: var(--font-mono); font-weight: 700; font-size: 10.5px; width: 24px; }
+
+/* =====================================================================
+   SHEET 2 STYLES
+   ===================================================================== */
+.sheet2-grid {
+    position: absolute;
+    top: 138px;
+    left: 48px;
+    right: 48px;
+    bottom: 92px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 16px;
+}
+.exp-card { display: flex; flex-direction: column; justify-content: space-between; }
+.exp-diagram { height: 140px; background: #ffffff; border: 1px solid #e2e8f0; margin-bottom: 8px; position: relative; overflow: hidden; }
+
+/* =====================================================================
+   SHEET 3 STYLES
+   ===================================================================== */
+.sheet3-grid {
+    position: absolute;
+    top: 138px;
+    left: 48px;
+    right: 48px;
+    bottom: 92px;
+    display: grid;
+    grid-template-columns: 460px 650px 366px;
+    gap: 16px;
+}
+.app-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.app-item { background: #f8fafc; border: 1px solid #e2e8f0; padding: 8px; }
+.app-item .app-title { font-family: var(--font-heading); font-size: 13px; font-weight: 800; color: #0f172a; display: flex; align-items: center; gap: 4px; margin-bottom: 3px; }
+.app-item .app-desc { font-size: 9.5px; color: #475569; line-height: 1.3; }
+.tags-row { display: flex; flex-wrap: wrap; gap: 4px; }
+.tag-chip { background: #e2e8f0; border: 1px solid #cbd5e1; color: #1e293b; font-size: 9px; font-weight: 600; padding: 2px 6px; border-radius: 2px; }
+.equations-strip { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; }
+.eq-box { background: #f8fafc; border: 1px solid #e2e8f0; padding: 6px; text-align: center; position: relative; }
+.eq-badge { position: absolute; top: 3px; right: 4px; font-size: 8px; font-weight: 800; color: var(--accent-red); font-family: var(--font-mono); }
+.eq-math { font-family: var(--font-mono); font-size: 11px; font-weight: 700; color: #0f172a; margin: 8px 0 4px 0; }
+.eq-name { font-size: 9px; color: #64748b; line-height: 1.1; }
+.five-steps-strip { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; }
+.step-box { background: #ffffff; border: 1px solid #cbd5e1; padding: 8px 6px; position: relative; }
+.step-num { font-family: var(--font-heading); font-size: 18px; font-weight: 900; color: #94a3b8; line-height: 1; }
+.step-title { font-family: var(--font-heading); font-size: 13px; font-weight: 800; color: #0f172a; margin: 2px 0; }
+.step-desc { font-size: 9px; color: #64748b; line-height: 1.25; }
+.lab-photo-placeholder { height: 130px; background: #f1f5f9; border: 1px dashed #94a3b8; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+.stats-grid-4 { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.stat-box { background: #ffffff; border: 1px solid #1e242b; padding: 8px 10px; }
+.stat-box .val { font-family: var(--font-heading); font-size: 26px; font-weight: 900; color: #0f172a; line-height: 1; }
+.stat-box .lbl { font-family: var(--font-heading); font-size: 9.5px; font-weight: 800; color: #64748b; letter-spacing: 0.5px; margin-top: 2px; text-transform: uppercase; }
+
+/* =====================================================================
+   SHEET 4 EXACT REPLICATION (SCAN · STEP INSIDE)
+   ===================================================================== */
+.sheet4-header {
+    position: absolute;
+    top: 44px;
+    left: 48px;
+    right: 48px;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.s4-title-left {
+    display: flex;
+    flex-direction: column;
+}
+.s4-drg-badge {
+    background: #0f233a;
+    color: #fff;
+    font-family: var(--font-heading);
+    font-size: 11px;
+    font-weight: 800;
+    padding: 2px 8px;
+    letter-spacing: 0.8px;
+    width: fit-content;
+    text-transform: uppercase;
+}
+.s4-main-logo {
+    font-family: var(--font-heading);
+    font-size: 44px;
+    font-weight: 900;
+    letter-spacing: -0.5px;
+    line-height: 1;
+    margin-top: 2px;
+}
+.s4-main-logo span.blue { color: #0284c7; }
+.s4-main-logo span.dot { color: #d33c2f; margin: 0 4px; }
+.s4-main-logo span.dark { color: #0f172a; }
+
+.s4-sub-line {
+    font-family: var(--font-heading);
+    font-size: 12px;
+    font-weight: 800;
+    color: #475569;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    margin-top: 2px;
+}
+
+.s4-header-right-note {
+    font-size: 12px;
+    color: #475569;
+    line-height: 1.35;
+    text-align: right;
+    max-width: 440px;
+}
+
+/* Two Main Cards Grid */
+.sheet4-cards-grid {
+    position: absolute;
+    top: 136px;
+    left: 48px;
+    right: 48px;
+    height: 750px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.s4-portal-card {
+    background: #ffffff;
+    border: 1.5px solid #1e242b;
+    position: relative;
+    padding: 24px 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.s4-corner-badge {
+    position: absolute;
+    top: -12px;
+    left: 20px;
+    color: white;
+    font-family: var(--font-heading);
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 0.8px;
+    padding: 3px 10px;
+    border-radius: 2px;
+    text-transform: uppercase;
+}
+.s4-corner-badge.red { background: var(--accent-red); }
+.s4-corner-badge.blue { background: var(--accent-blue); }
+
+.s4-card-body {
+    display: flex;
+    gap: 28px;
+    margin-top: 10px;
+}
+
+.s4-qr-column {
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.s4-scan-tip {
+    font-size: 10.5px;
+    color: #64748b;
+    margin-bottom: 8px;
+    font-family: var(--font-body);
+    text-align: center;
+}
+
+.s4-qr-bracket-box {
+    width: 240px;
+    height: 240px;
+    position: relative;
+    padding: 12px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+}
+.s4-brackets {
+    position: absolute;
+    inset: -4px;
+    pointer-events: none;
+}
+.s4-brackets.red::before {
+    content: ''; position: absolute; top: 0; left: 0; width: 22px; height: 22px;
+    border-top: 3.5px solid var(--accent-red); border-left: 3.5px solid var(--accent-red);
+}
+.s4-brackets.red::after {
+    content: ''; position: absolute; bottom: 0; right: 0; width: 22px; height: 22px;
+    border-bottom: 3.5px solid var(--accent-red); border-right: 3.5px solid var(--accent-red);
+}
+.s4-brackets.blue::before {
+    content: ''; position: absolute; top: 0; left: 0; width: 22px; height: 22px;
+    border-top: 3.5px solid var(--accent-blue); border-left: 3.5px solid var(--accent-blue);
+}
+.s4-brackets.blue::after {
+    content: ''; position: absolute; bottom: 0; right: 0; width: 22px; height: 22px;
+    border-bottom: 3.5px solid var(--accent-blue); border-right: 3.5px solid var(--accent-blue);
+}
+
+.s4-info-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+.s4-code-tag {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 800;
+    margin-bottom: 4px;
+}
+.s4-code-tag.red { color: var(--accent-red); }
+.s4-code-tag.blue { color: var(--accent-blue); }
+
+.s4-card-title {
+    font-family: var(--font-heading);
+    font-size: 32px;
+    font-weight: 900;
+    color: #0f172a;
+    line-height: 1.05;
+    margin-bottom: 8px;
+}
+.s4-card-lead {
+    font-size: 12px;
+    color: #475569;
+    line-height: 1.4;
+    margin-bottom: 14px;
+}
+
+.s4-steps-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.s4-step-item {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    font-size: 11.5px;
+    color: #1e293b;
+    line-height: 1.35;
+}
+.s4-step-badge {
+    font-family: var(--font-heading);
+    font-size: 10px;
+    font-weight: 800;
+    background: #e2e8f0;
+    color: #0f172a;
+    padding: 2px 6px;
+    border-radius: 2px;
+    flex: none;
+}
+
+.s4-card-footer {
+    border-top: 1px dashed #cbd5e1;
+    padding-top: 12px;
+    margin-top: 16px;
+}
+.s4-footer-device {
+    font-size: 10px;
+    color: #64748b;
+    margin-bottom: 4px;
+}
+.s4-or-type {
+    font-family: var(--font-heading);
+    font-size: 9.5px;
+    font-weight: 800;
+    color: #94a3b8;
+    letter-spacing: 0.8px;
+}
+.s4-link-url {
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    font-weight: 600;
+    color: var(--accent-blue);
+    word-break: break-all;
+    text-decoration: none;
+}
+.s4-link-url:hover { text-decoration: underline; }
+
+/* Bottom 3 Pills (AR, WEB, LAB) */
+.sheet4-bottom-pills {
+    position: absolute;
+    top: 906px;
+    left: 48px;
+    right: 48px;
+    height: 105px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+}
+.s4-pill-box {
+    background: #ffffff;
+    border: 1px solid #1e242b;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+.s4-pill-circle {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1.5px solid #1e242b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-heading);
+    font-size: 14px;
+    font-weight: 800;
+    color: #0f172a;
+    flex: none;
+}
+.s4-pill-text .h {
+    font-family: var(--font-heading);
+    font-size: 16px;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 2px;
+}
+.s4-pill-text .d {
+    font-size: 10.5px;
+    color: #475569;
+    line-height: 1.3;
+}
+
+/* =====================================================================
+   SHEET 5 STYLES
+   ===================================================================== */
+.sheet5-grid {
+    position: absolute;
+    top: 138px;
+    left: 48px;
+    right: 48px;
+    bottom: 92px;
+    display: grid;
+    grid-template-columns: 660px 832px;
+    grid-template-rows: 620px 130px;
+    gap: 16px;
+}
+.sheet5-exp-panel { grid-column: 1 / 2; grid-row: 1 / 2; padding: 16px; display: flex; flex-direction: column; justify-content: space-between; }
+.six-steps-list { display: flex; flex-direction: column; gap: 10px; margin-top: 10px; }
+.exp-step-row { display: flex; align-items: flex-start; gap: 10px; }
+.step-chip { background: #ffffff; border: 1.5px solid var(--accent-red); color: var(--accent-red); font-family: var(--font-heading); font-weight: 800; font-size: 12px; padding: 2px 7px; border-radius: 3px; }
+.step-text { font-size: 11.5px; line-height: 1.38; color: #1e293b; }
+.step-text strong { color: #0f172a; font-weight: 700; }
+.exp-vector-box { height: 180px; background: #ffffff; border: 1px solid #e2e8f0; margin: 10px 0; position: relative; }
+
+.sheet5-calc-panel { grid-column: 2 / 3; grid-row: 1 / 2; padding: 16px; display: flex; flex-direction: column; justify-content: space-between; }
+.calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 6px; }
+.calc-sec { background: #f8fafc; border: 1px solid #e2e8f0; padding: 8px 10px; }
+.calc-sec .sec-hdr { font-family: var(--font-heading); font-size: 10px; font-weight: 800; color: #64748b; letter-spacing: 0.8px; margin-bottom: 4px; }
+.calc-sec .sec-math { font-family: var(--font-mono); font-size: 11px; font-weight: 700; color: #0f172a; line-height: 1.45; }
+
+.obs-table-container { margin-top: 10px; }
+.obs-hdr { font-family: var(--font-heading); font-size: 11px; font-weight: 800; color: #0f172a; letter-spacing: 0.8px; margin-bottom: 4px; display: flex; align-items: center; justify-content: space-between; }
+table.obs-table { width: 100%; border-collapse: collapse; font-size: 10px; text-align: center; }
+table.obs-table th { background: #1e293b; color: #ffffff; font-family: var(--font-heading); font-weight: 700; font-size: 9.5px; padding: 4px 2px; border: 1px solid #0f172a; letter-spacing: 0.3px; }
+table.obs-table td { padding: 6px 2px; border: 1px solid #cbd5e1; font-family: var(--font-mono); font-size: 10px; color: #334155; background: #ffffff; }
+table.obs-table tr:nth-child(even) td { background: #f8fafc; }
+
+.defs-box { grid-column: 1 / 3; grid-row: 2 / 3; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+.def-item { background: #ffffff; border: 1px solid #1e242b; padding: 12px 16px; display: flex; align-items: center; gap: 14px; }
+.def-circle { width: 44px; height: 44px; border-radius: 50%; border: 1.5px solid #1e242b; display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-size: 15px; font-weight: 800; color: #0f172a; }
+.def-content .d-title { font-family: var(--font-heading); font-size: 16px; font-weight: 800; color: #0f172a; }
+.def-content .d-desc { font-size: 10.5px; color: #475569; line-height: 1.3; }
+
+/* Print Overrides */
+@media print {
+    body { background: transparent; }
+    .screen-toolbar { display: none !important; }
+    .sheets-wrapper { margin: 0; padding: 0; gap: 0; }
+    .sheet-page {
+        box-shadow: none;
+        margin: 0;
+        width: 420mm;
+        height: 297mm;
+        page-break-after: always;
+    }
+}
+</style>
+</head>
+<body>
+
+<!-- Interactive Toolbar -->
+<div class="screen-toolbar">
+    <div class="toolbar-title">
+        <span>FRANCIS TURBINE CAD DRAWINGS</span>
+        <span class="badge">COEP TECH</span>
+    </div>
+    <div class="toolbar-nav">
+        <a href="#sheet1" class="nav-btn active">Sheet 1: Apparatus</a>
+        <a href="#sheet2" class="nav-btn">Sheet 2: Experiments</a>
+        <a href="#sheet3" class="nav-btn">Sheet 3: Theory</a>
+        <a href="#sheet4" class="nav-btn">Sheet 4: Digital Lab</a>
+        <a href="#sheet5" class="nav-btn">Sheet 5: Calculation</a>
+    </div>
+
+    <!-- Domain Customizer for GitHub Pages -->
+    <div class="config-domain-box">
+        <label>GitHub Pages Repo:</label>
+        <input type="text" id="repoInput" value="aryan.github.io/francis-turbine-lab" oninput="updateDomain(this.value)">
+    </div>
+
+    <div class="action-buttons">
+        <a href="web_app.html" target="_blank" class="web-sim-btn">⚡ Live 3D Simulator</a>
+        <button class="print-btn" onclick="window.print()">🖨️ Print / Save PDF</button>
+    </div>
+</div>
+
+<div class="sheets-wrapper">
+
+<!-- ===================================================================
+     SHEET 1 / 5: THE FRANCIS TURBINE, TAKEN APART (Section A)
+     =================================================================== -->
+<div class="sheet-page" id="sheet1">
+    <div class="cad-outer-border"></div>
+    <div class="coord-strip coord-top"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span></div>
+    <div class="coord-strip coord-bottom"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span></div>
+    <div class="coord-strip coord-left"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span></div>
+    <div class="coord-strip coord-right"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span></div>
+
+    <div class="cad-inner-border">
+        <!-- Header -->
+        <div class="cad-header">
+            <div class="header-left">
+                <div class="drg-badge">DRG. NO. FT-001 · SHEET 1 / 5</div>
+                <div class="brand-row">
+                    <div class="brand-logo">FRANCIS<span class="red">LAB</span></div>
+                </div>
+                <div class="brand-sub">FRANCIS TURBINE APPARATUS · COEP TECH</div>
+            </div>
+            <div class="header-center">
+                <div class="section-label">SECTION A · THE APPARATUS</div>
+                <div class="main-sheet-title">The Francis turbine, taken apart</div>
+                <div class="main-sheet-subtitle">The reaction hydraulic turbine in the lab, drawn schematically and exploded into its main parts. Numbers on each drawing match the list beside it.</div>
+            </div>
+            <div class="header-right">
+                <div class="qr-box">
+                    <div class="qr-corners"></div>
+                    <div class="dynamic-qr-web" style="width: 100%; height: 100%;"><?xml version='1.0' encoding='UTF-8'?>
+<svg width="37mm" height="37mm" version="1.1" viewBox="0 0 37 37" class="qr-svg-real" xmlns="http://www.w3.org/2000/svg"><path d="M2,2H3V3H2zM3,2H4V3H3zM4,2H5V3H4zM5,2H6V3H5zM6,2H7V3H6zM7,2H8V3H7zM8,2H9V3H8zM10,2H11V3H10zM11,2H12V3H11zM14,2H15V3H14zM16,2H17V3H16zM20,2H21V3H20zM24,2H25V3H24zM26,2H27V3H26zM28,2H29V3H28zM29,2H30V3H29zM30,2H31V3H30zM31,2H32V3H31zM32,2H33V3H32zM33,2H34V3H33zM34,2H35V3H34zM2,3H3V4H2zM8,3H9V4H8zM10,3H11V4H10zM11,3H12V4H11zM13,3H14V4H13zM18,3H19V4H18zM19,3H20V4H19zM21,3H22V4H21zM22,3H23V4H22zM23,3H24V4H23zM24,3H25V4H24zM26,3H27V4H26zM28,3H29V4H28zM34,3H35V4H34zM2,4H3V5H2zM4,4H5V5H4zM5,4H6V5H5zM6,4H7V5H6zM8,4H9V5H8zM10,4H11V5H10zM12,4H13V5H12zM18,4H19V5H18zM19,4H20V5H19zM20,4H21V5H20zM22,4H23V5H22zM24,4H25V5H24zM25,4H26V5H25zM28,4H29V5H28zM30,4H31V5H30zM31,4H32V5H31zM32,4H33V5H32zM34,4H35V5H34zM2,5H3V6H2zM4,5H5V6H4zM5,5H6V6H5zM6,5H7V6H6zM8,5H9V6H8zM11,5H12V6H11zM12,5H13V6H12zM13,5H14V6H13zM14,5H15V6H14zM21,5H22V6H21zM25,5H26V6H25zM26,5H27V6H26zM28,5H29V6H28zM30,5H31V6H30zM31,5H32V6H31zM32,5H33V6H32zM34,5H35V6H34zM2,6H3V7H2zM4,6H5V7H4zM5,6H6V7H5zM6,6H7V7H6zM8,6H9V7H8zM10,6H11V7H10zM12,6H13V7H12zM13,6H14V7H13zM15,6H16V7H15zM16,6H17V7H16zM17,6H18V7H17zM20,6H21V7H20zM22,6H23V7H22zM25,6H26V7H25zM26,6H27V7H26zM28,6H29V7H28zM30,6H31V7H30zM31,6H32V7H31zM32,6H33V7H32zM34,6H35V7H34zM2,7H3V8H2zM8,7H9V8H8zM12,7H13V8H12zM19,7H20V8H19zM20,7H21V8H20zM22,7H23V8H22zM23,7H24V8H23zM25,7H26V8H25zM28,7H29V8H28zM34,7H35V8H34zM2,8H3V9H2zM3,8H4V9H3zM4,8H5V9H4zM5,8H6V9H5zM6,8H7V9H6zM7,8H8V9H7zM8,8H9V9H8zM10,8H11V9H10zM12,8H13V9H12zM14,8H15V9H14zM16,8H17V9H16zM18,8H19V9H18zM20,8H21V9H20zM22,8H23V9H22zM24,8H25V9H24zM26,8H27V9H26zM28,8H29V9H28zM29,8H30V9H29zM30,8H31V9H30zM31,8H32V9H31zM32,8H33V9H32zM33,8H34V9H33zM34,8H35V9H34zM11,9H12V10H11zM12,9H13V10H12zM13,9H14V10H13zM14,9H15V10H14zM15,9H16V10H15zM21,9H22V10H21zM22,9H23V10H22zM25,9H26V10H25zM2,10H3V11H2zM5,10H6V11H5zM6,10H7V11H6zM7,10H8V11H7zM8,10H9V11H8zM9,10H10V11H9zM10,10H11V11H10zM11,10H12V11H11zM13,10H14V11H13zM14,10H15V11H14zM16,10H17V11H16zM17,10H18V11H17zM18,10H19V11H18zM19,10H20V11H19zM21,10H22V11H21zM25,10H26V11H25zM26,10H27V11H26zM27,10H28V11H27zM30,10H31V11H30zM32,10H33V11H32zM33,10H34V11H33zM34,10H35V11H34zM2,11H3V12H2zM4,11H5V12H4zM5,11H6V12H5zM6,11H7V12H6zM7,11H8V12H7zM9,11H10V12H9zM14,11H15V12H14zM17,11H18V12H17zM20,11H21V12H20zM21,11H22V12H21zM22,11H23V12H22zM24,11H25V12H24zM25,11H26V12H25zM30,11H31V12H30zM31,11H32V12H31zM32,11H33V12H32zM33,11H34V12H33zM5,12H6V13H5zM6,12H7V13H6zM8,12H9V13H8zM11,12H12V13H11zM16,12H17V13H16zM17,12H18V13H17zM19,12H20V13H19zM20,12H21V13H20zM22,12H23V13H22zM23,12H24V13H23zM25,12H26V13H25zM27,12H28V13H27zM28,12H29V13H28zM30,12H31V13H30zM31,12H32V13H31zM32,12H33V13H32zM33,12H34V13H33zM34,12H35V13H34zM2,13H3V14H2zM7,13H8V14H7zM10,13H11V14H10zM14,13H15V14H14zM16,13H17V14H16zM17,13H18V14H17zM19,13H20V14H19zM21,13H22V14H21zM25,13H26V14H25zM26,13H27V14H26zM27,13H28V14H27zM29,13H30V14H29zM32,13H33V14H32zM2,14H3V15H2zM3,14H4V15H3zM4,14H5V15H4zM5,14H6V15H5zM6,14H7V15H6zM7,14H8V15H7zM8,14H9V15H8zM10,14H11V15H10zM11,14H12V15H11zM12,14H13V15H12zM14,14H15V15H14zM15,14H16V15H15zM16,14H17V15H16zM18,14H19V15H18zM19,14H20V15H19zM20,14H21V15H20zM21,14H22V15H21zM22,14H23V15H22zM23,14H24V15H23zM24,14H25V15H24zM25,14H26V15H25zM26,14H27V15H26zM27,14H28V15H27zM28,14H29V15H28zM29,14H30V15H29zM34,14H35V15H34zM4,15H5V16H4zM5,15H6V16H5zM6,15H7V16H6zM7,15H8V16H7zM11,15H12V16H11zM18,15H19V16H18zM19,15H20V16H19zM21,15H22V16H21zM24,15H25V16H24zM25,15H26V16H25zM26,15H27V16H26zM27,15H28V16H27zM29,15H30V16H29zM31,15H32V16H31zM32,15H33V16H32zM3,16H4V17H3zM5,16H6V17H5zM6,16H7V17H6zM7,16H8V17H7zM8,16H9V17H8zM10,16H11V17H10zM11,16H12V17H11zM12,16H13V17H12zM15,16H16V17H15zM18,16H19V17H18zM19,16H20V17H19zM26,16H27V17H26zM28,16H29V17H28zM29,16H30V17H29zM31,16H32V17H31zM32,16H33V17H32zM3,17H4V18H3zM6,17H7V18H6zM10,17H11V18H10zM12,17H13V18H12zM13,17H14V18H13zM15,17H16V18H15zM17,17H18V18H17zM21,17H22V18H21zM25,17H26V18H25zM26,17H27V18H26zM27,17H28V18H27zM29,17H30V18H29zM31,17H32V18H31zM32,17H33V18H32zM34,17H35V18H34zM2,18H3V19H2zM5,18H6V19H5zM6,18H7V19H6zM7,18H8V19H7zM8,18H9V19H8zM11,18H12V19H11zM13,18H14V19H13zM14,18H15V19H14zM16,18H17V19H16zM20,18H21V19H20zM21,18H22V19H21zM22,18H23V19H22zM24,18H25V19H24zM25,18H26V19H25zM26,18H27V19H26zM27,18H28V19H27zM28,18H29V19H28zM29,18H30V19H29zM30,18H31V19H30zM3,19H4V20H3zM4,19H5V20H4zM5,19H6V20H5zM10,19H11V20H10zM11,19H12V20H11zM13,19H14V20H13zM14,19H15V20H14zM17,19H18V20H17zM20,19H21V20H20zM21,19H22V20H21zM22,19H23V20H22zM23,19H24V20H23zM24,19H25V20H24zM28,19H29V20H28zM30,19H31V20H30zM32,19H33V20H32zM33,19H34V20H33zM34,19H35V20H34zM2,20H3V21H2zM5,20H6V21H5zM8,20H9V21H8zM9,20H10V21H9zM12,20H13V21H12zM13,20H14V21H13zM17,20H18V21H17zM21,20H22V21H21zM25,20H26V21H25zM29,20H30V21H29zM31,20H32V21H31zM32,20H33V21H32zM34,20H35V21H34zM2,21H3V22H2zM3,21H4V22H3zM4,21H5V22H4zM5,21H6V22H5zM6,21H7V22H6zM9,21H10V22H9zM11,21H12V22H11zM13,21H14V22H13zM14,21H15V22H14zM15,21H16V22H15zM19,21H20V22H19zM20,21H21V22H20zM21,21H22V22H21zM23,21H24V22H23zM26,21H27V22H26zM28,21H29V22H28zM30,21H31V22H30zM31,21H32V22H31zM32,21H33V22H32zM34,21H35V22H34zM3,22H4V23H3zM6,22H7V23H6zM7,22H8V23H7zM8,22H9V23H8zM10,22H11V23H10zM11,22H12V23H11zM13,22H14V23H13zM17,22H18V23H17zM21,22H22V23H21zM22,22H23V23H22zM23,22H24V23H23zM25,22H26V23H25zM26,22H27V23H26zM29,22H30V23H29zM31,22H32V23H31zM34,22H35V23H34zM2,23H3V24H2zM3,23H4V24H3zM5,23H6V24H5zM6,23H7V24H6zM12,23H13V24H12zM14,23H15V24H14zM15,23H16V24H15zM18,23H19V24H18zM19,23H20V24H19zM20,23H21V24H20zM22,23H23V24H22zM23,23H24V24H23zM24,23H25V24H24zM25,23H26V24H25zM29,23H30V24H29zM30,23H31V24H30zM32,23H33V24H32zM2,24H3V25H2zM4,24H5V25H4zM6,24H7V25H6zM7,24H8V25H7zM8,24H9V25H8zM9,24H10V25H9zM10,24H11V25H10zM12,24H13V25H12zM13,24H14V25H13zM15,24H16V25H15zM16,24H17V25H16zM17,24H18V25H17zM18,24H19V25H18zM23,24H24V25H23zM25,24H26V25H25zM28,24H29V25H28zM31,24H32V25H31zM33,24H34V25H33zM34,24H35V25H34zM2,25H3V26H2zM4,25H5V26H4zM7,25H8V26H7zM10,25H11V26H10zM12,25H13V26H12zM13,25H14V26H13zM15,25H16V26H15zM16,25H17V26H16zM18,25H19V26H18zM19,25H20V26H19zM25,25H26V26H25zM26,25H27V26H26zM27,25H28V26H27zM32,25H33V26H32zM2,26H3V27H2zM3,26H4V27H3zM4,26H5V27H4zM8,26H9V27H8zM9,26H10V27H9zM10,26H11V27H10zM11,26H12V27H11zM13,26H14V27H13zM15,26H16V27H15zM16,26H17V27H16zM17,26H18V27H17zM18,26H19V27H18zM21,26H22V27H21zM25,26H26V27H25zM26,26H27V27H26zM27,26H28V27H27zM28,26H29V27H28zM29,26H30V27H29zM30,26H31V27H30zM31,26H32V27H31zM10,27H11V28H10zM11,27H12V28H11zM12,27H13V28H12zM15,27H16V28H15zM16,27H17V28H16zM17,27H18V28H17zM18,27H19V28H18zM20,27H21V28H20zM24,27H25V28H24zM25,27H26V28H25zM26,27H27V28H26zM30,27H31V28H30zM32,27H33V28H32zM33,27H34V28H33zM2,28H3V29H2zM3,28H4V29H3zM4,28H5V29H4zM5,28H6V29H5zM6,28H7V29H6zM7,28H8V29H7zM8,28H9V29H8zM10,28H11V29H10zM11,28H12V29H11zM12,28H13V29H12zM13,28H14V29H13zM14,28H15V29H14zM17,28H18V29H17zM18,28H19V29H18zM20,28H21V29H20zM21,28H22V29H21zM23,28H24V29H23zM24,28H25V29H24zM25,28H26V29H25zM26,28H27V29H26zM28,28H29V29H28zM30,28H31V29H30zM32,28H33V29H32zM33,28H34V29H33zM2,29H3V30H2zM8,29H9V30H8zM10,29H11V30H10zM12,29H13V30H12zM13,29H14V30H13zM16,29H17V30H16zM17,29H18V30H17zM18,29H19V30H18zM22,29H23V30H22zM25,29H26V30H25zM26,29H27V30H26zM30,29H31V30H30zM31,29H32V30H31zM32,29H33V30H32zM33,29H34V30H33zM2,30H3V31H2zM4,30H5V31H4zM5,30H6V31H5zM6,30H7V31H6zM8,30H9V31H8zM10,30H11V31H10zM12,30H13V31H12zM13,30H14V31H13zM15,30H16V31H15zM17,30H18V31H17zM19,30H20V31H19zM20,30H21V31H20zM21,30H22V31H21zM22,30H23V31H22zM23,30H24V31H23zM25,30H26V31H25zM26,30H27V31H26zM27,30H28V31H27zM28,30H29V31H28zM29,30H30V31H29zM30,30H31V31H30zM34,30H35V31H34zM2,31H3V32H2zM4,31H5V32H4zM5,31H6V32H5zM6,31H7V32H6zM8,31H9V32H8zM10,31H11V32H10zM11,31H12V32H11zM12,31H13V32H12zM13,31H14V32H13zM16,31H17V32H16zM19,31H20V32H19zM22,31H23V32H22zM25,31H26V32H25zM27,31H28V32H27zM29,31H30V32H29zM31,31H32V32H31zM32,31H33V32H32zM34,31H35V32H34zM2,32H3V33H2zM4,32H5V33H4zM5,32H6V33H5zM6,32H7V33H6zM8,32H9V33H8zM11,32H12V33H11zM13,32H14V33H13zM14,32H15V33H14zM16,32H17V33H16zM18,32H19V33H18zM22,32H23V33H22zM23,32H24V33H23zM25,32H26V33H25zM26,32H27V33H26zM29,32H30V33H29zM30,32H31V33H30zM31,32H32V33H31zM33,32H34V33H33zM34,32H35V33H34zM2,33H3V34H2zM8,33H9V34H8zM14,33H15V34H14zM15,33H16V34H15zM16,33H17V34H16zM17,33H18V34H17zM18,33H19V34H18zM20,33H21V34H20zM29,33H30V34H29zM30,33H31V34H30zM31,33H32V34H31zM32,33H33V34H32zM33,33H34V34H33zM34,33H35V34H34zM2,34H3V35H2zM3,34H4V35H3zM4,34H5V35H4zM5,34H6V35H5zM6,34H7V35H6zM7,34H8V35H7zM8,34H9V35H8zM10,34H11V35H10zM11,34H12V35H11zM12,34H13V35H12zM13,34H14V35H13zM16,34H17V35H16zM19,34H20V35H19zM25,34H26V35H25zM26,34H27V35H26zM27,34H28V35H27zM29,34H30V35H29zM30,34H31V35H30z" id="qr-path" fill="#000000" fill-opacity="1" fill-rule="nonzero" stroke="none"/></svg></div>
+                </div>
+                <div class="qr-text">
+                    <span class="t1">Explore it live</span>
+                    <span class="t2">Scan for the interactive web page.</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sheet 1 Main Content Grid -->
+        <div class="sheet1-grid">
+            <div class="cad-card fig-1a-box">
+                <div class="fig-1a-left">
+                    <div class="card-fig-label">
+                        <span>FIG. 1A · REACTION TURBINE RIG</span>
+                        <span class="pill">EXPLODED · NTS</span>
+                    </div>
+                    <div class="exploded-canvas">
+                        <img src="assets/francis_exploded.png" style="width: 100%; height: 100%; object-fit: contain;" alt="Exploded Francis Turbine" />
+                        <svg class="technical-vector" style="position: absolute; inset: 0;" viewBox="0 0 440 430">
+                            <circle cx="90" cy="380" r="10" fill="#fff" stroke="#1e242b" stroke-width="1.5"/><text x="90" y="384" font-family="'Barlow Condensed'" font-size="12" font-weight="800" text-anchor="middle">1</text><line x1="100" y1="380" x2="160" y2="380" stroke="#d33c2f" stroke-width="1.2" stroke-dasharray="3,3"/>
+                            <circle cx="50" cy="240" r="10" fill="#fff" stroke="#1e242b" stroke-width="1.5"/><text x="50" y="244" font-family="'Barlow Condensed'" font-size="12" font-weight="800" text-anchor="middle">2</text><line x1="60" y1="240" x2="150" y2="240" stroke="#d33c2f" stroke-width="1.2" stroke-dasharray="3,3"/>
+                            <circle cx="50" cy="180" r="10" fill="#fff" stroke="#1e242b" stroke-width="1.5"/><text x="50" y="184" font-family="'Barlow Condensed'" font-size="12" font-weight="800" text-anchor="middle">3</text><line x1="60" y1="180" x2="190" y2="210" stroke="#d33c2f" stroke-width="1.2" stroke-dasharray="3,3"/>
+                            <circle cx="390" cy="200" r="10" fill="#fff" stroke="#1e242b" stroke-width="1.5"/><text x="390" y="204" font-family="'Barlow Condensed'" font-size="12" font-weight="800" text-anchor="middle">4</text><line x1="380" y1="200" x2="270" y2="215" stroke="#d33c2f" stroke-width="1.2" stroke-dasharray="3,3"/>
+                            <circle cx="390" cy="150" r="10" fill="#fff" stroke="#1e242b" stroke-width="1.5"/><text x="390" y="154" font-family="'Barlow Condensed'" font-size="12" font-weight="800" text-anchor="middle">5</text><line x1="380" y1="150" x2="250" y2="185" stroke="#d33c2f" stroke-width="1.2" stroke-dasharray="3,3"/>
+                            <circle cx="390" cy="70" r="10" fill="#fff" stroke="#1e242b" stroke-width="1.5"/><text x="390" y="74" font-family="'Barlow Condensed'" font-size="12" font-weight="800" text-anchor="middle">6</text><line x1="380" y1="70" x2="245" y2="90" stroke="#d33c2f" stroke-width="1.2" stroke-dasharray="3,3"/>
+                            <circle cx="50" cy="330" r="10" fill="#fff" stroke="#1e242b" stroke-width="1.5"/><text x="50" y="334" font-family="'Barlow Condensed'" font-size="12" font-weight="800" text-anchor="middle">7</text><line x1="60" y1="330" x2="190" y2="330" stroke="#d33c2f" stroke-width="1.2" stroke-dasharray="3,3"/>
+                            <circle cx="390" cy="30" r="10" fill="#fff" stroke="#1e242b" stroke-width="1.5"/><text x="390" y="34" font-family="'Barlow Condensed'" font-size="12" font-weight="800" text-anchor="middle">8</text><line x1="380" y1="30" x2="245" y2="40" stroke="#d33c2f" stroke-width="1.2" stroke-dasharray="3,3"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="fig-1a-right">
+                    <div>
+                        <div class="card-title">Francis Reaction Turbine</div>
+                        <div class="spec-strip">
+                            <div class="spec-strip-header">
+                                <span class="spec-tag">REACTION</span>
+                                <span class="spec-desc">Floor test rig · closed circuit</span>
+                            </div>
+                            <div class="spec-row"><strong>RUNNER</strong> Mixed-flow · diameter <span class="bracket-val">[ 150 ]</span> mm, <span class="bracket-val">[ 14 ]</span> blades</div>
+                            <div class="spec-row"><strong>HEAD</strong> <span class="bracket-val">[ 10 to 30 ]</span> m, set with centrifugal pump throttle</div>
+                            <div class="spec-row"><strong>DRIVE PUMP</strong> <span class="bracket-val">[ 5.5 ]</span> kW monoblock pump, mains supplied</div>
+                            <div class="spec-row"><strong>DISCHARGE</strong> 0 to <span class="bracket-val">[ 1500 ]</span> L/min, Venturi-monitored</div>
+                        </div>
+                    </div>
+                    <div class="parts-list">
+                        <div class="part-item"><span class="callout-num">1</span><strong>Base frame & sump</strong> · rigid steel channel bed, carries rig and recirculating tank</div>
+                        <div class="part-item"><span class="callout-num">2</span><strong>Spiral casing</strong> · decreasing volute cross-section maintains uniform flow velocity</div>
+                        <div class="part-item"><span class="callout-num">3</span><strong>Stay ring</strong> · stationary aerofoil vanes carry structural hydraulic casing load</div>
+                        <div class="part-item"><span class="callout-num">4</span><strong>Wicket gates</strong> · pivoted guide vanes regulate flow discharge and swirl angle α₁</div>
+                        <div class="part-item"><span class="callout-num">5</span><strong>Francis runner</strong> · converts pressure and angular momentum into shaft torque</div>
+                        <div class="part-item"><span class="callout-num">6</span><strong>Turbine shaft</strong> · precision ground alloy shaft supported on heavy-duty bearings</div>
+                        <div class="part-item"><span class="callout-num">7</span><strong>Draft tube</strong> · divergent elbow converts exit kinetic head into suction pressure</div>
+                        <div class="part-item"><span class="callout-num">8</span><strong>Rope brake</strong> · water-cooled brake drum, weights and spring balance apply load</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cad-card fig-1b-box">
+                <div class="card-fig-label">
+                    <span>FIG. 1B · THE VELOCITY TRIANGLES</span>
+                    <span class="pill">KINEMATICS</span>
+                </div>
+                <div class="triangles-canvas">
+                    <svg class="technical-vector" viewBox="0 0 540 240">
+                        <text x="40" y="25" font-family="'Barlow Condensed'" font-size="13" font-weight="800" fill="#0f172a">INLET VELOCITY TRIANGLE (RUNNER PERIPHERY)</text>
+                        <line x1="160" y1="120" x2="280" y2="120" stroke="#0284c7" stroke-width="2.5"/><polygon points="280,120 272,116 272,124" fill="#0284c7"/><text x="210" y="112" font-family="'JetBrains Mono'" font-size="11" font-weight="700" fill="#0284c7">u₁</text>
+                        <line x1="40" y1="135" x2="280" y2="135" stroke="#475569" stroke-width="1.2"/><polygon points="40,135 46,132 46,138" fill="#475569"/><polygon points="280,135 274,132 274,138" fill="#475569"/><text x="140" y="148" font-family="'JetBrains Mono'" font-size="11" font-weight="700" fill="#475569">Vw₁ = V₁ cos α₁</text>
+                        <line x1="40" y1="40" x2="280" y2="120" stroke="#d33c2f" stroke-width="2.5"/><polygon points="280,120 271,114 274,122" fill="#d33c2f"/><text x="150" y="72" font-family="'JetBrains Mono'" font-size="12" font-weight="800" fill="#d33c2f">V₁</text>
+                        <line x1="40" y1="40" x2="160" y2="120" stroke="#0d9488" stroke-width="2"/><polygon points="160,120 152,114 156,122" fill="#0d9488"/><text x="82" y="74" font-family="'JetBrains Mono'" font-size="11" font-weight="700" fill="#0d9488">Vr₁</text>
+
+                        <text x="350" y="25" font-family="'Barlow Condensed'" font-size="13" font-weight="800" fill="#0f172a">OUTLET TRIANGLE (RADIAL EXIT)</text>
+                        <line x1="420" y1="120" x2="500" y2="120" stroke="#0284c7" stroke-width="2.5"/><polygon points="500,120 492,116 492,124" fill="#0284c7"/><text x="455" y="112" font-family="'JetBrains Mono'" font-size="11" font-weight="700" fill="#0284c7">u₂</text>
+                        <line x1="500" y1="40" x2="500" y2="120" stroke="#d33c2f" stroke-width="2.5"/><polygon points="500,120 496,112 504,112" fill="#d33c2f"/><text x="508" y="80" font-family="'JetBrains Mono'" font-size="11.5" font-weight="800" fill="#d33c2f">V₂ = Vf₂</text>
+                        <line x1="500" y1="40" x2="420" y2="120" stroke="#0d9488" stroke-width="2"/><polygon points="420,120 424,112 429,119" fill="#0d9488"/><text x="442" y="72" font-family="'JetBrains Mono'" font-size="11" font-weight="700" fill="#0d9488">Vr₂</text>
+                        <rect x="490" y="110" width="10" height="10" fill="none" stroke="#64748b" stroke-width="1"/><circle cx="495" cy="115" r="1.5" fill="#64748b"/><text x="488" y="105" font-family="'Barlow Condensed'" font-size="11" font-weight="800" fill="#d33c2f">α₂ = 90°</text>
+                    </svg>
+                </div>
+                <div class="axes-points">
+                    <div class="axes-point"><span class="callout-num">1</span><strong>Inlet whirl (Vw₁)</strong> · carries total angular momentum into the runner periphery.</div>
+                    <div class="axes-point"><span class="callout-num">2</span><strong>Shockless entry</strong> · blade angle β₁ matches Vr₁ to eliminate hydraulic separation loss.</div>
+                    <div class="axes-point"><span class="callout-num">3</span><strong>Radial discharge (Vw₂ = 0)</strong> · leaves zero whirl kinetic energy waste at the exit.</div>
+                </div>
+                <div class="rule-box">
+                    <div class="rule-hdr">RULE · EULER TURBINE LAW</div>
+                    <div class="rule-txt">Euler head is Hₑ = (Vw₁·u₁ - Vw₂·u₂) / g. For optimum efficiency, water leaves radially (Vw₂ = 0), yielding maximum energy conversion: Hₑ = Vw₁·u₁ / g.</div>
+                </div>
+            </div>
+
+            <div class="cad-card fig-1c-box">
+                <div class="instruments-canvas">
+                    <svg class="technical-vector" viewBox="0 0 380 210">
+                        <circle cx="65" cy="65" r="38" fill="#ffffff" stroke="#1e242b" stroke-width="2"/>
+                        <line x1="65" y1="65" x2="80" y2="50" stroke="#d33c2f" stroke-width="2"/><circle cx="65" cy="65" r="4" fill="#1e242b"/>
+                        <text x="65" y="80" font-family="'Barlow Condensed'" font-size="9" font-weight="800" text-anchor="middle" fill="#0284c7">Pi (kg/cm²)</text>
+                        <circle cx="30" cy="30" r="9" fill="#fff" stroke="#1e242b" stroke-width="1.5"/><text x="30" y="34" font-family="'Barlow Condensed'" font-size="11" font-weight="800" text-anchor="middle">1</text>
+
+                        <circle cx="170" cy="65" r="38" fill="#ffffff" stroke="#1e242b" stroke-width="2"/>
+                        <line x1="170" y1="65" x2="155" y2="50" stroke="#d33c2f" stroke-width="2"/><circle cx="170" cy="65" r="4" fill="#1e242b"/>
+                        <text x="170" y="80" font-family="'Barlow Condensed'" font-size="9" font-weight="800" text-anchor="middle" fill="#0d9488">Pv (mm Hg)</text>
+                        <circle cx="135" cy="30" r="9" fill="#fff" stroke="#1e242b" stroke-width="1.5"/><text x="135" y="34" font-family="'Barlow Condensed'" font-size="11" font-weight="800" text-anchor="middle">2</text>
+
+                        <rect x="235" y="35" width="125" height="60" rx="4" fill="#1e293b" stroke="#0f172a" stroke-width="2"/>
+                        <text x="297" y="68" font-family="'JetBrains Mono'" font-size="18" font-weight="800" fill="#38bdf8" text-anchor="middle">0950</text>
+                        <text x="297" y="88" font-family="'Barlow Condensed'" font-size="10" font-weight="700" fill="#94a3b8" text-anchor="middle">DIGITAL RPM</text>
+                        <circle cx="235" cy="30" r="9" fill="#fff" stroke="#1e242b" stroke-width="1.5"/><text x="235" y="34" font-family="'Barlow Condensed'" font-size="11" font-weight="800" text-anchor="middle">3</text>
+
+                        <path d="M 60,135 L 60,195 Q 75,205 90,195 L 90,135" fill="none" stroke="#1e242b" stroke-width="4"/>
+                        <rect x="58" y="170" width="4" height="25" fill="#475569"/><rect x="88" y="150" width="4" height="45" fill="#475569"/>
+                        <text x="75" y="165" font-family="'JetBrains Mono'" font-size="9" font-weight="700" text-anchor="middle" fill="#d33c2f">Δh</text>
+                        <circle cx="45" cy="140" r="9" fill="#fff" stroke="#1e242b" stroke-width="1.5"/><text x="45" y="144" font-family="'Barlow Condensed'" font-size="11" font-weight="800" text-anchor="middle">4</text>
+
+                        <circle cx="185" cy="165" r="28" fill="#f8fafc" stroke="#1e242b" stroke-width="2"/>
+                        <line x1="170" y1="140" x2="170" y2="190" stroke="#d33c2f" stroke-width="2"/>
+                        <rect x="160" y="190" width="20" height="12" fill="#1e293b"/><text x="170" y="199" font-family="'Barlow Condensed'" font-size="8" font-weight="800" fill="#fff" text-anchor="middle">W</text>
+                        <circle cx="150" cy="135" r="9" fill="#fff" stroke="#1e242b" stroke-width="1.5"/><text x="150" y="139" font-family="'Barlow Condensed'" font-size="11" font-weight="800" text-anchor="middle">5</text>
+
+                        <circle cx="300" cy="165" r="26" fill="#ffffff" stroke="#1e242b" stroke-width="2"/>
+                        <circle cx="300" cy="165" r="8" fill="#d33c2f"/>
+                        <circle cx="265" cy="135" r="9" fill="#fff" stroke="#1e242b" stroke-width="1.5"/><text x="265" y="139" font-family="'Barlow Condensed'" font-size="11" font-weight="800" text-anchor="middle">6</text>
+                    </svg>
+                </div>
+                <div class="instruments-list">
+                    <div class="part-item"><span class="callout-num">1</span><strong>Delivery gauge</strong> · reads spiral casing inlet pressure head Pi in kg/cm²</div>
+                    <div class="part-item"><span class="callout-num">2</span><strong>Vacuum gauge</strong> · reads draft tube suction vacuum Pv in mm of mercury</div>
+                    <div class="part-item"><span class="callout-num">3</span><strong>Optical tachometer</strong> · digital display reads turbine shaft speed N in rpm</div>
+                    <div class="part-item"><span class="callout-num">4</span><strong>Venturi manometer</strong> · U-tube differential mercury column measures flow rate Q</div>
+                    <div class="part-item"><span class="callout-num">5</span><strong>Rope brake & weights</strong> · hanger weights W and spring balance S quantify torque</div>
+                    <div class="part-item"><span class="callout-num">6</span><strong>Handwheel & scale</strong> · sets guide vane wicket gate opening from 0% to 100%</div>
+                </div>
+            </div>
+
+            <div class="cad-card fig-1d-box">
+                <div class="runner-canvas">
+                    <img src="assets/francis_runner_isolated.png" style="width: 100%; height: 100%; object-fit: contain;" alt="Francis Runner Isolated" />
+                </div>
+                <div class="runner-theory">
+                    <div>
+                        <div class="card-fig-label">
+                            <span>FIG. 1D · THE RUNNER</span>
+                            <span class="pill">ENERGY TRANSFER</span>
+                        </div>
+                        <div class="card-title">Where energy converts</div>
+                        <div class="card-desc">Water turns 90° through curved 3D runner channels, converting static pressure and dynamic swirl into shaft torque.</div>
+                    </div>
+                    <div style="display: flex; flex-direction: column; gap: 4px;">
+                        <div class="math-badge">Hₑ = (Vw₁ · u₁) / g</div>
+                        <div class="math-badge">u₁ = π · D₁ · N / 60</div>
+                        <div class="math-badge">ηₕ = (Vw₁ · u₁) / (g · H)</div>
+                    </div>
+                    <div style="font-size: 10px; color: #64748b; font-family: var(--font-mono);">
+                        Runner dia <span class="bracket-val">[ 150 ]</span> mm · Eye <span class="bracket-val">[ 80 ]</span> mm · Max <span class="bracket-val">[ 1500 ]</span> rpm
+                    </div>
+                </div>
+            </div>
+
+            <div class="change-thing-box">
+                <div class="change-intro">
+                    <div class="title">Change one thing</div>
+                    <div class="desc">Bars show output power & flow compared to baseline design point (1.0). Hatched bars predicted from turbomachinery laws.</div>
+                </div>
+                <div class="change-bars">
+                    <div class="bar-col">
+                        <div class="col-label">DOUBLE THE NET HEAD H</div>
+                        <div class="bar-row">
+                            <span class="label">First run</span>
+                            <div class="bar-track"><div class="bar-fill" style="width: 35%;"></div></div>
+                            <span class="val">1.0</span>
+                        </div>
+                        <div class="bar-row">
+                            <span class="label">After (H)</span>
+                            <div class="bar-track"><div class="bar-fill hatched" style="width: 98%;"></div></div>
+                            <span class="val">2.83</span>
+                        </div>
+                    </div>
+                    <div class="bar-col">
+                        <div class="col-label">OPEN GATES 50% TO 100%</div>
+                        <div class="bar-row">
+                            <span class="label">First run</span>
+                            <div class="bar-track"><div class="bar-fill" style="width: 50%;"></div></div>
+                            <span class="val">1.0</span>
+                        </div>
+                        <div class="bar-row">
+                            <span class="label">After (Q)</span>
+                            <div class="bar-track"><div class="bar-fill hatched" style="width: 92%;"></div></div>
+                            <span class="val">1.85</span>
+                        </div>
+                    </div>
+                    <div class="bar-col">
+                        <div class="col-label">INCREASE LOAD BEYOND BEP</div>
+                        <div class="bar-row">
+                            <span class="label">First run</span>
+                            <div class="bar-track"><div class="bar-fill" style="width: 80%;"></div></div>
+                            <span class="val">1.0</span>
+                        </div>
+                        <div class="bar-row">
+                            <span class="label">After (Stall)</span>
+                            <div class="bar-track"><div class="bar-fill hatched" style="width: 52%;"></div></div>
+                            <span class="val">0.65</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cad-bottom-note">Schematic drawings, not to scale. Bracketed red fields [___] are for your own apparatus values: check every part name against the real set-up before printing.</div>
+        <div class="cad-title-block">
+            <div class="field"><span class="lbl">TITLE</span><span class="val">THE FRANCIS TURBINE, TAKEN APART</span></div>
+            <div class="field"><span class="lbl">SHEET</span><span class="val">1 / 5</span></div>
+            <div class="field"><span class="lbl">SCALE</span><span class="val">NTS</span></div>
+        </div>
+    </div>
+</div>
+
+
+<!-- ===================================================================
+     SHEET 2 / 5: DETAIL VIEWS: WHAT WE DO WITH IT (Section B)
+     =================================================================== -->
+<div class="sheet-page" id="sheet2">
+    <div class="cad-outer-border"></div>
+    <div class="coord-strip coord-top"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span></div>
+    <div class="coord-strip coord-bottom"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span></div>
+    <div class="coord-strip coord-left"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span></div>
+    <div class="coord-strip coord-right"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span></div>
+
+    <div class="cad-inner-border">
+        <div class="cad-header">
+            <div class="header-left">
+                <div class="drg-badge">DRG. NO. FT-001 · SHEET 2 / 5</div>
+                <div class="brand-row">
+                    <div class="brand-logo">FRANCIS<span class="red">LAB</span></div>
+                </div>
+                <div class="brand-sub">FRANCIS TURBINE APPARATUS · COEP TECH</div>
+            </div>
+            <div class="header-center">
+                <div class="section-label">SECTION B · THE EXPERIMENTS</div>
+                <div class="main-sheet-title">Detail views: what we do with it</div>
+                <div class="main-sheet-subtitle">Six things the Francis turbine test rig teaches, from verifying the Euler equation to understanding cavitation, governing, and full characteristic curves.</div>
+            </div>
+            <div class="header-right">
+                <div class="qr-box">
+                    <div class="qr-corners"></div>
+                    <div class="dynamic-qr-web" style="width: 100%; height: 100%;"><?xml version='1.0' encoding='UTF-8'?>
+<svg width="37mm" height="37mm" version="1.1" viewBox="0 0 37 37" class="qr-svg-real" xmlns="http://www.w3.org/2000/svg"><path d="M2,2H3V3H2zM3,2H4V3H3zM4,2H5V3H4zM5,2H6V3H5zM6,2H7V3H6zM7,2H8V3H7zM8,2H9V3H8zM10,2H11V3H10zM11,2H12V3H11zM14,2H15V3H14zM16,2H17V3H16zM20,2H21V3H20zM24,2H25V3H24zM26,2H27V3H26zM28,2H29V3H28zM29,2H30V3H29zM30,2H31V3H30zM31,2H32V3H31zM32,2H33V3H32zM33,2H34V3H33zM34,2H35V3H34zM2,3H3V4H2zM8,3H9V4H8zM10,3H11V4H10zM11,3H12V4H11zM13,3H14V4H13zM18,3H19V4H18zM19,3H20V4H19zM21,3H22V4H21zM22,3H23V4H22zM23,3H24V4H23zM24,3H25V4H24zM26,3H27V4H26zM28,3H29V4H28zM34,3H35V4H34zM2,4H3V5H2zM4,4H5V5H4zM5,4H6V5H5zM6,4H7V5H6zM8,4H9V5H8zM10,4H11V5H10zM12,4H13V5H12zM18,4H19V5H18zM19,4H20V5H19zM20,4H21V5H20zM22,4H23V5H22zM24,4H25V5H24zM25,4H26V5H25zM28,4H29V5H28zM30,4H31V5H30zM31,4H32V5H31zM32,4H33V5H32zM34,4H35V5H34zM2,5H3V6H2zM4,5H5V6H4zM5,5H6V6H5zM6,5H7V6H6zM8,5H9V6H8zM11,5H12V6H11zM12,5H13V6H12zM13,5H14V6H13zM14,5H15V6H14zM21,5H22V6H21zM25,5H26V6H25zM26,5H27V6H26zM28,5H29V6H28zM30,5H31V6H30zM31,5H32V6H31zM32,5H33V6H32zM34,5H35V6H34zM2,6H3V7H2zM4,6H5V7H4zM5,6H6V7H5zM6,6H7V7H6zM8,6H9V7H8zM10,6H11V7H10zM12,6H13V7H12zM13,6H14V7H13zM15,6H16V7H15zM16,6H17V7H16zM17,6H18V7H17zM20,6H21V7H20zM22,6H23V7H22zM25,6H26V7H25zM26,6H27V7H26zM28,6H29V7H28zM30,6H31V7H30zM31,6H32V7H31zM32,6H33V7H32zM34,6H35V7H34zM2,7H3V8H2zM8,7H9V8H8zM12,7H13V8H12zM19,7H20V8H19zM20,7H21V8H20zM22,7H23V8H22zM23,7H24V8H23zM25,7H26V8H25zM28,7H29V8H28zM34,7H35V8H34zM2,8H3V9H2zM3,8H4V9H3zM4,8H5V9H4zM5,8H6V9H5zM6,8H7V9H6zM7,8H8V9H7zM8,8H9V9H8zM10,8H11V9H10zM12,8H13V9H12zM14,8H15V9H14zM16,8H17V9H16zM18,8H19V9H18zM20,8H21V9H20zM22,8H23V9H22zM24,8H25V9H24zM26,8H27V9H26zM28,8H29V9H28zM29,8H30V9H29zM30,8H31V9H30zM31,8H32V9H31zM32,8H33V9H32zM33,8H34V9H33zM34,8H35V9H34zM11,9H12V10H11zM12,9H13V10H12zM13,9H14V10H13zM14,9H15V10H14zM15,9H16V10H15zM21,9H22V10H21zM22,9H23V10H22zM25,9H26V10H25zM2,10H3V11H2zM5,10H6V11H5zM6,10H7V11H6zM7,10H8V11H7zM8,10H9V11H8zM9,10H10V11H9zM10,10H11V11H10zM11,10H12V11H11zM13,10H14V11H13zM14,10H15V11H14zM16,10H17V11H16zM17,10H18V11H17zM18,10H19V11H18zM19,10H20V11H19zM21,10H22V11H21zM25,10H26V11H25zM26,10H27V11H26zM27,10H28V11H27zM30,10H31V11H30zM32,10H33V11H32zM33,10H34V11H33zM34,10H35V11H34zM2,11H3V12H2zM4,11H5V12H4zM5,11H6V12H5zM6,11H7V12H6zM7,11H8V12H7zM9,11H10V12H9zM14,11H15V12H14zM17,11H18V12H17zM20,11H21V12H20zM21,11H22V12H21zM22,11H23V12H22zM24,11H25V12H24zM25,11H26V12H25zM30,11H31V12H30zM31,11H32V12H31zM32,11H33V12H32zM33,11H34V12H33zM5,12H6V13H5zM6,12H7V13H6zM8,12H9V13H8zM11,12H12V13H11zM16,12H17V13H16zM17,12H18V13H17zM19,12H20V13H19zM20,12H21V13H20zM22,12H23V13H22zM23,12H24V13H23zM25,12H26V13H25zM27,12H28V13H27zM28,12H29V13H28zM30,12H31V13H30zM31,12H32V13H31zM32,12H33V13H32zM33,12H34V13H33zM34,12H35V13H34zM2,13H3V14H2zM7,13H8V14H7zM10,13H11V14H10zM14,13H15V14H14zM16,13H17V14H16zM17,13H18V14H17zM19,13H20V14H19zM21,13H22V14H21zM25,13H26V14H25zM26,13H27V14H26zM27,13H28V14H27zM29,13H30V14H29zM32,13H33V14H32zM2,14H3V15H2zM3,14H4V15H3zM4,14H5V15H4zM5,14H6V15H5zM6,14H7V15H6zM7,14H8V15H7zM8,14H9V15H8zM10,14H11V15H10zM11,14H12V15H11zM12,14H13V15H12zM14,14H15V15H14zM15,14H16V15H15zM16,14H17V15H16zM18,14H19V15H18zM19,14H20V15H19zM20,14H21V15H20zM21,14H22V15H21zM22,14H23V15H22zM23,14H24V15H23zM24,14H25V15H24zM25,14H26V15H25zM26,14H27V15H26zM27,14H28V15H27zM28,14H29V15H28zM29,14H30V15H29zM34,14H35V15H34zM4,15H5V16H4zM5,15H6V16H5zM6,15H7V16H6zM7,15H8V16H7zM11,15H12V16H11zM18,15H19V16H18zM19,15H20V16H19zM21,15H22V16H21zM24,15H25V16H24zM25,15H26V16H25zM26,15H27V16H26zM27,15H28V16H27zM29,15H30V16H29zM31,15H32V16H31zM32,15H33V16H32zM3,16H4V17H3zM5,16H6V17H5zM6,16H7V17H6zM7,16H8V17H7zM8,16H9V17H8zM10,16H11V17H10zM11,16H12V17H11zM12,16H13V17H12zM15,16H16V17H15zM18,16H19V17H18zM19,16H20V17H19zM26,16H27V17H26zM28,16H29V17H28zM29,16H30V17H29zM31,16H32V17H31zM32,16H33V17H32zM3,17H4V18H3zM6,17H7V18H6zM10,17H11V18H10zM12,17H13V18H12zM13,17H14V18H13zM15,17H16V18H15zM17,17H18V18H17zM21,17H22V18H21zM25,17H26V18H25zM26,17H27V18H26zM27,17H28V18H27zM29,17H30V18H29zM31,17H32V18H31zM32,17H33V18H32zM34,17H35V18H34zM2,18H3V19H2zM5,18H6V19H5zM6,18H7V19H6zM7,18H8V19H7zM8,18H9V19H8zM11,18H12V19H11zM13,18H14V19H13zM14,18H15V19H14zM16,18H17V19H16zM20,18H21V19H20zM21,18H22V19H21zM22,18H23V19H22zM24,18H25V19H24zM25,18H26V19H25zM26,18H27V19H26zM27,18H28V19H27zM28,18H29V19H28zM29,18H30V19H29zM30,18H31V19H30zM3,19H4V20H3zM4,19H5V20H4zM5,19H6V20H5zM10,19H11V20H10zM11,19H12V20H11zM13,19H14V20H13zM14,19H15V20H14zM17,19H18V20H17zM20,19H21V20H20zM21,19H22V20H21zM22,19H23V20H22zM23,19H24V20H23zM24,19H25V20H24zM28,19H29V20H28zM30,19H31V20H30zM32,19H33V20H32zM33,19H34V20H33zM34,19H35V20H34zM2,20H3V21H2zM5,20H6V21H5zM8,20H9V21H8zM9,20H10V21H9zM12,20H13V21H12zM13,20H14V21H13zM17,20H18V21H17zM21,20H22V21H21zM25,20H26V21H25zM29,20H30V21H29zM31,20H32V21H31zM32,20H33V21H32zM34,20H35V21H34zM2,21H3V22H2zM3,21H4V22H3zM4,21H5V22H4zM5,21H6V22H5zM6,21H7V22H6zM9,21H10V22H9zM11,21H12V22H11zM13,21H14V22H13zM14,21H15V22H14zM15,21H16V22H15zM19,21H20V22H19zM20,21H21V22H20zM21,21H22V22H21zM23,21H24V22H23zM26,21H27V22H26zM28,21H29V22H28zM30,21H31V22H30zM31,21H32V22H31zM32,21H33V22H32zM34,21H35V22H34zM3,22H4V23H3zM6,22H7V23H6zM7,22H8V23H7zM8,22H9V23H8zM10,22H11V23H10zM11,22H12V23H11zM13,22H14V23H13zM17,22H18V23H17zM21,22H22V23H21zM22,22H23V23H22zM23,22H24V23H23zM25,22H26V23H25zM26,22H27V23H26zM29,22H30V23H29zM31,22H32V23H31zM34,22H35V23H34zM2,23H3V24H2zM3,23H4V24H3zM5,23H6V24H5zM6,23H7V24H6zM12,23H13V24H12zM14,23H15V24H14zM15,23H16V24H15zM18,23H19V24H18zM19,23H20V24H19zM20,23H21V24H20zM22,23H23V24H22zM23,23H24V24H23zM24,23H25V24H24zM25,23H26V24H25zM29,23H30V24H29zM30,23H31V24H30zM32,23H33V24H32zM2,24H3V25H2zM4,24H5V25H4zM6,24H7V25H6zM7,24H8V25H7zM8,24H9V25H8zM9,24H10V25H9zM10,24H11V25H10zM12,24H13V25H12zM13,24H14V25H13zM15,24H16V25H15zM16,24H17V25H16zM17,24H18V25H17zM18,24H19V25H18zM23,24H24V25H23zM25,24H26V25H25zM28,24H29V25H28zM31,24H32V25H31zM33,24H34V25H33zM34,24H35V25H34zM2,25H3V26H2zM4,25H5V26H4zM7,25H8V26H7zM10,25H11V26H10zM12,25H13V26H12zM13,25H14V26H13zM15,25H16V26H15zM16,25H17V26H16zM18,25H19V26H18zM19,25H20V26H19zM25,25H26V26H25zM26,25H27V26H26zM27,25H28V26H27zM32,25H33V26H32zM2,26H3V27H2zM3,26H4V27H3zM4,26H5V27H4zM8,26H9V27H8zM9,26H10V27H9zM10,26H11V27H10zM11,26H12V27H11zM13,26H14V27H13zM15,26H16V27H15zM16,26H17V27H16zM17,26H18V27H17zM18,26H19V27H18zM21,26H22V27H21zM25,26H26V27H25zM26,26H27V27H26zM27,26H28V27H27zM28,26H29V27H28zM29,26H30V27H29zM30,26H31V27H30zM31,26H32V27H31zM10,27H11V28H10zM11,27H12V28H11zM12,27H13V28H12zM15,27H16V28H15zM16,27H17V28H16zM17,27H18V28H17zM18,27H19V28H18zM20,27H21V28H20zM24,27H25V28H24zM25,27H26V28H25zM26,27H27V28H26zM30,27H31V28H30zM32,27H33V28H32zM33,27H34V28H33zM2,28H3V29H2zM3,28H4V29H3zM4,28H5V29H4zM5,28H6V29H5zM6,28H7V29H6zM7,28H8V29H7zM8,28H9V29H8zM10,28H11V29H10zM11,28H12V29H11zM12,28H13V29H12zM13,28H14V29H13zM14,28H15V29H14zM17,28H18V29H17zM18,28H19V29H18zM20,28H21V29H20zM21,28H22V29H21zM23,28H24V29H23zM24,28H25V29H24zM25,28H26V29H25zM26,28H27V29H26zM28,28H29V29H28zM30,28H31V29H30zM32,28H33V29H32zM33,28H34V29H33zM2,29H3V30H2zM8,29H9V30H8zM10,29H11V30H10zM12,29H13V30H12zM13,29H14V30H13zM16,29H17V30H16zM17,29H18V30H17zM18,29H19V30H18zM22,29H23V30H22zM25,29H26V30H25zM26,29H27V30H26zM30,29H31V30H30zM31,29H32V30H31zM32,29H33V30H32zM33,29H34V30H33zM2,30H3V31H2zM4,30H5V31H4zM5,30H6V31H5zM6,30H7V31H6zM8,30H9V31H8zM10,30H11V31H10zM12,30H13V31H12zM13,30H14V31H13zM15,30H16V31H15zM17,30H18V31H17zM19,30H20V31H19zM20,30H21V31H20zM21,30H22V31H21zM22,30H23V31H22zM23,30H24V31H23zM25,30H26V31H25zM26,30H27V31H26zM27,30H28V31H27zM28,30H29V31H28zM29,30H30V31H29zM30,30H31V31H30zM34,30H35V31H34zM2,31H3V32H2zM4,31H5V32H4zM5,31H6V32H5zM6,31H7V32H6zM8,31H9V32H8zM10,31H11V32H10zM11,31H12V32H11zM12,31H13V32H12zM13,31H14V32H13zM16,31H17V32H16zM19,31H20V32H19zM22,31H23V32H22zM25,31H26V32H25zM27,31H28V32H27zM29,31H30V32H29zM31,31H32V32H31zM32,31H33V32H32zM34,31H35V32H34zM2,32H3V33H2zM4,32H5V33H4zM5,32H6V33H5zM6,32H7V33H6zM8,32H9V33H8zM11,32H12V33H11zM13,32H14V33H13zM14,32H15V33H14zM16,32H17V33H16zM18,32H19V33H18zM22,32H23V33H22zM23,32H24V33H23zM25,32H26V33H25zM26,32H27V33H26zM29,32H30V33H29zM30,32H31V33H30zM31,32H32V33H31zM33,32H34V33H33zM34,32H35V33H34zM2,33H3V34H2zM8,33H9V34H8zM14,33H15V34H14zM15,33H16V34H15zM16,33H17V34H16zM17,33H18V34H17zM18,33H19V34H18zM20,33H21V34H20zM29,33H30V34H29zM30,33H31V34H30zM31,33H32V34H31zM32,33H33V34H32zM33,33H34V34H33zM34,33H35V34H34zM2,34H3V35H2zM3,34H4V35H3zM4,34H5V35H4zM5,34H6V35H5zM6,34H7V35H6zM7,34H8V35H7zM8,34H9V35H8zM10,34H11V35H10zM11,34H12V35H11zM12,34H13V35H12zM13,34H14V35H13zM16,34H17V35H16zM19,34H20V35H19zM25,34H26V35H25zM26,34H27V35H26zM27,34H28V35H27zM29,34H30V35H29zM30,34H31V35H30z" id="qr-path" fill="#000000" fill-opacity="1" fill-rule="nonzero" stroke="none"/></svg></div>
+                </div>
+                <div class="qr-text">
+                    <span class="t1">Explore it live</span>
+                    <span class="t2">Scan for experimental modules.</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sheet2-grid">
+            <div class="cad-card exp-card">
+                <div>
+                    <div class="exp-diagram">
+                        <svg viewBox="0 0 460 140" width="100%" height="100%">
+                            <line x1="45" y1="120" x2="430" y2="120" stroke="#1e242b" stroke-width="1.5"/><line x1="45" y1="15" x2="45" y2="120" stroke="#1e242b" stroke-width="1.5"/>
+                            <text x="420" y="132" font-family="'Barlow Condensed'" font-size="10.5" font-weight="800">SPEED N (RPM)</text>
+                            <path d="M 50,115 Q 180,25 380,115" fill="none" stroke="#d33c2f" stroke-width="2.5"/><circle cx="215" cy="42" r="4" fill="#d33c2f"/><text x="225" y="40" font-family="'Barlow Condensed'" font-size="11" font-weight="800" fill="#d33c2f">BEP (ηₒ max)</text>
+                            <path d="M 50,118 Q 230,45 390,118" fill="none" stroke="#0284c7" stroke-width="2"/><text x="310" y="70" font-family="'Barlow Condensed'" font-size="10.5" font-weight="800" fill="#0284c7">Shaft Power Pₒ</text>
+                            <path d="M 50,85 Q 220,78 400,68" fill="none" stroke="#0d9488" stroke-width="1.5" stroke-dasharray="4,3"/><text x="360" y="62" font-family="'Barlow Condensed'" font-size="10.5" font-weight="800" fill="#0d9488">Flow Q</text>
+                        </svg>
+                    </div>
+                    <div class="card-fig-label"><span>CARD A</span><span class="pill">HEAD · CONSTANT</span></div>
+                    <div class="card-title">Main characteristic curves</div>
+                    <div class="card-desc">Keep net head H constant with pump throttle, and vary the brake load to sweep speed N from stall to runaway.</div>
+                    <ul class="cad-bullets">
+                        <li>Maintain casing pressure head and draft vacuum constant throughout the run.</li>
+                        <li>Increment dead weights on the rope brake hanger in 1 kg steps.</li>
+                        <li>Plot overall efficiency ηₒ, shaft power Pₒ, and discharge Q against speed N.</li>
+                        <li>Locate Best Efficiency Point (BEP) and design operating velocity ratio.</li>
+                    </ul>
+                </div>
+                <div class="group-sign">Group: <span class="bracket-val">[ ___ ]</span> · Guide: <span class="bracket-val">[ ___ ]</span></div>
+            </div>
+
+            <div class="cad-card exp-card">
+                <div>
+                    <div class="exp-diagram">
+                        <svg viewBox="0 0 460 140" width="100%" height="100%">
+                            <line x1="45" y1="120" x2="430" y2="120" stroke="#1e242b" stroke-width="1.5"/><line x1="45" y1="15" x2="45" y2="120" stroke="#1e242b" stroke-width="1.5"/>
+                            <text x="340" y="132" font-family="'Barlow Condensed'" font-size="10.5" font-weight="800">GATE OPENING (%)</text>
+                            <path d="M 60,110 Q 260,30 410,50" fill="none" stroke="#d33c2f" stroke-width="2.5"/><text x="270" y="32" font-family="'Barlow Condensed'" font-size="11" font-weight="800" fill="#d33c2f">ηₒ vs Gate %</text>
+                            <line x1="60" y1="115" x2="410" y2="35" stroke="#0284c7" stroke-width="2"/><text x="340" y="48" font-family="'Barlow Condensed'" font-size="10.5" font-weight="800" fill="#0284c7">Power Pₒ</text>
+                            <line x1="60" y1="105" x2="410" y2="55" stroke="#0d9488" stroke-width="1.5" stroke-dasharray="4,3"/><text x="360" y="70" font-family="'Barlow Condensed'" font-size="10.5" font-weight="800" fill="#0d9488">Discharge Q</text>
+                        </svg>
+                    </div>
+                    <div class="card-fig-label"><span>CARD B</span><span class="pill">SPEED · GOVERNING</span></div>
+                    <div class="card-title">How does gate opening govern power?</div>
+                    <div class="card-desc">Hold turbine speed N constant at rated rpm by adjusting brake load as guide vane opening varies from 20% to 100%.</div>
+                    <ul class="cad-bullets">
+                        <li>Set wicket gates at 20%, 40%, 60%, 80%, and 100% opening positions.</li>
+                        <li>Balance brake load at each setting to keep shaft speed exactly at rated rpm.</li>
+                        <li>Plot efficiency ηₒ, discharge Q, and shaft power Pₒ against gate opening percentage.</li>
+                        <li>Directly replicates hydro grid governor response during power dispatch.</li>
+                    </ul>
+                </div>
+                <div class="group-sign">Group: <span class="bracket-val">[ ___ ]</span> · Guide: <span class="bracket-val">[ ___ ]</span></div>
+            </div>
+
+            <div class="cad-card exp-card">
+                <div>
+                    <div class="exp-diagram">
+                        <svg viewBox="0 0 460 140" width="100%" height="100%">
+                            <line x1="45" y1="120" x2="430" y2="120" stroke="#1e242b" stroke-width="1.5"/><line x1="45" y1="15" x2="45" y2="120" stroke="#1e242b" stroke-width="1.5"/>
+                            <text x="360" y="132" font-family="'Barlow Condensed'" font-size="10.5" font-weight="800">UNIT SPEED Nu</text>
+                            <path d="M 60,115 Q 230,30 390,115" fill="none" stroke="#d33c2f" stroke-width="2.5"/><text x="210" y="28" font-family="'Barlow Condensed'" font-size="11" font-weight="800" fill="#d33c2f">Unit Power Pu = P / H^(3/2)</text>
+                            <path d="M 60,75 Q 220,70 390,60" fill="none" stroke="#0d9488" stroke-width="2"/><text x="260" y="66" font-family="'Barlow Condensed'" font-size="10.5" font-weight="800" fill="#0d9488">Unit Flow Qu = Q / √H</text>
+                        </svg>
+                    </div>
+                    <div class="card-fig-label"><span>CARD C</span><span class="pill">SCALING · SIMILITUDE</span></div>
+                    <div class="card-title">Unit speed, unit flow, unit power</div>
+                    <div class="card-desc">Collapse multi-head laboratory test runs onto unified dimensionless curves to predict performance under any reservoir head.</div>
+                    <ul class="cad-bullets">
+                        <li>Calculate Unit Speed Nu = N / √H, Flow Qu = Q / √H, and Power Pu = P / H^(3/2).</li>
+                        <li>Superimpose readings taken at 15 m, 20 m, and 25 m heads on one chart.</li>
+                        <li>A unified master envelope validates dynamic similarity and blade similitude.</li>
+                        <li>Standard industrial method for scaling scale-model data to full-size dams.</li>
+                    </ul>
+                </div>
+                <div class="group-sign">Group: <span class="bracket-val">[ ___ ]</span> · Guide: <span class="bracket-val">[ ___ ]</span></div>
+            </div>
+
+            <div class="cad-card exp-card">
+                <div>
+                    <div class="exp-diagram">
+                        <svg viewBox="0 0 460 140" width="100%" height="100%">
+                            <path d="M 60,30 Q 150,40 220,110 L 250,110 Q 170,30 60,20 Z" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5"/>
+                            <text x="70" y="55" font-family="'Barlow Condensed'" font-size="11" font-weight="800" fill="#0369a1">High P₁ Entry</text>
+                            <text x="235" y="125" font-family="'Barlow Condensed'" font-size="11" font-weight="800" fill="#0369a1">Low P₂ Exit</text>
+                            <line x1="60" y1="25" x2="110" y2="45" stroke="#d33c2f" stroke-width="2"/><text x="115" y="45" font-family="'JetBrains Mono'" font-size="10.5" font-weight="800" fill="#d33c2f">V₁</text>
+                            <line x1="225" y1="105" x2="225" y2="135" stroke="#d33c2f" stroke-width="2"/><text x="235" y="135" font-family="'JetBrains Mono'" font-size="10.5" font-weight="800" fill="#d33c2f">V₂ (Radial)</text>
+                            <path d="M 320,80 A 35,35 0 1,1 360,50" fill="none" stroke="#d97706" stroke-width="3"/><text x="350" y="90" font-family="'Barlow Condensed'" font-size="12" font-weight="900" fill="#d97706">TORQUE T</text>
+                        </svg>
+                    </div>
+                    <div class="card-fig-label"><span>CARD D</span><span class="pill">MOMENTUM · EULER EQUATION</span></div>
+                    <div class="card-title">The energy exchange in the runner</div>
+                    <div class="card-desc">Angular momentum flux entering at the runner rim must equal the shaft torque produced plus exit swirl.</div>
+                    <ul class="cad-bullets">
+                        <li>Measure inlet whirl Vw₁ = V₁ cos α₁ and calculate runner peripheral speed u₁.</li>
+                        <li>Calculate theoretical Euler head Hₑ = (Vw₁ · u₁ - Vw₂ · u₂) / g.</li>
+                        <li>Compare Euler head Hₑ with net manometric head H from gauges.</li>
+                        <li>The gap (H - Hₑ) quantifies hydraulic friction and blade passage loss.</li>
+                    </ul>
+                </div>
+                <div class="group-sign">Group: <span class="bracket-val">[ ___ ]</span> · Guide: <span class="bracket-val">[ ___ ]</span></div>
+            </div>
+
+            <div class="cad-card exp-card">
+                <div>
+                    <div class="exp-diagram">
+                        <svg viewBox="0 0 460 140" width="100%" height="100%">
+                            <rect x="40" y="100" width="380" height="35" fill="#e0f2fe"/><line x1="40" y1="100" x2="420" y2="100" stroke="#0284c7" stroke-width="1.5" stroke-dasharray="6,3"/>
+                            <text x="330" y="115" font-family="'Barlow Condensed'" font-size="10" font-weight="800" fill="#0284c7">TAIL RACE LEVEL</text>
+                            <path d="M 160,20 L 140,115 L 240,115 L 220,20 Z" fill="#ffffff" stroke="#1e242b" stroke-width="1.5"/>
+                            <text x="60" y="45" font-family="'Barlow Condensed'" font-size="11" font-weight="800" fill="#d33c2f">Suction Head Hs</text>
+                            <text x="250" y="55" font-family="'JetBrains Mono'" font-size="10" font-weight="700" fill="#0f172a">ΔHrec = ηdt (V₂² - V₃²)/2g</text>
+                            <text x="250" y="75" font-family="'JetBrains Mono'" font-size="10" font-weight="700" fill="#b91c1c">σ = (Hb - Hs - hva) / H</text>
+                        </svg>
+                    </div>
+                    <div class="card-fig-label"><span>CARD E</span><span class="pill">DIFFUSER · CAVITATION</span></div>
+                    <div class="card-title">Why the draft tube saves energy</div>
+                    <div class="card-desc">A divergent draft tube decelerates discharge flow, converting exit kinetic head back into suction pressure below the runner.</div>
+                    <ul class="cad-bullets">
+                        <li>Recovers exit kinetic energy: ΔHrec = ηdt · (V₂² - V₃²) / 2g.</li>
+                        <li>Allows placing turbine above tail water by height Hs with zero head penalty.</li>
+                        <li>Calculate Thoma's cavitation factor: σ = (Hb - Hs - hva) / H.</li>
+                        <li>Prevents vapor pocket formation that causes blade pitting and destructive noise.</li>
+                    </ul>
+                </div>
+                <div class="group-sign">Group: <span class="bracket-val">[ ___ ]</span> · Guide: <span class="bracket-val">[ ___ ]</span></div>
+            </div>
+
+            <div class="cad-card exp-card">
+                <div>
+                    <div class="exp-diagram">
+                        <svg viewBox="0 0 460 140" width="100%" height="100%">
+                            <rect x="40" y="85" width="380" height="15" fill="#334155"/>
+                            <rect x="70" y="50" width="45" height="35" fill="#0284c7"/><text x="92" y="70" font-family="'Barlow Condensed'" font-size="9" font-weight="800" fill="#fff" text-anchor="middle">PUMP</text>
+                            <circle cx="230" cy="65" r="24" fill="#d33c2f"/><text x="230" y="69" font-family="'Barlow Condensed'" font-size="10" font-weight="800" fill="#fff" text-anchor="middle">TURBINE</text>
+                            <circle cx="310" cy="50" r="18" fill="#1e293b"/>
+                        </svg>
+                    </div>
+                    <div class="card-fig-label"><span>CARD F</span><span class="pill">TEACHING · FLUID MACHINERY</span></div>
+                    <div class="card-title">The Francis turbine practical</div>
+                    <div class="card-desc">Students run the test rig, tabulate manometric and brake readings, and plot performance characteristics.</div>
+                    <ul class="cad-bullets">
+                        <li><strong>Aim:</strong> Evaluate overall efficiency and performance characteristics of Francis turbine.</li>
+                        <li><strong>Apparatus:</strong> Francis turbine rig, supply pump, Venturimeter, rope brake, tachometer.</li>
+                        <li><strong>Readings:</strong> Delivery Pi, vacuum Pv, manometer Δh, speed N, dead weight W, spring S.</li>
+                        <li><strong>Report:</strong> Calculate heads, discharge, power, efficiency, and discuss energy losses.</li>
+                    </ul>
+                </div>
+                <div class="group-sign">Faculty: <span class="bracket-val">[ ___ ]</span></div>
+            </div>
+        </div>
+
+        <div class="cad-bottom-note">Experiment outlines follow the standard Fluid Machinery / Turbomachinery syllabus. Bracketed red fields [___] are for your group, guide and faculty names.</div>
+        <div class="cad-title-block">
+            <div class="field"><span class="lbl">TITLE</span><span class="val">DETAIL VIEWS: WHAT WE DO WITH IT</span></div>
+            <div class="field"><span class="lbl">SHEET</span><span class="val">2 / 5</span></div>
+            <div class="field"><span class="lbl">SCALE</span><span class="val">NTS</span></div>
+        </div>
+    </div>
+</div>
+
+
+<!-- ===================================================================
+     SHEET 3 / 5: WHY FRANCIS TURBINES MATTER (Section C)
+     =================================================================== -->
+<div class="sheet-page" id="sheet3">
+    <div class="cad-outer-border"></div>
+    <div class="coord-strip coord-top"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span></div>
+    <div class="coord-strip coord-bottom"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span></div>
+    <div class="coord-strip coord-left"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span></div>
+    <div class="coord-strip coord-right"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span></div>
+
+    <div class="cad-inner-border">
+        <div class="cad-header">
+            <div class="header-left">
+                <div class="drg-badge">DRG. NO. FT-001 · SHEET 3 / 5</div>
+                <div class="brand-row">
+                    <div class="brand-logo">FRANCIS<span class="red">LAB</span></div>
+                </div>
+                <div class="brand-sub">FRANCIS TURBINE APPARATUS · COEP TECH</div>
+            </div>
+            <div class="header-center">
+                <div class="section-label">SECTION C · THE THEORY</div>
+                <div class="main-sheet-title">Why Francis turbines matter, and how we study them</div>
+                <div class="main-sheet-subtitle">High-pressure water gives up its energy inside a precision spiral casing and runner. Here is why that matters to engineers, and the route from head to shaft power.</div>
+            </div>
+            <div class="header-right">
+                <div class="qr-box">
+                    <div class="qr-corners"></div>
+                    <div class="dynamic-qr-web" style="width: 100%; height: 100%;"><?xml version='1.0' encoding='UTF-8'?>
+<svg width="37mm" height="37mm" version="1.1" viewBox="0 0 37 37" class="qr-svg-real" xmlns="http://www.w3.org/2000/svg"><path d="M2,2H3V3H2zM3,2H4V3H3zM4,2H5V3H4zM5,2H6V3H5zM6,2H7V3H6zM7,2H8V3H7zM8,2H9V3H8zM10,2H11V3H10zM11,2H12V3H11zM14,2H15V3H14zM16,2H17V3H16zM20,2H21V3H20zM24,2H25V3H24zM26,2H27V3H26zM28,2H29V3H28zM29,2H30V3H29zM30,2H31V3H30zM31,2H32V3H31zM32,2H33V3H32zM33,2H34V3H33zM34,2H35V3H34zM2,3H3V4H2zM8,3H9V4H8zM10,3H11V4H10zM11,3H12V4H11zM13,3H14V4H13zM18,3H19V4H18zM19,3H20V4H19zM21,3H22V4H21zM22,3H23V4H22zM23,3H24V4H23zM24,3H25V4H24zM26,3H27V4H26zM28,3H29V4H28zM34,3H35V4H34zM2,4H3V5H2zM4,4H5V5H4zM5,4H6V5H5zM6,4H7V5H6zM8,4H9V5H8zM10,4H11V5H10zM12,4H13V5H12zM18,4H19V5H18zM19,4H20V5H19zM20,4H21V5H20zM22,4H23V5H22zM24,4H25V5H24zM25,4H26V5H25zM28,4H29V5H28zM30,4H31V5H30zM31,4H32V5H31zM32,4H33V5H32zM34,4H35V5H34zM2,5H3V6H2zM4,5H5V6H4zM5,5H6V6H5zM6,5H7V6H6zM8,5H9V6H8zM11,5H12V6H11zM12,5H13V6H12zM13,5H14V6H13zM14,5H15V6H14zM21,5H22V6H21zM25,5H26V6H25zM26,5H27V6H26zM28,5H29V6H28zM30,5H31V6H30zM31,5H32V6H31zM32,5H33V6H32zM34,5H35V6H34zM2,6H3V7H2zM4,6H5V7H4zM5,6H6V7H5zM6,6H7V7H6zM8,6H9V7H8zM10,6H11V7H10zM12,6H13V7H12zM13,6H14V7H13zM15,6H16V7H15zM16,6H17V7H16zM17,6H18V7H17zM20,6H21V7H20zM22,6H23V7H22zM25,6H26V7H25zM26,6H27V7H26zM28,6H29V7H28zM30,6H31V7H30zM31,6H32V7H31zM32,6H33V7H32zM34,6H35V7H34zM2,7H3V8H2zM8,7H9V8H8zM12,7H13V8H12zM19,7H20V8H19zM20,7H21V8H20zM22,7H23V8H22zM23,7H24V8H23zM25,7H26V8H25zM28,7H29V8H28zM34,7H35V8H34zM2,8H3V9H2zM3,8H4V9H3zM4,8H5V9H4zM5,8H6V9H5zM6,8H7V9H6zM7,8H8V9H7zM8,8H9V9H8zM10,8H11V9H10zM12,8H13V9H12zM14,8H15V9H14zM16,8H17V9H16zM18,8H19V9H18zM20,8H21V9H20zM22,8H23V9H22zM24,8H25V9H24zM26,8H27V9H26zM28,8H29V9H28zM29,8H30V9H29zM30,8H31V9H30zM31,8H32V9H31zM32,8H33V9H32zM33,8H34V9H33zM34,8H35V9H34zM11,9H12V10H11zM12,9H13V10H12zM13,9H14V10H13zM14,9H15V10H14zM15,9H16V10H15zM21,9H22V10H21zM22,9H23V10H22zM25,9H26V10H25zM2,10H3V11H2zM5,10H6V11H5zM6,10H7V11H6zM7,10H8V11H7zM8,10H9V11H8zM9,10H10V11H9zM10,10H11V11H10zM11,10H12V11H11zM13,10H14V11H13zM14,10H15V11H14zM16,10H17V11H16zM17,10H18V11H17zM18,10H19V11H18zM19,10H20V11H19zM21,10H22V11H21zM25,10H26V11H25zM26,10H27V11H26zM27,10H28V11H27zM30,10H31V11H30zM32,10H33V11H32zM33,10H34V11H33zM34,10H35V11H34zM2,11H3V12H2zM4,11H5V12H4zM5,11H6V12H5zM6,11H7V12H6zM7,11H8V12H7zM9,11H10V12H9zM14,11H15V12H14zM17,11H18V12H17zM20,11H21V12H20zM21,11H22V12H21zM22,11H23V12H22zM24,11H25V12H24zM25,11H26V12H25zM30,11H31V12H30zM31,11H32V12H31zM32,11H33V12H32zM33,11H34V12H33zM5,12H6V13H5zM6,12H7V13H6zM8,12H9V13H8zM11,12H12V13H11zM16,12H17V13H16zM17,12H18V13H17zM19,12H20V13H19zM20,12H21V13H20zM22,12H23V13H22zM23,12H24V13H23zM25,12H26V13H25zM27,12H28V13H27zM28,12H29V13H28zM30,12H31V13H30zM31,12H32V13H31zM32,12H33V13H32zM33,12H34V13H33zM34,12H35V13H34zM2,13H3V14H2zM7,13H8V14H7zM10,13H11V14H10zM14,13H15V14H14zM16,13H17V14H16zM17,13H18V14H17zM19,13H20V14H19zM21,13H22V14H21zM25,13H26V14H25zM26,13H27V14H26zM27,13H28V14H27zM29,13H30V14H29zM32,13H33V14H32zM2,14H3V15H2zM3,14H4V15H3zM4,14H5V15H4zM5,14H6V15H5zM6,14H7V15H6zM7,14H8V15H7zM8,14H9V15H8zM10,14H11V15H10zM11,14H12V15H11zM12,14H13V15H12zM14,14H15V15H14zM15,14H16V15H15zM16,14H17V15H16zM18,14H19V15H18zM19,14H20V15H19zM20,14H21V15H20zM21,14H22V15H21zM22,14H23V15H22zM23,14H24V15H23zM24,14H25V15H24zM25,14H26V15H25zM26,14H27V15H26zM27,14H28V15H27zM28,14H29V15H28zM29,14H30V15H29zM34,14H35V15H34zM4,15H5V16H4zM5,15H6V16H5zM6,15H7V16H6zM7,15H8V16H7zM11,15H12V16H11zM18,15H19V16H18zM19,15H20V16H19zM21,15H22V16H21zM24,15H25V16H24zM25,15H26V16H25zM26,15H27V16H26zM27,15H28V16H27zM29,15H30V16H29zM31,15H32V16H31zM32,15H33V16H32zM3,16H4V17H3zM5,16H6V17H5zM6,16H7V17H6zM7,16H8V17H7zM8,16H9V17H8zM10,16H11V17H10zM11,16H12V17H11zM12,16H13V17H12zM15,16H16V17H15zM18,16H19V17H18zM19,16H20V17H19zM26,16H27V17H26zM28,16H29V17H28zM29,16H30V17H29zM31,16H32V17H31zM32,16H33V17H32zM3,17H4V18H3zM6,17H7V18H6zM10,17H11V18H10zM12,17H13V18H12zM13,17H14V18H13zM15,17H16V18H15zM17,17H18V18H17zM21,17H22V18H21zM25,17H26V18H25zM26,17H27V18H26zM27,17H28V18H27zM29,17H30V18H29zM31,17H32V18H31zM32,17H33V18H32zM34,17H35V18H34zM2,18H3V19H2zM5,18H6V19H5zM6,18H7V19H6zM7,18H8V19H7zM8,18H9V19H8zM11,18H12V19H11zM13,18H14V19H13zM14,18H15V19H14zM16,18H17V19H16zM20,18H21V19H20zM21,18H22V19H21zM22,18H23V19H22zM24,18H25V19H24zM25,18H26V19H25zM26,18H27V19H26zM27,18H28V19H27zM28,18H29V19H28zM29,18H30V19H29zM30,18H31V19H30zM3,19H4V20H3zM4,19H5V20H4zM5,19H6V20H5zM10,19H11V20H10zM11,19H12V20H11zM13,19H14V20H13zM14,19H15V20H14zM17,19H18V20H17zM20,19H21V20H20zM21,19H22V20H21zM22,19H23V20H22zM23,19H24V20H23zM24,19H25V20H24zM28,19H29V20H28zM30,19H31V20H30zM32,19H33V20H32zM33,19H34V20H33zM34,19H35V20H34zM2,20H3V21H2zM5,20H6V21H5zM8,20H9V21H8zM9,20H10V21H9zM12,20H13V21H12zM13,20H14V21H13zM17,20H18V21H17zM21,20H22V21H21zM25,20H26V21H25zM29,20H30V21H29zM31,20H32V21H31zM32,20H33V21H32zM34,20H35V21H34zM2,21H3V22H2zM3,21H4V22H3zM4,21H5V22H4zM5,21H6V22H5zM6,21H7V22H6zM9,21H10V22H9zM11,21H12V22H11zM13,21H14V22H13zM14,21H15V22H14zM15,21H16V22H15zM19,21H20V22H19zM20,21H21V22H20zM21,21H22V22H21zM23,21H24V22H23zM26,21H27V22H26zM28,21H29V22H28zM30,21H31V22H30zM31,21H32V22H31zM32,21H33V22H32zM34,21H35V22H34zM3,22H4V23H3zM6,22H7V23H6zM7,22H8V23H7zM8,22H9V23H8zM10,22H11V23H10zM11,22H12V23H11zM13,22H14V23H13zM17,22H18V23H17zM21,22H22V23H21zM22,22H23V23H22zM23,22H24V23H23zM25,22H26V23H25zM26,22H27V23H26zM29,22H30V23H29zM31,22H32V23H31zM34,22H35V23H34zM2,23H3V24H2zM3,23H4V24H3zM5,23H6V24H5zM6,23H7V24H6zM12,23H13V24H12zM14,23H15V24H14zM15,23H16V24H15zM18,23H19V24H18zM19,23H20V24H19zM20,23H21V24H20zM22,23H23V24H22zM23,23H24V24H23zM24,23H25V24H24zM25,23H26V24H25zM29,23H30V24H29zM30,23H31V24H30zM32,23H33V24H32zM2,24H3V25H2zM4,24H5V25H4zM6,24H7V25H6zM7,24H8V25H7zM8,24H9V25H8zM9,24H10V25H9zM10,24H11V25H10zM12,24H13V25H12zM13,24H14V25H13zM15,24H16V25H15zM16,24H17V25H16zM17,24H18V25H17zM18,24H19V25H18zM23,24H24V25H23zM25,24H26V25H25zM28,24H29V25H28zM31,24H32V25H31zM33,24H34V25H33zM34,24H35V25H34zM2,25H3V26H2zM4,25H5V26H4zM7,25H8V26H7zM10,25H11V26H10zM12,25H13V26H12zM13,25H14V26H13zM15,25H16V26H15zM16,25H17V26H16zM18,25H19V26H18zM19,25H20V26H19zM25,25H26V26H25zM26,25H27V26H26zM27,25H28V26H27zM32,25H33V26H32zM2,26H3V27H2zM3,26H4V27H3zM4,26H5V27H4zM8,26H9V27H8zM9,26H10V27H9zM10,26H11V27H10zM11,26H12V27H11zM13,26H14V27H13zM15,26H16V27H15zM16,26H17V27H16zM17,26H18V27H17zM18,26H19V27H18zM21,26H22V27H21zM25,26H26V27H25zM26,26H27V27H26zM27,26H28V27H27zM28,26H29V27H28zM29,26H30V27H29zM30,26H31V27H30zM31,26H32V27H31zM10,27H11V28H10zM11,27H12V28H11zM12,27H13V28H12zM15,27H16V28H15zM16,27H17V28H16zM17,27H18V28H17zM18,27H19V28H18zM20,27H21V28H20zM24,27H25V28H24zM25,27H26V28H25zM26,27H27V28H26zM30,27H31V28H30zM32,27H33V28H32zM33,27H34V28H33zM2,28H3V29H2zM3,28H4V29H3zM4,28H5V29H4zM5,28H6V29H5zM6,28H7V29H6zM7,28H8V29H7zM8,28H9V29H8zM10,28H11V29H10zM11,28H12V29H11zM12,28H13V29H12zM13,28H14V29H13zM14,28H15V29H14zM17,28H18V29H17zM18,28H19V29H18zM20,28H21V29H20zM21,28H22V29H21zM23,28H24V29H23zM24,28H25V29H24zM25,28H26V29H25zM26,28H27V29H26zM28,28H29V29H28zM30,28H31V29H30zM32,28H33V29H32zM33,28H34V29H33zM2,29H3V30H2zM8,29H9V30H8zM10,29H11V30H10zM12,29H13V30H12zM13,29H14V30H13zM16,29H17V30H16zM17,29H18V30H17zM18,29H19V30H18zM22,29H23V30H22zM25,29H26V30H25zM26,29H27V30H26zM30,29H31V30H30zM31,29H32V30H31zM32,29H33V30H32zM33,29H34V30H33zM2,30H3V31H2zM4,30H5V31H4zM5,30H6V31H5zM6,30H7V31H6zM8,30H9V31H8zM10,30H11V31H10zM12,30H13V31H12zM13,30H14V31H13zM15,30H16V31H15zM17,30H18V31H17zM19,30H20V31H19zM20,30H21V31H20zM21,30H22V31H21zM22,30H23V31H22zM23,30H24V31H23zM25,30H26V31H25zM26,30H27V31H26zM27,30H28V31H27zM28,30H29V31H28zM29,30H30V31H29zM30,30H31V31H30zM34,30H35V31H34zM2,31H3V32H2zM4,31H5V32H4zM5,31H6V32H5zM6,31H7V32H6zM8,31H9V32H8zM10,31H11V32H10zM11,31H12V32H11zM12,31H13V32H12zM13,31H14V32H13zM16,31H17V32H16zM19,31H20V32H19zM22,31H23V32H22zM25,31H26V32H25zM27,31H28V32H27zM29,31H30V32H29zM31,31H32V32H31zM32,31H33V32H32zM34,31H35V32H34zM2,32H3V33H2zM4,32H5V33H4zM5,32H6V33H5zM6,32H7V33H6zM8,32H9V33H8zM11,32H12V33H11zM13,32H14V33H13zM14,32H15V33H14zM16,32H17V33H16zM18,32H19V33H18zM22,32H23V33H22zM23,32H24V33H23zM25,32H26V33H25zM26,32H27V33H26zM29,32H30V33H29zM30,32H31V33H30zM31,32H32V33H31zM33,32H34V33H33zM34,32H35V33H34zM2,33H3V34H2zM8,33H9V34H8zM14,33H15V34H14zM15,33H16V34H15zM16,33H17V34H16zM17,33H18V34H17zM18,33H19V34H18zM20,33H21V34H20zM29,33H30V34H29zM30,33H31V34H30zM31,33H32V34H31zM32,33H33V34H32zM33,33H34V34H33zM34,33H35V34H34zM2,34H3V35H2zM3,34H4V35H3zM4,34H5V35H4zM5,34H6V35H5zM6,34H7V35H6zM7,34H8V35H7zM8,34H9V35H8zM10,34H11V35H10zM11,34H12V35H11zM12,34H13V35H12zM13,34H14V35H13zM16,34H17V35H16zM19,34H20V35H19zM25,34H26V35H25zM26,34H27V35H26zM27,34H28V35H27zM29,34H30V35H29zM30,34H31V35H30z" id="qr-path" fill="#000000" fill-opacity="1" fill-rule="nonzero" stroke="none"/></svg></div>
+                </div>
+                <div class="qr-text">
+                    <span class="t1">Explore it live</span>
+                    <span class="t2">Scan for theoretical derivations.</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="sheet3-grid">
+            <div class="cad-card c1-col">
+                <div>
+                    <div class="card-fig-label"><span>C1</span><span class="pill">ENGINEERING CONTEXT</span></div>
+                    <div class="card-title">Why Francis turbines?</div>
+                    <div class="card-desc">Over 60% of world hydropower is generated by Francis turbines. Here is why the reaction principle dominates global clean energy.</div>
+                </div>
+                <div class="app-grid">
+                    <div class="app-item"><div class="app-title">⚡ Baseload & grid stability</div><div class="app-desc">Instant black-start and fast spinning inertia balance transient grid fluctuations.</div></div>
+                    <div class="app-item"><div class="app-title">🔋 Pumped storage (PHS)</div><div class="app-desc">Reversible pump-turbines act as massive water batteries for solar/wind surplus.</div></div>
+                    <div class="app-item"><div class="app-title">🌊 Medium head mastery</div><div class="app-desc">Operates efficiently across 30 m to 600 m heads, unmatched by Pelton or Kaplan.</div></div>
+                    <div class="app-item"><div class="app-title">📈 Peak 95%+ efficiency</div><div class="app-desc">Computerized CFD runner vane geometry captures virtually all fluid momentum.</div></div>
+                    <div class="app-item"><div class="app-title">🏞️ Multi-purpose dams</div><div class="app-desc">Integrates seamlessly into municipal flood control and irrigation networks.</div></div>
+                    <div class="app-item"><div class="app-title">🎓 Teach the physics</div><div class="app-desc">Laboratory test rig demonstrates angular momentum and Euler reaction forces.</div></div>
+                </div>
+                <div class="where-used">
+                    <div class="hdr">WHERE IT IS ALREADY USED</div>
+                    <div class="tags-row">
+                        <span class="tag-chip">Koyna Hydro</span>
+                        <span class="tag-chip">Bhakra Nangal</span>
+                        <span class="tag-chip">Tehri Dam</span>
+                        <span class="tag-chip">Three Gorges</span>
+                        <span class="tag-chip">Grand Coulee</span>
+                        <span class="tag-chip">Itaipu</span>
+                        <span class="tag-chip">Pumped Storage</span>
+                        <span class="tag-chip">Micro-Hydro</span>
+                    </div>
+                </div>
+                <div style="font-size: 10px; color: #475569; line-height: 1.35; padding: 6px; background: #f8fafc; border: 1px solid #e2e8f0;">
+                    Water enters the spiral casing with high pressure head. As it accelerates through wicket gates and turns axially through runner buckets, Euler work transfer converts both pressure and kinetic head into shaft torque.
+                </div>
+            </div>
+
+            <div class="cad-card c2-col">
+                <div>
+                    <div class="card-fig-label"><span>C2</span><span class="pill">MATHEMATICAL FORMULATION</span></div>
+                    <div class="card-title">Revision table: five equations</div>
+                    <div class="card-desc">The governing mathematical relationships from gauge pressure and Venturi flow to overall machine efficiency.</div>
+                </div>
+                <div class="equations-strip">
+                    <div class="eq-box"><span class="eq-badge">EQ A</span><div class="eq-math">H = Pi/ρg + Pv/ρg + z</div><div class="eq-name">Net Head</div></div>
+                    <div class="eq-box"><span class="eq-badge">EQ B</span><div class="eq-math">Q = Cd·k·√(2gh)</div><div class="eq-name">Venturi Flow</div></div>
+                    <div class="eq-box"><span class="eq-badge">EQ C</span><div class="eq-math">Pₒ = 2πNT / 60</div><div class="eq-name">Shaft Power</div></div>
+                    <div class="eq-box"><span class="eq-badge">EQ D</span><div class="eq-math">Pin = ρ g Q H</div><div class="eq-name">Water Power</div></div>
+                    <div class="eq-box"><span class="eq-badge">EQ E</span><div class="eq-math">ηₒ = Pₒ / Pin</div><div class="eq-name">Efficiency</div></div>
+                </div>
+                <div>
+                    <div style="font-family: var(--font-heading); font-size: 11px; font-weight: 800; color: #64748b; letter-spacing: 0.8px; margin-bottom: 4px;">FIVE STEPS TO UNDERSTANDING A REACTION TURBINE</div>
+                    <div class="five-steps-strip">
+                        <div class="step-box"><div class="step-num">01</div><div class="step-title">Guide it</div><div class="step-desc">Wicket gates impart whirl velocity Vw₁.</div></div>
+                        <div class="step-box"><div class="step-num">02</div><div class="step-title">Accelerate</div><div class="step-desc">Passage taper accelerates relative flow.</div></div>
+                        <div class="step-box"><div class="step-num">03</div><div class="step-title">Extract</div><div class="step-desc">Runner vanes absorb angular momentum.</div></div>
+                        <div class="step-box"><div class="step-num">04</div><div class="step-title">Diffuse</div><div class="step-desc">Draft tube recovers kinetic exit head.</div></div>
+                        <div class="step-box"><div class="step-num">05</div><div class="step-title">Deliver</div><div class="step-desc">Shaft delivers useful mechanical power.</div></div>
+                    </div>
+                </div>
+                <div>
+                    <div style="font-family: var(--font-heading); font-size: 11px; font-weight: 800; color: #64748b; letter-spacing: 0.8px; margin-bottom: 4px;">FIVE-POINT PRACTICAL PROCEDURE</div>
+                    <div class="five-steps-strip">
+                        <div class="step-box"><div class="step-num">01</div><div class="step-title">Prime rig</div><div class="step-desc">Check sump, prime pump, turn on drum cooling.</div></div>
+                        <div class="step-box"><div class="step-num">02</div><div class="step-title">Set head</div><div class="step-desc">Open pump valve to establish test head H.</div></div>
+                        <div class="step-box"><div class="step-num">03</div><div class="step-title">Set gates</div><div class="step-desc">Lock wicket gates at test opening (e.g. 75%).</div></div>
+                        <div class="step-box"><div class="step-num">04</div><div class="step-title">Load rig</div><div class="step-desc">Hang weights on rope brake; allow N to settle.</div></div>
+                        <div class="step-box"><div class="step-num">05</div><div class="step-title">Tabulate</div><div class="step-desc">Record Pi, Pv, Δh, N, W, S and compute ηₒ.</div></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cad-card c3-col">
+                <div>
+                    <div class="card-fig-label"><span>C3</span><span class="pill">COEP TECH</span></div>
+                    <div class="card-title">About the lab</div>
+                </div>
+                <div class="lab-photo-placeholder">
+                    <img src="assets/francis_isometric.png" style="width: 100%; height: 100%; object-fit: cover;" alt="Lab Rig" />
+                </div>
+                <div style="font-size: 11px; line-height: 1.35; color: #334155;">
+                    <strong>Francis Turbine Test Rig</strong><br>
+                    Fluid Mechanics & Turbomachinery Laboratory, Department of Mechanical Engineering, COEP Technological University, Pune.
+                </div>
+                <div class="stats-grid-4">
+                    <div class="stat-box"><div class="val">1</div><div class="lbl">FRANCIS RIG</div></div>
+                    <div class="stat-box"><div class="val">3</div><div class="lbl">CURVE REGIMES</div></div>
+                    <div class="stat-box"><div class="val">η ≈ 75%</div><div class="lbl">PEAK RIG EFFICIENCY</div></div>
+                    <div class="stat-box"><div class="val"><span class="bracket-val">[ 1500 ]</span></div><div class="lbl">MAX SPEED, RPM</div></div>
+                </div>
+                <div style="font-size: 9.5px; color: #b91c1c; padding: 6px; background: #fef2f2; border: 1px solid #fecaca; line-height: 1.3;">
+                    <strong>Safety:</strong> Turn on brake drum cooling water before loading dynamometer to prevent rope burning. Keep clear of rotating shaft. Do not shut pump abruptly under full load.
+                </div>
+            </div>
+        </div>
+
+        <div class="cad-bottom-note">Equations and applications follow the standard Theory of Machines / Fluid Machinery treatment. Bracketed red fields [___] are for your lab’s own details.</div>
+        <div class="cad-title-block">
+            <div class="field"><span class="lbl">TITLE</span><span class="val">WHY FRANCIS TURBINES MATTER</span></div>
+            <div class="field"><span class="lbl">SHEET</span><span class="val">3 / 5</span></div>
+            <div class="field"><span class="lbl">SCALE</span><span class="val">NTS</span></div>
+        </div>
+    </div>
+</div>
+
+
+<!-- ===================================================================
+     SHEET 4 / 5: SCAN · STEP INSIDE (Exact DRG. NO. GYRO-001 Replica)
+     =================================================================== -->
+<div class="sheet-page" id="sheet4">
+    <div class="cad-outer-border"></div>
+    <div class="coord-strip coord-top"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span></div>
+    <div class="coord-strip coord-bottom"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span></div>
+    <div class="coord-strip coord-left"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span></div>
+    <div class="coord-strip coord-right"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span></div>
+
+    <div class="cad-inner-border">
+        <!-- Sheet 4 Header matching Gyro Lab -->
+        <div class="sheet4-header">
+            <div class="s4-title-left">
+                <div class="s4-drg-badge">DRG. NO. FT-001 · SHEET 4 / 5</div>
+                <div class="s4-main-logo">
+                    <span class="blue">SCAN</span><span class="dot">·</span><span class="dark">STEP INSIDE</span>
+                </div>
+                <div class="s4-sub-line">FRANCIS TURBINE APPARATUS · HYDRAULIC MACHINERY LAB · COEP TECH</div>
+            </div>
+            <div class="s4-header-right-note">
+                Two codes, two ways in. Open your phone camera and point it at either code.<br>Nothing to install.
+            </div>
+        </div>
+
+        <!-- Sheet 4 Two Main Cards Grid -->
+        <div class="sheet4-cards-grid">
+            <!-- Left Card: AR Camera Overlay -->
+            <div class="s4-portal-card">
+                <div class="s4-corner-badge red">AR · CAMERA OVERLAY</div>
+                <div class="s4-card-body">
+                    <div class="s4-qr-column">
+                        <div class="s4-scan-tip">Point your phone camera at the code.</div>
+                        <div class="s4-qr-bracket-box">
+                            <div class="s4-brackets red"></div>
+                            <div class="dynamic-qr-ar" style="width: 100%; height: 100%;"><?xml version='1.0' encoding='UTF-8'?>
+<svg width="37mm" height="37mm" version="1.1" viewBox="0 0 37 37" class="qr-svg-real" xmlns="http://www.w3.org/2000/svg"><path d="M2,2H3V3H2zM3,2H4V3H3zM4,2H5V3H4zM5,2H6V3H5zM6,2H7V3H6zM7,2H8V3H7zM8,2H9V3H8zM10,2H11V3H10zM12,2H13V3H12zM15,2H16V3H15zM16,2H17V3H16zM19,2H20V3H19zM20,2H21V3H20zM23,2H24V3H23zM24,2H25V3H24zM26,2H27V3H26zM28,2H29V3H28zM29,2H30V3H29zM30,2H31V3H30zM31,2H32V3H31zM32,2H33V3H32zM33,2H34V3H33zM34,2H35V3H34zM2,3H3V4H2zM8,3H9V4H8zM10,3H11V4H10zM11,3H12V4H11zM13,3H14V4H13zM15,3H16V4H15zM16,3H17V4H16zM18,3H19V4H18zM20,3H21V4H20zM21,3H22V4H21zM22,3H23V4H22zM23,3H24V4H23zM26,3H27V4H26zM28,3H29V4H28zM34,3H35V4H34zM2,4H3V5H2zM4,4H5V5H4zM5,4H6V5H5zM6,4H7V5H6zM8,4H9V5H8zM10,4H11V5H10zM12,4H13V5H12zM15,4H16V5H15zM16,4H17V5H16zM18,4H19V5H18zM22,4H23V5H22zM23,4H24V5H23zM25,4H26V5H25zM28,4H29V5H28zM30,4H31V5H30zM31,4H32V5H31zM32,4H33V5H32zM34,4H35V5H34zM2,5H3V6H2zM4,5H5V6H4zM5,5H6V6H5zM6,5H7V6H6zM8,5H9V6H8zM11,5H12V6H11zM12,5H13V6H12zM13,5H14V6H13zM16,5H17V6H16zM18,5H19V6H18zM20,5H21V6H20zM21,5H22V6H21zM22,5H23V6H22zM23,5H24V6H23zM25,5H26V6H25zM26,5H27V6H26zM28,5H29V6H28zM30,5H31V6H30zM31,5H32V6H31zM32,5H33V6H32zM34,5H35V6H34zM2,6H3V7H2zM4,6H5V7H4zM5,6H6V7H5zM6,6H7V7H6zM8,6H9V7H8zM10,6H11V7H10zM12,6H13V7H12zM13,6H14V7H13zM14,6H15V7H14zM15,6H16V7H15zM17,6H18V7H17zM18,6H19V7H18zM26,6H27V7H26zM28,6H29V7H28zM30,6H31V7H30zM31,6H32V7H31zM32,6H33V7H32zM34,6H35V7H34zM2,7H3V8H2zM8,7H9V8H8zM11,7H12V8H11zM12,7H13V8H12zM13,7H14V8H13zM17,7H18V8H17zM18,7H19V8H18zM19,7H20V8H19zM20,7H21V8H20zM21,7H22V8H21zM23,7H24V8H23zM25,7H26V8H25zM28,7H29V8H28zM34,7H35V8H34zM2,8H3V9H2zM3,8H4V9H3zM4,8H5V9H4zM5,8H6V9H5zM6,8H7V9H6zM7,8H8V9H7zM8,8H9V9H8zM10,8H11V9H10zM12,8H13V9H12zM14,8H15V9H14zM16,8H17V9H16zM18,8H19V9H18zM20,8H21V9H20zM22,8H23V9H22zM24,8H25V9H24zM26,8H27V9H26zM28,8H29V9H28zM29,8H30V9H29zM30,8H31V9H30zM31,8H32V9H31zM32,8H33V9H32zM33,8H34V9H33zM34,8H35V9H34zM11,9H12V10H11zM15,9H16V10H15zM17,9H18V10H17zM18,9H19V10H18zM25,9H26V10H25zM2,10H3V11H2zM5,10H6V11H5zM6,10H7V11H6zM7,10H8V11H7zM8,10H9V11H8zM9,10H10V11H9zM10,10H11V11H10zM12,10H13V11H12zM13,10H14V11H13zM14,10H15V11H14zM16,10H17V11H16zM18,10H19V11H18zM19,10H20V11H19zM25,10H26V11H25zM26,10H27V11H26zM27,10H28V11H27zM30,10H31V11H30zM32,10H33V11H32zM33,10H34V11H33zM34,10H35V11H34zM7,11H8V12H7zM12,11H13V12H12zM13,11H14V12H13zM15,11H16V12H15zM17,11H18V12H17zM19,11H20V12H19zM20,11H21V12H20zM21,11H22V12H21zM22,11H23V12H22zM24,11H25V12H24zM25,11H26V12H25zM30,11H31V12H30zM31,11H32V12H31zM32,11H33V12H32zM33,11H34V12H33zM4,12H5V13H4zM6,12H7V13H6zM7,12H8V13H7zM8,12H9V13H8zM9,12H10V13H9zM10,12H11V13H10zM12,12H13V13H12zM13,12H14V13H13zM14,12H15V13H14zM15,12H16V13H15zM17,12H18V13H17zM22,12H23V13H22zM23,12H24V13H23zM25,12H26V13H25zM27,12H28V13H27zM28,12H29V13H28zM30,12H31V13H30zM31,12H32V13H31zM32,12H33V13H32zM33,12H34V13H33zM34,12H35V13H34zM3,13H4V14H3zM5,13H6V14H5zM9,13H10V14H9zM11,13H12V14H11zM12,13H13V14H12zM15,13H16V14H15zM17,13H18V14H17zM20,13H21V14H20zM21,13H22V14H21zM25,13H26V14H25zM26,13H27V14H26zM27,13H28V14H27zM29,13H30V14H29zM32,13H33V14H32zM2,14H3V15H2zM8,14H9V15H8zM12,14H13V15H12zM13,14H14V15H13zM15,14H16V15H15zM19,14H20V15H19zM21,14H22V15H21zM25,14H26V15H25zM26,14H27V15H26zM27,14H28V15H27zM28,14H29V15H28zM29,14H30V15H29zM34,14H35V15H34zM5,15H6V16H5zM7,15H8V16H7zM10,15H11V16H10zM11,15H12V16H11zM13,15H14V16H13zM14,15H15V16H14zM16,15H17V16H16zM19,15H20V16H19zM20,15H21V16H20zM21,15H22V16H21zM22,15H23V16H22zM24,15H25V16H24zM25,15H26V16H25zM26,15H27V16H26zM27,15H28V16H27zM29,15H30V16H29zM31,15H32V16H31zM32,15H33V16H32zM4,16H5V17H4zM5,16H6V17H5zM6,16H7V17H6zM8,16H9V17H8zM11,16H12V17H11zM13,16H14V17H13zM17,16H18V17H17zM19,16H20V17H19zM21,16H22V17H21zM22,16H23V17H22zM26,16H27V17H26zM28,16H29V17H28zM29,16H30V17H29zM31,16H32V17H31zM32,16H33V17H32zM3,17H4V18H3zM4,17H5V18H4zM7,17H8V18H7zM9,17H10V18H9zM10,17H11V18H10zM11,17H12V18H11zM13,17H14V18H13zM15,17H16V18H15zM16,17H17V18H16zM18,17H19V18H18zM22,17H23V18H22zM25,17H26V18H25zM26,17H27V18H26zM27,17H28V18H27zM29,17H30V18H29zM31,17H32V18H31zM32,17H33V18H32zM34,17H35V18H34zM4,18H5V19H4zM5,18H6V19H5zM6,18H7V19H6zM8,18H9V19H8zM9,18H10V19H9zM13,18H14V19H13zM14,18H15V19H14zM15,18H16V19H15zM16,18H17V19H16zM17,18H18V19H17zM20,18H21V19H20zM22,18H23V19H22zM24,18H25V19H24zM25,18H26V19H25zM26,18H27V19H26zM27,18H28V19H27zM28,18H29V19H28zM29,18H30V19H29zM30,18H31V19H30zM2,19H3V20H2zM3,19H4V20H3zM5,19H6V20H5zM6,19H7V20H6zM9,19H10V20H9zM11,19H12V20H11zM12,19H13V20H12zM17,19H18V20H17zM19,19H20V20H19zM20,19H21V20H20zM21,19H22V20H21zM22,19H23V20H22zM24,19H25V20H24zM28,19H29V20H28zM30,19H31V20H30zM32,19H33V20H32zM33,19H34V20H33zM34,19H35V20H34zM4,20H5V21H4zM8,20H9V21H8zM11,20H12V21H11zM12,20H13V21H12zM17,20H18V21H17zM19,20H20V21H19zM20,20H21V21H20zM21,20H22V21H21zM24,20H25V21H24zM25,20H26V21H25zM29,20H30V21H29zM31,20H32V21H31zM32,20H33V21H32zM34,20H35V21H34zM2,21H3V22H2zM3,21H4V22H3zM4,21H5V22H4zM5,21H6V22H5zM7,21H8V22H7zM9,21H10V22H9zM11,21H12V22H11zM12,21H13V22H12zM13,21H14V22H13zM15,21H16V22H15zM21,21H22V22H21zM26,21H27V22H26zM28,21H29V22H28zM30,21H31V22H30zM31,21H32V22H31zM32,21H33V22H32zM34,21H35V22H34zM3,22H4V23H3zM5,22H6V23H5zM8,22H9V23H8zM9,22H10V23H9zM11,22H12V23H11zM13,22H14V23H13zM15,22H16V23H15zM16,22H17V23H16zM17,22H18V23H17zM18,22H19V23H18zM20,22H21V23H20zM21,22H22V23H21zM23,22H24V23H23zM24,22H25V23H24zM25,22H26V23H25zM26,22H27V23H26zM29,22H30V23H29zM31,22H32V23H31zM34,22H35V23H34zM2,23H3V24H2zM4,23H5V24H4zM6,23H7V24H6zM7,23H8V24H7zM11,23H12V24H11zM12,23H13V24H12zM13,23H14V24H13zM15,23H16V24H15zM19,23H20V24H19zM23,23H24V24H23zM24,23H25V24H24zM25,23H26V24H25zM29,23H30V24H29zM30,23H31V24H30zM32,23H33V24H32zM2,24H3V25H2zM5,24H6V25H5zM6,24H7V25H6zM8,24H9V25H8zM9,24H10V25H9zM14,24H15V25H14zM15,24H16V25H15zM16,24H17V25H16zM21,24H22V25H21zM22,24H23V25H22zM23,24H24V25H23zM25,24H26V25H25zM28,24H29V25H28zM31,24H32V25H31zM33,24H34V25H33zM34,24H35V25H34zM2,25H3V26H2zM7,25H8V26H7zM9,25H10V26H9zM10,25H11V26H10zM12,25H13V26H12zM14,25H15V26H14zM17,25H18V26H17zM19,25H20V26H19zM21,25H22V26H21zM22,25H23V26H22zM25,25H26V26H25zM26,25H27V26H26zM27,25H28V26H27zM32,25H33V26H32zM33,25H34V26H33zM34,25H35V26H34zM2,26H3V27H2zM3,26H4V27H3zM4,26H5V27H4zM8,26H9V27H8zM10,26H11V27H10zM11,26H12V27H11zM12,26H13V27H12zM16,26H17V27H16zM18,26H19V27H18zM25,26H26V27H25zM26,26H27V27H26zM27,26H28V27H27zM28,26H29V27H28zM29,26H30V27H29zM30,26H31V27H30zM31,26H32V27H31zM10,27H11V28H10zM13,27H14V28H13zM15,27H16V28H15zM17,27H18V28H17zM18,27H19V28H18zM19,27H20V28H19zM20,27H21V28H20zM23,27H24V28H23zM24,27H25V28H24zM25,27H26V28H25zM26,27H27V28H26zM30,27H31V28H30zM32,27H33V28H32zM33,27H34V28H33zM2,28H3V29H2zM3,28H4V29H3zM4,28H5V29H4zM5,28H6V29H5zM6,28H7V29H6zM7,28H8V29H7zM8,28H9V29H8zM10,28H11V29H10zM16,28H17V29H16zM17,28H18V29H17zM18,28H19V29H18zM19,28H20V29H19zM21,28H22V29H21zM25,28H26V29H25zM26,28H27V29H26zM28,28H29V29H28zM30,28H31V29H30zM32,28H33V29H32zM33,28H34V29H33zM2,29H3V30H2zM8,29H9V30H8zM10,29H11V30H10zM11,29H12V30H11zM15,29H16V30H15zM16,29H17V30H16zM17,29H18V30H17zM18,29H19V30H18zM19,29H20V30H19zM20,29H21V30H20zM22,29H23V30H22zM23,29H24V30H23zM24,29H25V30H24zM25,29H26V30H25zM26,29H27V30H26zM30,29H31V30H30zM31,29H32V30H31zM32,29H33V30H32zM33,29H34V30H33zM2,30H3V31H2zM4,30H5V31H4zM5,30H6V31H5zM6,30H7V31H6zM8,30H9V31H8zM10,30H11V31H10zM11,30H12V31H11zM12,30H13V31H12zM16,30H17V31H16zM17,30H18V31H17zM18,30H19V31H18zM19,30H20V31H19zM21,30H22V31H21zM23,30H24V31H23zM24,30H25V31H24zM25,30H26V31H25zM26,30H27V31H26zM27,30H28V31H27zM28,30H29V31H28zM29,30H30V31H29zM30,30H31V31H30zM34,30H35V31H34zM2,31H3V32H2zM4,31H5V32H4zM5,31H6V32H5zM6,31H7V32H6zM8,31H9V32H8zM10,31H11V32H10zM11,31H12V32H11zM12,31H13V32H12zM14,31H15V32H14zM18,31H19V32H18zM19,31H20V32H19zM20,31H21V32H20zM24,31H25V32H24zM25,31H26V32H25zM27,31H28V32H27zM29,31H30V32H29zM31,31H32V32H31zM32,31H33V32H32zM34,31H35V32H34zM2,32H3V33H2zM4,32H5V33H4zM5,32H6V33H5zM6,32H7V33H6zM8,32H9V33H8zM11,32H12V33H11zM14,32H15V33H14zM15,32H16V33H15zM17,32H18V33H17zM21,32H22V33H21zM23,32H24V33H23zM25,32H26V33H25zM26,32H27V33H26zM29,32H30V33H29zM30,32H31V33H30zM31,32H32V33H31zM33,32H34V33H33zM34,32H35V33H34zM2,33H3V34H2zM8,33H9V34H8zM12,33H13V34H12zM13,33H14V34H13zM15,33H16V34H15zM16,33H17V34H16zM20,33H21V34H20zM21,33H22V34H21zM22,33H23V34H22zM29,33H30V34H29zM30,33H31V34H30zM31,33H32V34H31zM32,33H33V34H32zM33,33H34V34H33zM34,33H35V34H34zM2,34H3V35H2zM3,34H4V35H3zM4,34H5V35H4zM5,34H6V35H5zM6,34H7V35H6zM7,34H8V35H7zM8,34H9V35H8zM10,34H11V35H10zM14,34H15V35H14zM15,34H16V35H15zM17,34H18V35H17zM19,34H20V35H19zM21,34H22V35H21zM25,34H26V35H25zM26,34H27V35H26zM27,34H28V35H27zM29,34H30V35H29zM30,34H31V35H30z" id="qr-path" fill="#000000" fill-opacity="1" fill-rule="nonzero" stroke="none"/></svg></div>
+                        </div>
+                    </div>
+                    <div class="s4-info-column">
+                        <div class="s4-code-tag red">CODE 1 · AR</div>
+                        <div class="s4-card-title">The Francis turbine, on your bench</div>
+                        <div class="s4-card-lead">See the digital cutaway Francis turbine over your phone camera view of a real table, then explode it into runner, casing, and wicket gates.</div>
+                        <div class="s4-steps-list">
+                            <div class="s4-step-item"><span class="s4-step-badge">01</span><span>Scan, then tap <strong>Overlay on camera</strong> .</span></div>
+                            <div class="s4-step-item"><span class="s4-step-badge">02</span><span>Allow the camera and point it at a table.</span></div>
+                            <div class="s4-step-item"><span class="s4-step-badge">03</span><span>Drag to turn it; use the <strong>Explode slider</strong>.</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="s4-card-footer">
+                    <div class="s4-footer-device">Works in a modern phone browser with a camera. Allow camera access when asked.</div>
+                    <div class="s4-or-type">OR TYPE</div>
+                    <a href="https://aryan.github.io/francis-turbine-lab/#ar" target="_blank" class="s4-link-url" id="linkAr">https://aryan.github.io/francis-turbine-lab/#ar</a>
+                </div>
+            </div>
+
+            <!-- Right Card: Web Page -->
+            <div class="s4-portal-card">
+                <div class="s4-corner-badge blue">WEB PAGE</div>
+                <div class="s4-card-body">
+                    <div class="s4-qr-column">
+                        <div class="s4-scan-tip">Point your phone camera at the code.</div>
+                        <div class="s4-qr-bracket-box">
+                            <div class="s4-brackets blue"></div>
+                            <div class="dynamic-qr-web" style="width: 100%; height: 100%;"><?xml version='1.0' encoding='UTF-8'?>
+<svg width="37mm" height="37mm" version="1.1" viewBox="0 0 37 37" class="qr-svg-real" xmlns="http://www.w3.org/2000/svg"><path d="M2,2H3V3H2zM3,2H4V3H3zM4,2H5V3H4zM5,2H6V3H5zM6,2H7V3H6zM7,2H8V3H7zM8,2H9V3H8zM10,2H11V3H10zM11,2H12V3H11zM14,2H15V3H14zM16,2H17V3H16zM20,2H21V3H20zM24,2H25V3H24zM26,2H27V3H26zM28,2H29V3H28zM29,2H30V3H29zM30,2H31V3H30zM31,2H32V3H31zM32,2H33V3H32zM33,2H34V3H33zM34,2H35V3H34zM2,3H3V4H2zM8,3H9V4H8zM10,3H11V4H10zM11,3H12V4H11zM13,3H14V4H13zM18,3H19V4H18zM19,3H20V4H19zM21,3H22V4H21zM22,3H23V4H22zM23,3H24V4H23zM24,3H25V4H24zM26,3H27V4H26zM28,3H29V4H28zM34,3H35V4H34zM2,4H3V5H2zM4,4H5V5H4zM5,4H6V5H5zM6,4H7V5H6zM8,4H9V5H8zM10,4H11V5H10zM12,4H13V5H12zM18,4H19V5H18zM19,4H20V5H19zM20,4H21V5H20zM22,4H23V5H22zM24,4H25V5H24zM25,4H26V5H25zM28,4H29V5H28zM30,4H31V5H30zM31,4H32V5H31zM32,4H33V5H32zM34,4H35V5H34zM2,5H3V6H2zM4,5H5V6H4zM5,5H6V6H5zM6,5H7V6H6zM8,5H9V6H8zM11,5H12V6H11zM12,5H13V6H12zM13,5H14V6H13zM14,5H15V6H14zM21,5H22V6H21zM25,5H26V6H25zM26,5H27V6H26zM28,5H29V6H28zM30,5H31V6H30zM31,5H32V6H31zM32,5H33V6H32zM34,5H35V6H34zM2,6H3V7H2zM4,6H5V7H4zM5,6H6V7H5zM6,6H7V7H6zM8,6H9V7H8zM10,6H11V7H10zM12,6H13V7H12zM13,6H14V7H13zM15,6H16V7H15zM16,6H17V7H16zM17,6H18V7H17zM20,6H21V7H20zM22,6H23V7H22zM25,6H26V7H25zM26,6H27V7H26zM28,6H29V7H28zM30,6H31V7H30zM31,6H32V7H31zM32,6H33V7H32zM34,6H35V7H34zM2,7H3V8H2zM8,7H9V8H8zM12,7H13V8H12zM19,7H20V8H19zM20,7H21V8H20zM22,7H23V8H22zM23,7H24V8H23zM25,7H26V8H25zM28,7H29V8H28zM34,7H35V8H34zM2,8H3V9H2zM3,8H4V9H3zM4,8H5V9H4zM5,8H6V9H5zM6,8H7V9H6zM7,8H8V9H7zM8,8H9V9H8zM10,8H11V9H10zM12,8H13V9H12zM14,8H15V9H14zM16,8H17V9H16zM18,8H19V9H18zM20,8H21V9H20zM22,8H23V9H22zM24,8H25V9H24zM26,8H27V9H26zM28,8H29V9H28zM29,8H30V9H29zM30,8H31V9H30zM31,8H32V9H31zM32,8H33V9H32zM33,8H34V9H33zM34,8H35V9H34zM11,9H12V10H11zM12,9H13V10H12zM13,9H14V10H13zM14,9H15V10H14zM15,9H16V10H15zM21,9H22V10H21zM22,9H23V10H22zM25,9H26V10H25zM2,10H3V11H2zM5,10H6V11H5zM6,10H7V11H6zM7,10H8V11H7zM8,10H9V11H8zM9,10H10V11H9zM10,10H11V11H10zM11,10H12V11H11zM13,10H14V11H13zM14,10H15V11H14zM16,10H17V11H16zM17,10H18V11H17zM18,10H19V11H18zM19,10H20V11H19zM21,10H22V11H21zM25,10H26V11H25zM26,10H27V11H26zM27,10H28V11H27zM30,10H31V11H30zM32,10H33V11H32zM33,10H34V11H33zM34,10H35V11H34zM2,11H3V12H2zM4,11H5V12H4zM5,11H6V12H5zM6,11H7V12H6zM7,11H8V12H7zM9,11H10V12H9zM14,11H15V12H14zM17,11H18V12H17zM20,11H21V12H20zM21,11H22V12H21zM22,11H23V12H22zM24,11H25V12H24zM25,11H26V12H25zM30,11H31V12H30zM31,11H32V12H31zM32,11H33V12H32zM33,11H34V12H33zM5,12H6V13H5zM6,12H7V13H6zM8,12H9V13H8zM11,12H12V13H11zM16,12H17V13H16zM17,12H18V13H17zM19,12H20V13H19zM20,12H21V13H20zM22,12H23V13H22zM23,12H24V13H23zM25,12H26V13H25zM27,12H28V13H27zM28,12H29V13H28zM30,12H31V13H30zM31,12H32V13H31zM32,12H33V13H32zM33,12H34V13H33zM34,12H35V13H34zM2,13H3V14H2zM7,13H8V14H7zM10,13H11V14H10zM14,13H15V14H14zM16,13H17V14H16zM17,13H18V14H17zM19,13H20V14H19zM21,13H22V14H21zM25,13H26V14H25zM26,13H27V14H26zM27,13H28V14H27zM29,13H30V14H29zM32,13H33V14H32zM2,14H3V15H2zM3,14H4V15H3zM4,14H5V15H4zM5,14H6V15H5zM6,14H7V15H6zM7,14H8V15H7zM8,14H9V15H8zM10,14H11V15H10zM11,14H12V15H11zM12,14H13V15H12zM14,14H15V15H14zM15,14H16V15H15zM16,14H17V15H16zM18,14H19V15H18zM19,14H20V15H19zM20,14H21V15H20zM21,14H22V15H21zM22,14H23V15H22zM23,14H24V15H23zM24,14H25V15H24zM25,14H26V15H25zM26,14H27V15H26zM27,14H28V15H27zM28,14H29V15H28zM29,14H30V15H29zM34,14H35V15H34zM4,15H5V16H4zM5,15H6V16H5zM6,15H7V16H6zM7,15H8V16H7zM11,15H12V16H11zM18,15H19V16H18zM19,15H20V16H19zM21,15H22V16H21zM24,15H25V16H24zM25,15H26V16H25zM26,15H27V16H26zM27,15H28V16H27zM29,15H30V16H29zM31,15H32V16H31zM32,15H33V16H32zM3,16H4V17H3zM5,16H6V17H5zM6,16H7V17H6zM7,16H8V17H7zM8,16H9V17H8zM10,16H11V17H10zM11,16H12V17H11zM12,16H13V17H12zM15,16H16V17H15zM18,16H19V17H18zM19,16H20V17H19zM26,16H27V17H26zM28,16H29V17H28zM29,16H30V17H29zM31,16H32V17H31zM32,16H33V17H32zM3,17H4V18H3zM6,17H7V18H6zM10,17H11V18H10zM12,17H13V18H12zM13,17H14V18H13zM15,17H16V18H15zM17,17H18V18H17zM21,17H22V18H21zM25,17H26V18H25zM26,17H27V18H26zM27,17H28V18H27zM29,17H30V18H29zM31,17H32V18H31zM32,17H33V18H32zM34,17H35V18H34zM2,18H3V19H2zM5,18H6V19H5zM6,18H7V19H6zM7,18H8V19H7zM8,18H9V19H8zM11,18H12V19H11zM13,18H14V19H13zM14,18H15V19H14zM16,18H17V19H16zM20,18H21V19H20zM21,18H22V19H21zM22,18H23V19H22zM24,18H25V19H24zM25,18H26V19H25zM26,18H27V19H26zM27,18H28V19H27zM28,18H29V19H28zM29,18H30V19H29zM30,18H31V19H30zM3,19H4V20H3zM4,19H5V20H4zM5,19H6V20H5zM10,19H11V20H10zM11,19H12V20H11zM13,19H14V20H13zM14,19H15V20H14zM17,19H18V20H17zM20,19H21V20H20zM21,19H22V20H21zM22,19H23V20H22zM23,19H24V20H23zM24,19H25V20H24zM28,19H29V20H28zM30,19H31V20H30zM32,19H33V20H32zM33,19H34V20H33zM34,19H35V20H34zM2,20H3V21H2zM5,20H6V21H5zM8,20H9V21H8zM9,20H10V21H9zM12,20H13V21H12zM13,20H14V21H13zM17,20H18V21H17zM21,20H22V21H21zM25,20H26V21H25zM29,20H30V21H29zM31,20H32V21H31zM32,20H33V21H32zM34,20H35V21H34zM2,21H3V22H2zM3,21H4V22H3zM4,21H5V22H4zM5,21H6V22H5zM6,21H7V22H6zM9,21H10V22H9zM11,21H12V22H11zM13,21H14V22H13zM14,21H15V22H14zM15,21H16V22H15zM19,21H20V22H19zM20,21H21V22H20zM21,21H22V22H21zM23,21H24V22H23zM26,21H27V22H26zM28,21H29V22H28zM30,21H31V22H30zM31,21H32V22H31zM32,21H33V22H32zM34,21H35V22H34zM3,22H4V23H3zM6,22H7V23H6zM7,22H8V23H7zM8,22H9V23H8zM10,22H11V23H10zM11,22H12V23H11zM13,22H14V23H13zM17,22H18V23H17zM21,22H22V23H21zM22,22H23V23H22zM23,22H24V23H23zM25,22H26V23H25zM26,22H27V23H26zM29,22H30V23H29zM31,22H32V23H31zM34,22H35V23H34zM2,23H3V24H2zM3,23H4V24H3zM5,23H6V24H5zM6,23H7V24H6zM12,23H13V24H12zM14,23H15V24H14zM15,23H16V24H15zM18,23H19V24H18zM19,23H20V24H19zM20,23H21V24H20zM22,23H23V24H22zM23,23H24V24H23zM24,23H25V24H24zM25,23H26V24H25zM29,23H30V24H29zM30,23H31V24H30zM32,23H33V24H32zM2,24H3V25H2zM4,24H5V25H4zM6,24H7V25H6zM7,24H8V25H7zM8,24H9V25H8zM9,24H10V25H9zM10,24H11V25H10zM12,24H13V25H12zM13,24H14V25H13zM15,24H16V25H15zM16,24H17V25H16zM17,24H18V25H17zM18,24H19V25H18zM23,24H24V25H23zM25,24H26V25H25zM28,24H29V25H28zM31,24H32V25H31zM33,24H34V25H33zM34,24H35V25H34zM2,25H3V26H2zM4,25H5V26H4zM7,25H8V26H7zM10,25H11V26H10zM12,25H13V26H12zM13,25H14V26H13zM15,25H16V26H15zM16,25H17V26H16zM18,25H19V26H18zM19,25H20V26H19zM25,25H26V26H25zM26,25H27V26H26zM27,25H28V26H27zM32,25H33V26H32zM2,26H3V27H2zM3,26H4V27H3zM4,26H5V27H4zM8,26H9V27H8zM9,26H10V27H9zM10,26H11V27H10zM11,26H12V27H11zM13,26H14V27H13zM15,26H16V27H15zM16,26H17V27H16zM17,26H18V27H17zM18,26H19V27H18zM21,26H22V27H21zM25,26H26V27H25zM26,26H27V27H26zM27,26H28V27H27zM28,26H29V27H28zM29,26H30V27H29zM30,26H31V27H30zM31,26H32V27H31zM10,27H11V28H10zM11,27H12V28H11zM12,27H13V28H12zM15,27H16V28H15zM16,27H17V28H16zM17,27H18V28H17zM18,27H19V28H18zM20,27H21V28H20zM24,27H25V28H24zM25,27H26V28H25zM26,27H27V28H26zM30,27H31V28H30zM32,27H33V28H32zM33,27H34V28H33zM2,28H3V29H2zM3,28H4V29H3zM4,28H5V29H4zM5,28H6V29H5zM6,28H7V29H6zM7,28H8V29H7zM8,28H9V29H8zM10,28H11V29H10zM11,28H12V29H11zM12,28H13V29H12zM13,28H14V29H13zM14,28H15V29H14zM17,28H18V29H17zM18,28H19V29H18zM20,28H21V29H20zM21,28H22V29H21zM23,28H24V29H23zM24,28H25V29H24zM25,28H26V29H25zM26,28H27V29H26zM28,28H29V29H28zM30,28H31V29H30zM32,28H33V29H32zM33,28H34V29H33zM2,29H3V30H2zM8,29H9V30H8zM10,29H11V30H10zM12,29H13V30H12zM13,29H14V30H13zM16,29H17V30H16zM17,29H18V30H17zM18,29H19V30H18zM22,29H23V30H22zM25,29H26V30H25zM26,29H27V30H26zM30,29H31V30H30zM31,29H32V30H31zM32,29H33V30H32zM33,29H34V30H33zM2,30H3V31H2zM4,30H5V31H4zM5,30H6V31H5zM6,30H7V31H6zM8,30H9V31H8zM10,30H11V31H10zM12,30H13V31H12zM13,30H14V31H13zM15,30H16V31H15zM17,30H18V31H17zM19,30H20V31H19zM20,30H21V31H20zM21,30H22V31H21zM22,30H23V31H22zM23,30H24V31H23zM25,30H26V31H25zM26,30H27V31H26zM27,30H28V31H27zM28,30H29V31H28zM29,30H30V31H29zM30,30H31V31H30zM34,30H35V31H34zM2,31H3V32H2zM4,31H5V32H4zM5,31H6V32H5zM6,31H7V32H6zM8,31H9V32H8zM10,31H11V32H10zM11,31H12V32H11zM12,31H13V32H12zM13,31H14V32H13zM16,31H17V32H16zM19,31H20V32H19zM22,31H23V32H22zM25,31H26V32H25zM27,31H28V32H27zM29,31H30V32H29zM31,31H32V32H31zM32,31H33V32H32zM34,31H35V32H34zM2,32H3V33H2zM4,32H5V33H4zM5,32H6V33H5zM6,32H7V33H6zM8,32H9V33H8zM11,32H12V33H11zM13,32H14V33H13zM14,32H15V33H14zM16,32H17V33H16zM18,32H19V33H18zM22,32H23V33H22zM23,32H24V33H23zM25,32H26V33H25zM26,32H27V33H26zM29,32H30V33H29zM30,32H31V33H30zM31,32H32V33H31zM33,32H34V33H33zM34,32H35V33H34zM2,33H3V34H2zM8,33H9V34H8zM14,33H15V34H14zM15,33H16V34H15zM16,33H17V34H16zM17,33H18V34H17zM18,33H19V34H18zM20,33H21V34H20zM29,33H30V34H29zM30,33H31V34H30zM31,33H32V34H31zM32,33H33V34H32zM33,33H34V34H33zM34,33H35V34H34zM2,34H3V35H2zM3,34H4V35H3zM4,34H5V35H4zM5,34H6V35H5zM6,34H7V35H6zM7,34H8V35H7zM8,34H9V35H8zM10,34H11V35H10zM11,34H12V35H11zM12,34H13V35H12zM13,34H14V35H13zM16,34H17V35H16zM19,34H20V35H19zM25,34H26V35H25zM26,34H27V35H26zM27,34H28V35H27zM29,34H30V35H29zM30,34H31V35H30z" id="qr-path" fill="#000000" fill-opacity="1" fill-rule="nonzero" stroke="none"/></svg></div>
+                        </div>
+                    </div>
+                    <div class="s4-info-column">
+                        <div class="s4-code-tag blue">CODE 2 · WEB</div>
+                        <div class="s4-card-title">The whole lab, interactive</div>
+                        <div class="s4-card-lead">Take the Francis turbine apart in 3D, change the guide vane opening and the load, and watch the runner and telemetry respond.</div>
+                        <div class="s4-steps-list">
+                            <div class="s4-step-item"><span class="s4-step-badge">01</span><span>Scan to open the page.</span></div>
+                            <div class="s4-step-item"><span class="s4-step-badge">02</span><span>Drag the explode slider.</span></div>
+                            <div class="s4-step-item"><span class="s4-step-badge">03</span><span>Change gate opening and brake load; compare with the formula.</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="s4-card-footer">
+                    <div class="s4-footer-device">Works in any modern browser on phones, tablets and laptops.</div>
+                    <div class="s4-or-type">OR TYPE</div>
+                    <a href="https://aryan.github.io/francis-turbine-lab/" target="_blank" class="s4-link-url" id="linkWeb">https://aryan.github.io/francis-turbine-lab/</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sheet 4 Bottom 3 Pills -->
+        <div class="sheet4-bottom-pills">
+            <div class="s4-pill-box">
+                <div class="s4-pill-circle">AR</div>
+                <div class="s4-pill-text">
+                    <div class="h">Augmented reality</div>
+                    <div class="d">The digital Francis turbine drawn over your phone camera view of a real table.</div>
+                </div>
+            </div>
+            <div class="s4-pill-box">
+                <div class="s4-pill-circle">WEB</div>
+                <div class="s4-pill-text">
+                    <div class="h">Web page</div>
+                    <div class="d">Opens in any browser; explore the apparatus, velocity vectors and theory on any screen.</div>
+                </div>
+            </div>
+            <div class="s4-pill-box">
+                <div class="s4-pill-circle">LAB</div>
+                <div class="s4-pill-text">
+                    <div class="h">The real thing</div>
+                    <div class="d">Scan, explore, then compare with the real Francis turbine on the bench.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CAD Footer -->
+        <div class="cad-bottom-note">Both codes open the lab’s interactive page (FT-001). Test-scan before printing. Share the link so anyone can open it.</div>
+        <div class="cad-title-block">
+            <div class="field"><span class="lbl">TITLE</span><span class="val">SCAN · STEP INSIDE</span></div>
+            <div class="field"><span class="lbl">SHEET</span><span class="val">4 / 5</span></div>
+            <div class="field"><span class="lbl">SCALE</span><span class="val">NTS</span></div>
+        </div>
+    </div>
+</div>
+
+
+<!-- ===================================================================
+     SHEET 5 / 5: HEAD · DISCHARGE · POWER (Section E)
+     =================================================================== -->
+<div class="sheet-page" id="sheet5">
+    <div class="cad-outer-border"></div>
+    <div class="coord-strip coord-top"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span></div>
+    <div class="coord-strip coord-bottom"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span></div>
+    <div class="coord-strip coord-left"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span></div>
+    <div class="coord-strip coord-right"><span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span></div>
+
+    <div class="cad-inner-border">
+        <div class="cad-header">
+            <div class="header-left">
+                <div class="drg-badge">DRG. NO. FT-001 · SHEET 5 / 5</div>
+                <div class="brand-row">
+                    <div class="brand-logo">HEAD<span class="red">·</span>FLOW<span class="blue">·</span>POWER</div>
+                </div>
+                <div class="brand-sub">FRANCIS TURBINE APPARATUS · FLUID MACHINERY LAB · COEP TECH</div>
+            </div>
+            <div class="header-center">
+                <div class="section-label">SECTION E · EXPERIMENT & CALCULATIONS</div>
+                <div class="main-sheet-title">Run · Regulate · Compute</div>
+                <div class="main-sheet-subtitle">Two panels: how to run it, and how to work it out. Fill in the brackets from your own apparatus and verify turbine overall efficiency.</div>
+            </div>
+            <div class="header-right" style="border: none; background: transparent; box-shadow: none;"></div>
+        </div>
+
+        <div class="sheet5-grid">
+            <div class="cad-card sheet5-exp-panel">
+                <div>
+                    <div class="card-fig-label">
+                        <span>THE EXPERIMENT</span>
+                        <span class="pill">STEP BY STEP</span>
+                    </div>
+                    <div class="card-title">Run it in six steps</div>
+                    <div class="six-steps-list">
+                        <div class="exp-step-row">
+                            <span class="step-chip">01</span>
+                            <div class="step-text"><strong>Check & Prime</strong> · Ensure adequate water in sump, prime centrifugal pump, open brake cooling water, verify zero load on hanger.</div>
+                        </div>
+                        <div class="exp-step-row">
+                            <span class="step-chip">02</span>
+                            <div class="step-text"><strong>Start Pump</strong> · Switch on pump motor with delivery valve closed; slowly open delivery throttle to pressurise spiral casing.</div>
+                        </div>
+                        <div class="exp-step-row">
+                            <span class="step-chip">03</span>
+                            <div class="step-text"><strong>Set Gate Opening</strong> · Adjust wicket gate regulating handwheel to designated opening (e.g. 100%, 75%, 50% gate).</div>
+                        </div>
+                        <div class="exp-step-row">
+                            <span class="step-chip">04</span>
+                            <div class="step-text"><strong>Apply Brake Load</strong> · Hang dead weights W on rope hanger; note spring reading S and steady speed N with tachometer.</div>
+                        </div>
+                        <div class="exp-step-row">
+                            <span class="step-chip">05</span>
+                            <div class="step-text"><strong>Record Gauges</strong> · Note casing pressure Pi, draft tube vacuum Pv, and mercury manometer deflection Δh across Venturimeter.</div>
+                        </div>
+                        <div class="exp-step-row">
+                            <span class="step-chip">06</span>
+                            <div class="step-text"><strong>Vary Load & Repeat</strong> · Increment weights in uniform steps up to maximum load; repeat readings, then unload drum before stopping pump.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="exp-vector-box">
+                    <svg viewBox="0 0 620 170" width="100%" height="100%">
+                        <text x="30" y="22" font-family="'Barlow Condensed'" font-size="11" font-weight="800" fill="#0f172a">RUNNER INLET VELOCITY VECTORS</text>
+                        <line x1="30" y1="120" x2="260" y2="120" stroke="#cbd5e1" stroke-width="1.5"/>
+                        <line x1="30" y1="45" x2="260" y2="120" stroke="#d33c2f" stroke-width="2.5"/><polygon points="260,120 250,115 254,122" fill="#d33c2f"/><text x="135" y="75" font-family="'JetBrains Mono'" font-size="11.5" font-weight="800" fill="#d33c2f">V₁</text>
+                        <line x1="140" y1="120" x2="260" y2="120" stroke="#0284c7" stroke-width="2.5"/><polygon points="260,120 252,116 252,124" fill="#0284c7"/><text x="190" y="112" font-family="'JetBrains Mono'" font-size="11" font-weight="700" fill="#0284c7">u₁</text>
+                        <line x1="30" y1="45" x2="140" y2="120" stroke="#0d9488" stroke-width="2"/><polygon points="140,120 132,114 136,122" fill="#0d9488"/><text x="75" y="76" font-family="'JetBrains Mono'" font-size="11" font-weight="700" fill="#0d9488">Vr₁</text>
+                        <line x1="30" y1="135" x2="260" y2="135" stroke="#475569" stroke-width="1.2"/><text x="120" y="148" font-family="'JetBrains Mono'" font-size="10.5" font-weight="700" fill="#475569">Vw₁ = V₁ cos α₁</text>
+
+                        <text x="350" y="22" font-family="'Barlow Condensed'" font-size="11" font-weight="800" fill="#0f172a">RUNNER OUTLET (RADIAL EXIT: Vw₂ = 0)</text>
+                        <line x1="350" y1="120" x2="560" y2="120" stroke="#cbd5e1" stroke-width="1.5"/>
+                        <line x1="470" y1="120" x2="560" y2="120" stroke="#0284c7" stroke-width="2.5"/><polygon points="560,120 552,116 552,124" fill="#0284c7"/><text x="505" y="112" font-family="'JetBrains Mono'" font-size="11" font-weight="700" fill="#0284c7">u₂</text>
+                        <line x1="560" y1="45" x2="560" y2="120" stroke="#d33c2f" stroke-width="2.5"/><polygon points="560,120 556,112 564,112" fill="#d33c2f"/><text x="568" y="80" font-family="'JetBrains Mono'" font-size="11" font-weight="800" fill="#d33c2f">V₂ = Vf₂</text>
+                        <line x1="560" y1="45" x2="470" y2="120" stroke="#0d9488" stroke-width="2"/><polygon points="470,120 474,112 479,119" fill="#0d9488"/><text x="500" y="74" font-family="'JetBrains Mono'" font-size="11" font-weight="700" fill="#0d9488">Vr₂</text>
+                    </svg>
+                </div>
+
+                <div style="font-size: 10px; color: #b91c1c; padding: 6px; background: #fef2f2; border: 1px solid #fecaca; line-height: 1.35;">
+                    <strong>SAFETY:</strong> Ensure continuous cooling water to brake drum during all loaded runs. Never abruptly shut the delivery valve or supply pump motor under heavy load. Verify all electrical earthing before starting.
+                </div>
+            </div>
+
+            <div class="cad-card sheet5-calc-panel">
+                <div>
+                    <div class="card-fig-label">
+                        <span>THE CALCULATION</span>
+                        <span class="pill">WORKED EXAMPLE</span>
+                    </div>
+                    <div class="card-title">From readings to efficiency</div>
+                    <div class="card-desc">Illustrative numbers: replace with your own apparatus readings.</div>
+
+                    <div class="calc-grid">
+                        <div class="calc-sec">
+                            <div class="sec-hdr">TURBINE RIG CONSTANTS</div>
+                            <div class="sec-math">
+                                Brake drum dia D = 0.28 m, rope d = 0.02 m<br>
+                                Effective radius Reff = (D+d)/2 = <strong>0.15 m</strong><br>
+                                Venturimeter d₁ = 100 mm, d₂ = 60 mm, Cd = 0.98
+                            </div>
+                        </div>
+
+                        <div class="calc-sec">
+                            <div class="sec-hdr">NET TOTAL HEAD (H)</div>
+                            <div class="sec-math">
+                                Pi = 1.60 kg/cm² = 16.00 m of water<br>
+                                Pv = 150 mm Hg = 0.150 × 13.6 = 2.04 m<br>
+                                Datum z = 0.35 m &rarr; <strong>H = 18.39 m</strong>
+                            </div>
+                        </div>
+
+                        <div class="calc-sec">
+                            <div class="sec-hdr">DISCHARGE (Q) VIA VENTURIMETER</div>
+                            <div class="sec-math">
+                                Manometer Δhm = 12.5 cm Hg = 0.125 m Hg<br>
+                                Head h = 0.125 × (13.6 - 1) = 1.575 m of water<br>
+                                <strong>Q = 0.0224 m³/s = 22.4 L/s</strong>
+                            </div>
+                        </div>
+
+                        <div class="calc-sec">
+                            <div class="sec-hdr">OUTPUT SHAFT POWER (Pₒ)</div>
+                            <div class="sec-math">
+                                Load: W = 12.0 kg, S = 2.2 kg, N = 950 rpm<br>
+                                Torque T = (12.0 - 2.2) × 9.81 × 0.15 = 14.42 N·m<br>
+                                <strong>Pₒ = 2π × 950 × 14.42 / 60000 = 1.434 kW</strong>
+                            </div>
+                        </div>
+
+                        <div class="calc-sec">
+                            <div class="sec-hdr">WATER INPUT POWER (Pin)</div>
+                            <div class="sec-math">
+                                Pin = (ρ · g · Q · H) / 1000<br>
+                                Pin = (1000 × 9.81 × 0.0224 × 18.39) / 1000<br>
+                                <strong>Pin = 4.041 kW</strong>
+                            </div>
+                        </div>
+
+                        <div class="calc-sec" style="background: #eff6ff; border-color: #bfdbfe;">
+                            <div class="sec-hdr" style="color: #1e40af;">OVERALL EFFICIENCY (ηₒ)</div>
+                            <div class="sec-math" style="color: #1e3a8a;">
+                                ηₒ = (Pₒ / Pin) × 100%<br>
+                                ηₒ = (1.434 / 4.041) × 100%<br>
+                                <strong>ηₒ = 35.49%</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="obs-table-container">
+                    <div class="obs-hdr">
+                        <span>YOUR OBSERVATION TABLE</span>
+                        <span style="font-size: 9px; font-weight: 600; color: #64748b;">RECORD READINGS DURING PRACTICAL</span>
+                    </div>
+                    <table class="obs-table">
+                        <thead>
+                            <tr>
+                                <th>No.</th>
+                                <th>Pi (kg/cm²)</th>
+                                <th>Pv (mm Hg)</th>
+                                <th>H (m)</th>
+                                <th>Δh (cm Hg)</th>
+                                <th>Q (L/s)</th>
+                                <th>N (rpm)</th>
+                                <th>W (kg)</th>
+                                <th>S (kg)</th>
+                                <th>(W-S) (kg)</th>
+                                <th>T (N·m)</th>
+                                <th>Pₒ (kW)</th>
+                                <th>Pin (kW)</th>
+                                <th>ηₒ (%)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>1</td><td>1.60</td><td>150</td><td>18.39</td><td>12.5</td><td>22.4</td><td>950</td><td>12.0</td><td>2.2</td><td>9.8</td><td>14.42</td><td>1.434</td><td>4.041</td><td>35.49</td></tr>
+                            <tr><td>2</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+                            <tr><td>3</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+                            <tr><td>4</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+                            <tr><td>5</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="defs-box">
+                <div class="def-item">
+                    <div class="def-circle">H</div>
+                    <div class="def-content">
+                        <div class="d-title">Total Net Head</div>
+                        <div class="d-desc">Effective net energy per unit weight available to the turbine: pressure head + draft suction vacuum + gauge elevation datum.</div>
+                    </div>
+                </div>
+                <div class="def-item">
+                    <div class="def-circle">Q</div>
+                    <div class="def-content">
+                        <div class="d-title">Discharge</div>
+                        <div class="d-desc">Volume flow rate entering the spiral casing, measured in real-time by the differential Venturimeter manometer.</div>
+                    </div>
+                </div>
+                <div class="def-item">
+                    <div class="def-circle">ηₒ</div>
+                    <div class="def-content">
+                        <div class="d-title">Overall Efficiency</div>
+                        <div class="d-desc">Ratio of useful mechanical brake shaft power to the total hydraulic energy supplied by the water flow: ηₒ = Pₒ / Pin.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cad-bottom-note">Worked example uses illustrative values. Replace the numbers with readings from your own apparatus and rotor.</div>
+        <div class="cad-title-block">
+            <div class="field"><span class="lbl">TITLE</span><span class="val">RUN · REGULATE · COMPUTE</span></div>
+            <div class="field"><span class="lbl">SHEET</span><span class="val">5 / 5</span></div>
+            <div class="field"><span class="lbl">SCALE</span><span class="val">NTS</span></div>
+        </div>
+    </div>
+</div>
+
+</div><!-- end .sheets-wrapper -->
+
+<script>
+    // Navigation active state
+    const navLinks = document.querySelectorAll('.toolbar-nav .nav-btn');
+    window.addEventListener('scroll', () => {
+        let current = '';
+        const sheets = document.querySelectorAll('.sheet-page');
+        sheets.forEach(sheet => {
+            const sheetTop = sheet.offsetTop - 100;
+            if (window.scrollY >= sheetTop) {
+                current = sheet.getAttribute('id');
+            }
+        });
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === '#' + current) {
+                link.classList.add('active');
+            }
+        });
+    });
+
+    // Dynamic GitHub domain updater
+    function updateDomain(val) {
+        val = val.trim().replace(/^https?:\/\//, '').replace(/\/$/, '');
+        if (!val) val = 'aryan.github.io/francis-turbine-lab';
+        const urlAr = 'https://' + val + '/#ar';
+        const urlWeb = 'https://' + val + '/';
+        document.getElementById('linkAr').textContent = urlAr;
+        document.getElementById('linkAr').href = urlAr;
+        document.getElementById('linkWeb').textContent = urlWeb;
+        document.getElementById('linkWeb').href = urlWeb;
+    }
+</script>
+</body>
+</html>

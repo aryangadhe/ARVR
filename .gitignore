@@ -1,0 +1,26 @@
+# Python cache & virtualenvs
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# Jupyter notebooks & temporary logs
+*.ipynb
+*.log
+scratch/
+scratch_frames/
+
+# One-off development & test scripts
+*.py
+*.tmp
+current_test.png
+test_*.png
+
+# Legacy and sample experiments
+gyro_lab_sample.html
+multi_view_render.html
+render_3d.html
+view_video.html
+houseplant*
+WhatsApp*
+bayesian_network*
