@@ -35,15 +35,17 @@ This simulator is designed to run directly on **GitHub Pages** with zero build s
 - Entry point: `index.html`
 - 3D Model: `francis_hydroelectric_turbine.glb`
 
+### Live URLs
+- **Web Simulator**: [https://aryangadhe.github.io/ARVR/](https://aryangadhe.github.io/ARVR/)
+- **Augmented Reality Mobile Mode**: [https://aryangadhe.github.io/ARVR/#ar](https://aryangadhe.github.io/ARVR/#ar)
+
 ### Deploying to GitHub Pages (1-Click)
-1. In your GitHub repository, navigate to **Settings** > **Pages**.
+1. In your GitHub repository at [https://github.com/aryangadhe/ARVR](https://github.com/aryangadhe/ARVR), navigate to **Settings** > **Pages**.
 2. Under **Build and deployment**:
    - **Source**: Select `Deploy from a branch`.
-   - **Branch**: Select `main` (or `master`) and folder `/(root)`.
+   - **Branch**: Select `main` and folder `/(root)`.
 3. Click **Save**.
-4. In ~60 seconds, your site is live at:
-   `https://<username>.github.io/<repository-name>/`
-   *(Mobile AR view available at `https://<username>.github.io/<repository-name>/#ar`)*
+4. In ~60 seconds, your site is live!
 
 ---
 
@@ -54,3 +56,4 @@ To run locally using Python:
 python -m http.server 8080
 ```
 Then open `http://localhost:8080/` in any modern web browser.
+
