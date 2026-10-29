@@ -52,6 +52,7 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  transition: font-size 0.2s ease;
 }
 
 /* Background mesh glow */
@@ -73,7 +74,7 @@ body {
   z-index: 100;
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  background: rgba(15, 23, 42, 0.8);
+  background: rgba(15, 23, 42, 0.85);
   border-bottom: 1px solid var(--border-subtle);
   height: 64px;
   display: flex;
@@ -117,18 +118,48 @@ body {
   font-family: var(--font-mono);
 }
 
+.nav-links-center {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+@media (max-width: 1000px) {
+  .nav-links-center { display: none; }
+}
+.nav-link-btn {
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--text-muted);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  text-decoration: none;
+}
+.nav-link-btn:hover {
+  color: var(--text-main);
+  background: rgba(255, 255, 255, 0.06);
+}
+.nav-link-btn.active {
+  color: var(--cyan);
+  background: rgba(0, 210, 255, 0.1);
+  border-color: rgba(0, 210, 255, 0.25);
+}
+
 .nav-actions {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
 }
 .btn-nav {
   background: var(--bg-card);
   border: 1px solid var(--border-subtle);
   color: var(--text-main);
-  padding: 8px 14px;
+  padding: 7px 12px;
   border-radius: 8px;
-  font-size: 13px;
+  font-size: 12.5px;
   font-weight: 600;
   cursor: pointer;
   display: inline-flex;
@@ -169,6 +200,20 @@ body {
     grid-template-columns: 1fr;
   }
 }
+@media (max-width: 600px) {
+  .navbar { padding: 0 12px; height: 56px; }
+  .brand-title { font-size: 15px; }
+  .brand-sub { display: none; }
+  .dashboard-container { padding: 12px 10px; }
+  .btn-nav { padding: 5px 8px; font-size: 11px; }
+  .hud-overlay { padding: 8px; }
+  .hud-top { gap: 6px; }
+  .hud-tool-group { gap: 4px; }
+  .hud-btn { padding: 4px 7px; font-size: 10.5px; }
+  .hud-select { padding: 4px 6px; font-size: 10.5px; }
+  .cycle-stepper-bar { padding: 2px 6px; }
+  .cycle-btn { padding: 3px 6px; font-size: 10px; }
+}
 
 /* Left Section: 3D Viewport & Visualizers */
 .viewport-section {
@@ -181,7 +226,8 @@ body {
 .canvas-wrapper {
   position: relative;
   width: 100%;
-  height: min(72vh, 600px); min-height: 400px;
+  height: min(74vh, 620px);
+  min-height: 440px;
   background: radial-gradient(circle at 50% 50%, rgba(15, 23, 42, 0.8), rgba(8, 12, 20, 0.98));
   border: 1px solid var(--border-subtle);
   border-radius: var(--card-radius);
@@ -215,12 +261,139 @@ body {
   z-index: 1;
 }
 
+/* 3D Floating Callout Pins Overlay */
+.callout-pins-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 8;
+  overflow: hidden;
+}
+.callout-pin {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(15, 23, 42, 0.90);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border-glow);
+  padding: 4px 10px 4px 5px;
+  border-radius: 20px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: #fff;
+  cursor: pointer;
+  pointer-events: auto;
+  user-select: none;
+  transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
+  white-space: nowrap;
+}
+.callout-pin:hover, .callout-pin.active {
+  background: linear-gradient(135deg, rgba(0, 210, 255, 0.35), rgba(59, 130, 246, 0.45));
+  border-color: var(--cyan);
+  box-shadow: 0 0 18px rgba(0, 210, 255, 0.7);
+  transform: translate(-50%, -50%) scale(1.1);
+}
+.callout-badge {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--cyan);
+  color: #080c14;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  box-shadow: 0 0 8px rgba(0, 210, 255, 0.4);
+}
+.callout-pin.active .callout-badge {
+  background: #fff;
+  box-shadow: 0 0 10px #fff;
+}
+
+/* Cycle Stepper Overlay Banner */
+.cycle-banner-overlay {
+  position: absolute;
+  top: 56px;
+  left: 16px;
+  right: 16px;
+  max-width: 540px;
+  z-index: 12;
+  pointer-events: auto;
+  animation: fadeInDown 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.cycle-banner-content {
+  background: rgba(15, 23, 42, 0.94);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--border-glow);
+  border-radius: 12px;
+  padding: 12px 16px;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.cycle-badge-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.cycle-step-badge {
+  font-size: 10px;
+  font-weight: 700;
+  font-family: var(--font-mono);
+  background: rgba(0, 210, 255, 0.15);
+  color: var(--cyan);
+  border: 1px solid rgba(0, 210, 255, 0.3);
+  padding: 2px 7px;
+  border-radius: 12px;
+  letter-spacing: 0.5px;
+}
+.cycle-step-title {
+  font-size: 13.5px;
+  font-weight: 800;
+  color: #fff;
+  flex: 1;
+  margin-left: 8px;
+}
+.cycle-close-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 16px;
+  cursor: pointer;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+.cycle-close-btn:hover { color: #fff; background: rgba(255, 255, 255, 0.1); }
+.cycle-desc {
+  font-size: 11.5px;
+  color: var(--text-muted);
+  line-height: 1.45;
+}
+.cycle-equation {
+  font-size: 11px;
+  font-family: var(--font-mono);
+  color: var(--teal);
+  background: rgba(0, 242, 254, 0.08);
+  border-left: 2px solid var(--teal);
+  padding: 3px 8px;
+  border-radius: 0 4px 4px 0;
+}
+
 /* Floating Glass HUD Controls */
 .hud-overlay {
   position: absolute;
   pointer-events: none;
   inset: 0;
-  padding: 16px;
+  padding: 14px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -231,14 +404,16 @@ body {
   justify-content: space-between;
   align-items: flex-start;
   pointer-events: auto;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 .hud-status-badge {
-  background: rgba(15, 23, 42, 0.75);
+  background: rgba(15, 23, 42, 0.85);
   backdrop-filter: blur(10px);
   border: 1px solid var(--border-subtle);
   padding: 6px 12px;
   border-radius: 20px;
-  font-size: 12px;
+  font-size: 11.5px;
   font-family: var(--font-mono);
   display: flex;
   align-items: center;
@@ -261,21 +436,23 @@ body {
 .hud-tool-group {
   display: flex;
   gap: 6px;
+  align-items: center;
+  flex-wrap: wrap;
 }
 .hud-btn {
-  background: rgba(15, 23, 42, 0.75);
+  background: rgba(15, 23, 42, 0.85);
   backdrop-filter: blur(10px);
   border: 1px solid var(--border-subtle);
   color: var(--text-main);
   padding: 6px 10px;
   border-radius: 6px;
-  font-size: 12px;
+  font-size: 11.5px;
   font-weight: 600;
   cursor: pointer;
   display: flex;
   align-items: center;
   gap: 5px;
-  transition: all 0.2s;
+  transition: all 0.15s;
 }
 .hud-btn:hover, .hud-btn.active {
   background: var(--cyan);
@@ -284,16 +461,43 @@ body {
   box-shadow: 0 0 10px rgba(0, 210, 255, 0.5);
 }
 
+.hud-select {
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-main);
+  padding: 5.5px 8px;
+  border-radius: 6px;
+  font-size: 11.5px;
+  font-family: var(--font-main);
+  font-weight: 600;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.15s ease;
+}
+.hud-select:hover, .hud-select:focus {
+  border-color: var(--cyan);
+  box-shadow: 0 0 10px rgba(0, 210, 255, 0.3);
+}
+
 .hud-bottom {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
   pointer-events: auto;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.hud-bottom-left {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
 }
 .cam-presets {
   display: flex;
-  gap: 6px;
-  background: rgba(15, 23, 42, 0.75);
+  gap: 4px;
+  background: rgba(15, 23, 42, 0.85);
   backdrop-filter: blur(10px);
   padding: 4px;
   border-radius: 8px;
@@ -303,23 +507,66 @@ body {
   background: transparent;
   border: none;
   color: var(--text-muted);
-  font-size: 11.5px;
+  font-size: 11px;
   font-weight: 600;
-  padding: 5px 10px;
-  border-radius: 6px;
+  padding: 4px 8px;
+  border-radius: 5px;
   cursor: pointer;
   transition: all 0.15s;
 }
 .preset-btn:hover { color: var(--text-main); background: rgba(255, 255, 255, 0.08); }
 .preset-btn.active { background: var(--blue); color: #fff; }
 
-.hud-hint {
+.cycle-stepper-bar {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(10px);
+  padding: 4px 8px;
+  border-radius: 8px;
+  border: 1px solid var(--border-subtle);
+}
+.cycle-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-main);
+  border-radius: 5px;
+  padding: 4px 8px;
   font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: all 0.15s ease;
+}
+.cycle-btn:hover {
+  background: rgba(0, 210, 255, 0.2);
+  border-color: var(--cyan);
+  color: #fff;
+}
+.cycle-btn.primary {
+  background: linear-gradient(135deg, #0284c7, #0369a1);
+  border-color: #38bdf8;
+  color: #fff;
+}
+.cycle-info-chip {
+  font-size: 10.5px;
+  font-family: var(--font-mono);
+  color: var(--cyan);
+  padding: 0 4px;
+  white-space: nowrap;
+}
+
+.hud-hint {
+  font-size: 10.5px;
   color: var(--text-dim);
   font-family: var(--font-mono);
-  background: rgba(15, 23, 42, 0.65);
-  padding: 4px 8px;
-  border-radius: 4px;
+  background: rgba(15, 23, 42, 0.75);
+  padding: 5px 9px;
+  border-radius: 6px;
+  border: 1px solid var(--border-subtle);
 }
 
 /* Secondary Panels Grid (Velocity Triangles + Real-Time Curves) */
@@ -442,6 +689,31 @@ body {
   text-shadow: 0 0 15px rgba(0, 210, 255, 0.4);
 }
 
+/* Operating Regime Banner */
+.state-banner {
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid var(--border-glow);
+  border-left: 4px solid var(--cyan);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.45;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+.state-banner.warning {
+  border-left-color: var(--amber);
+  background: rgba(245, 158, 11, 0.08);
+  color: #fcd34d;
+}
+.state-banner.danger {
+  border-left-color: var(--coral);
+  background: rgba(239, 68, 68, 0.08);
+  color: #fca5a5;
+}
+
 /* Interactive Sliders Section */
 .controls-group {
   display: flex;
@@ -456,69 +728,36 @@ body {
 .slider-header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
   font-size: 12px;
   font-weight: 600;
+  color: var(--text-main);
 }
-.slider-header span.val-display {
+.val-display {
   font-family: var(--font-mono);
   color: var(--cyan);
-  font-size: 13px;
-  font-weight: 700;
 }
-input[type=range] {
+input[type="range"] {
   -webkit-appearance: none;
-  appearance: none;
   width: 100%;
   height: 6px;
-  border-radius: 4px;
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
   outline: none;
-  transition: background 0.2s;
 }
-[data-theme="light"] input[type=range] { background: #cbd5e1; }
-input[type=range]::-webkit-slider-thumb {
+input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
-  appearance: none;
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
   border-radius: 50%;
   background: var(--cyan);
   cursor: pointer;
-  box-shadow: 0 0 8px rgba(0, 210, 255, 0.8);
-  border: 2px solid #fff;
-  transition: transform 0.15s;
+  box-shadow: 0 0 10px var(--cyan);
+  transition: transform 0.1s;
 }
-input[type=range]::-webkit-slider-thumb:hover {
-  transform: scale(1.2);
-}
+input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.2); }
 
-/* Dynamic State Alert Box */
-.state-banner {
-  background: rgba(16, 185, 129, 0.1);
-  border: 1px solid rgba(16, 185, 129, 0.25);
-  color: var(--emerald);
-  padding: 10px 12px;
-  border-radius: 8px;
-  font-size: 11.5px;
-  line-height: 1.4;
-  display: flex;
-  align-items: flex-start;
-  gap: 8px;
-}
-.state-banner.warning {
-  background: rgba(245, 158, 11, 0.1);
-  border-color: rgba(245, 158, 11, 0.3);
-  color: var(--amber);
-}
-.state-banner.danger {
-  background: rgba(239, 68, 68, 0.1);
-  border-color: rgba(239, 68, 68, 0.3);
-  color: var(--coral);
-}
-
-/* Interactive Parts Explorer */
-.parts-accordion {
+/* Parts Anatomy Accordion */
+.parts-list {
   display: flex;
   flex-direction: column;
   gap: 6px;
@@ -526,27 +765,31 @@ input[type=range]::-webkit-slider-thumb:hover {
   overflow-y: auto;
   padding-right: 4px;
 }
-.parts-accordion::-webkit-scrollbar { width: 4px; }
-.parts-accordion::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.2); border-radius: 2px; }
-
 .part-chip {
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid var(--border-subtle);
-  padding: 7px 10px;
   border-radius: 6px;
+  padding: 8px 10px;
   font-size: 12px;
+  color: var(--text-muted);
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   cursor: pointer;
   transition: all 0.15s;
 }
-.part-chip:hover, .part-chip.selected {
-  background: rgba(0, 210, 255, 0.15);
+.part-chip:hover {
+  background: rgba(0, 210, 255, 0.08);
+  border-color: var(--cyan);
+  color: var(--text-main);
+}
+.part-chip.selected {
+  background: linear-gradient(90deg, rgba(0, 210, 255, 0.2), rgba(59, 130, 246, 0.2));
   border-color: var(--cyan);
   color: #fff;
+  font-weight: 600;
 }
-.part-chip .idx {
+.part-chip span.idx {
   width: 20px;
   height: 20px;
   border-radius: 50%;
@@ -621,6 +864,145 @@ table.live-obs td {
 }
 table.live-obs tr:hover td { background: rgba(0, 210, 255, 0.05); }
 
+/* Components Specification Modal */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.82);
+  backdrop-filter: blur(12px);
+  z-index: 300;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+.modal-overlay.open { display: flex; }
+.modal-card {
+  background: #0f172a;
+  border: 1px solid var(--border-glow);
+  border-radius: 16px;
+  max-width: 1040px;
+  width: 100%;
+  max-height: 88vh;
+  overflow-y: auto;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.8);
+  padding: 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+[data-theme="light"] .modal-card { background: #ffffff; }
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 14px;
+}
+.modal-title { font-size: 21px; font-weight: 800; color: #fff; }
+[data-theme="light"] .modal-title { color: #0f172a; }
+.modal-close-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 26px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+.modal-close-btn:hover { color: #fff; background: rgba(255, 255, 255, 0.1); }
+.components-spec-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+  gap: 16px;
+}
+.comp-spec-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+.comp-spec-card:hover {
+  border-color: var(--cyan);
+  background: var(--bg-card-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 210, 255, 0.15);
+}
+.comp-spec-badge-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.comp-spec-num {
+  font-size: 11px;
+  font-family: var(--font-mono);
+  background: rgba(0, 210, 255, 0.15);
+  color: var(--cyan);
+  border: 1px solid rgba(0, 210, 255, 0.3);
+  padding: 2px 7px;
+  border-radius: 10px;
+  font-weight: 700;
+}
+.comp-spec-action {
+  font-size: 11px;
+  color: var(--cyan);
+  background: transparent;
+  border: 1px solid rgba(0, 210, 255, 0.3);
+  padding: 3px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.15s;
+}
+.comp-spec-action:hover {
+  background: var(--cyan);
+  color: #080c14;
+}
+.comp-spec-name { font-size: 15px; font-weight: 800; color: #fff; }
+[data-theme="light"] .comp-spec-name { color: #0f172a; }
+.comp-spec-desc { font-size: 12px; color: var(--text-muted); line-height: 1.45; }
+.comp-spec-meta {
+  font-size: 11px;
+  font-family: var(--font-mono);
+  color: var(--amber);
+  background: rgba(245, 158, 11, 0.08);
+  border-left: 2px solid var(--amber);
+  padding: 4px 8px;
+  border-radius: 0 4px 4px 0;
+  margin-top: 2px;
+}
+.comp-spec-chk {
+  font-size: 11px;
+  color: var(--emerald);
+  background: rgba(16, 185, 129, 0.08);
+  border-left: 2px solid var(--emerald);
+  padding: 4px 8px;
+  border-radius: 0 4px 4px 0;
+}
+
+/* Accessibility Larger Text Mode */
+body.larger-text {
+  font-size: 16px;
+}
+body.larger-text .brand-title { font-size: 22px; }
+body.larger-text .brand-sub { font-size: 12px; }
+body.larger-text .kpi-value { font-size: 28px; }
+body.larger-text .kpi-tile.featured .kpi-value { font-size: 38px; }
+body.larger-text .kpi-label { font-size: 12.5px; }
+body.larger-text .callout-pin { font-size: 12.5px; padding: 5px 12px 5px 6px; }
+body.larger-text .callout-badge { width: 24px; height: 24px; font-size: 12.5px; }
+body.larger-text .hud-btn { font-size: 13px; padding: 7px 12px; }
+body.larger-text .hud-select { font-size: 13px; padding: 7px 12px; }
+body.larger-text .preset-btn { font-size: 12.5px; padding: 6px 12px; }
+body.larger-text .cycle-btn { font-size: 12.5px; padding: 6px 12px; }
+body.larger-text .part-chip { font-size: 13px; padding: 10px 12px; }
+body.larger-text .state-banner { font-size: 13.5px; }
+
 /* Footer */
 footer {
   margin-top: auto;
@@ -654,10 +1036,18 @@ footer a:hover { text-decoration: underline; }
     </div>
   </div>
 
+  <div class="nav-links-center">
+    <button class="nav-link-btn active" id="navTwinBtn" type="button">3D Explorer</button>
+    <button class="nav-link-btn" id="navComponentsBtn" type="button">Components</button>
+    <button class="nav-link-btn" id="navCycleBtn" type="button">Hydraulic Cycle</button>
+    <a href="francis_turbine_sheets.html" target="_blank" class="nav-link-btn">5-Sheet Posters</a>
+    <a href="francis_turbine_lab_sheets.pdf" target="_blank" class="nav-link-btn">PDF Poster</a>
+  </div>
+
   <div class="nav-actions">
+    <button class="btn-nav" id="fontScaleBtn" title="Toggle larger text (A±)" type="button">A±</button>
     <button class="btn-nav" id="themeToggleBtn" type="button">🌗 Theme</button>
-    <a href="francis_turbine_sheets.html" target="_blank" class="btn-nav">📄 5-Sheet Posters</a>
-    <button class="btn-nav accent" id="arModeBtn" type="button">📱 AR Table View</button>
+    <button class="btn-nav accent" id="arModeBtn" type="button">▣ AR Bench View</button>
   </div>
 </header>
 
@@ -671,6 +1061,22 @@ footer a:hover { text-decoration: underline; }
       <video id="cam-feed" playsinline muted></video>
       <canvas id="three-canvas"></canvas>
 
+      <!-- 3D Callout Pins Overlay Container -->
+      <div id="calloutPinsContainer" class="callout-pins-overlay"></div>
+
+      <!-- Cycle Stepper Overlay Banner -->
+      <div id="cycleStepperOverlay" class="cycle-banner-overlay" style="display: none;">
+        <div class="cycle-banner-content">
+          <div class="cycle-badge-row">
+            <span class="cycle-step-badge" id="cycleStageNum">STAGE 1 OF 4</span>
+            <span class="cycle-step-title" id="cycleStageTitle">Spiral Volute Inflow</span>
+            <button class="cycle-close-btn" id="cycleCloseBtn" title="Close Cycle Info">✕</button>
+          </div>
+          <p class="cycle-desc" id="cycleStageDesc">High-pressure water from penstock enters logarithmic scroll casing maintaining constant circumferential velocity.</p>
+          <div class="cycle-equation" id="cycleStageEq">V₁ = 0.95 √(2gH) = 17.8 m/s · Q = 22.4 L/s</div>
+        </div>
+      </div>
+
       <!-- Glass Floating HUD -->
       <div class="hud-overlay">
         <div class="hud-top">
@@ -680,6 +1086,15 @@ footer a:hover { text-decoration: underline; }
           </div>
 
           <div class="hud-tool-group">
+            <button class="hud-btn" id="resetCamBtn" title="Reset View (R)">⟲ Reset</button>
+            <button class="hud-btn" id="zoomInBtn" title="Zoom in">＋</button>
+            <button class="hud-btn" id="zoomOutBtn" title="Zoom out">－</button>
+            <button class="hud-btn active" id="labelsToggleBtn" title="Toggle 3D Component Labels">🏷️ Labels</button>
+            <select id="partFilterSelect" class="hud-select" title="How to show other parts">
+              <option value="all">Other parts: Show all</option>
+              <option value="ghost">Other parts: Ghost others</option>
+              <option value="isolate">Other parts: Isolate selected</option>
+            </select>
             <button class="hud-btn" id="explodeQuickBtn" title="Toggle Exploded View">💥 Explode</button>
             <button class="hud-btn" id="renderModeToggle" title="Toggle PBR / X-Ray / Wireframe">👁️ Mode: PBR</button>
             <button class="hud-btn" id="turntableToggle" title="Auto Rotate">🔄 Spin</button>
@@ -688,14 +1103,24 @@ footer a:hover { text-decoration: underline; }
         </div>
 
         <div class="hud-bottom">
-          <div class="cam-presets">
-            <button class="preset-btn active" onclick="setCameraPreset('isometric')">Isometric</button>
-            <button class="preset-btn" onclick="setCameraPreset('top')">Top Plan</button>
-            <button class="preset-btn" onclick="setCameraPreset('cutaway')">Cutaway</button>
-            <button class="preset-btn" onclick="setCameraPreset('runner')">Runner</button>
+          <div class="hud-bottom-left">
+            <div class="cam-presets">
+              <button class="preset-btn active" onclick="setCameraPreset('isometric')">Isometric</button>
+              <button class="preset-btn" onclick="setCameraPreset('top')">Top Plan</button>
+              <button class="preset-btn" onclick="setCameraPreset('cutaway')">Cutaway</button>
+              <button class="preset-btn" onclick="setCameraPreset('runner')">Runner</button>
+            </div>
+
+            <!-- 4-Stage Hydraulic Cycle Stepper -->
+            <div class="cycle-stepper-bar">
+              <button class="cycle-btn" id="cyclePrevBtn" title="Previous cycle stage">⏮</button>
+              <button class="cycle-btn primary" id="cyclePlayBtn" title="Play 4-stage hydraulic cycle">▶ Play cycle</button>
+              <button class="cycle-btn" id="cycleNextBtn" title="Next cycle stage">⏭</button>
+              <span class="cycle-info-chip" id="cycleStepName">Stage 1: Inflow</span>
+            </div>
           </div>
 
-          <div class="hud-hint">Left Drag: Orbit · Right Drag: Pan · Scroll: Zoom</div>
+          <div class="hud-hint">Left Drag: Orbit · Right Drag: Pan · Scroll: Zoom · Tap Part in 3D to Inspect</div>
         </div>
       </div>
     </div>
@@ -728,17 +1153,14 @@ footer a:hover { text-decoration: underline; }
         </div>
         <div class="curve-svg-container">
           <svg id="curveSvg" viewBox="0 0 450 190" width="100%" height="100%">
-            <!-- Characteristic Curve SVG -->
             <line x1="40" y1="160" x2="420" y2="160" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
             <line x1="40" y1="20" x2="40" y2="160" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
             <text x="410" y="175" fill="var(--text-dim)" font-size="10" font-family="'JetBrains Mono'">RPM</text>
             <text x="15" y="25" fill="var(--text-dim)" font-size="10" font-family="'JetBrains Mono'">η%</text>
 
-            <!-- Pre-drawn standard parabolic curve -->
             <path id="curvePath" d="M 40,158 Q 210,30 380,158" fill="none" stroke="rgba(0, 210, 255, 0.4)" stroke-width="2.5" stroke-dasharray="4,4"/>
             <path id="powerPath" d="M 40,158 Q 230,55 390,158" fill="none" stroke="rgba(59, 130, 246, 0.3)" stroke-width="1.5"/>
 
-            <!-- Current live operating bead -->
             <circle id="operatingBead" cx="215" cy="45" r="7" fill="var(--cyan)" stroke="#fff" stroke-width="2"/>
             <circle cx="215" cy="45" r="14" fill="none" stroke="var(--cyan)" stroke-width="1.5" opacity="0.6">
               <animate attributeName="r" values="7;18;7" dur="2s" repeatCount="indefinite"/>
@@ -848,17 +1270,18 @@ footer a:hover { text-decoration: underline; }
     <div class="glass-panel">
       <div class="panel-header">
         <span class="panel-title">🧩 Turbine Anatomy</span>
-        <span class="panel-tag">CLICK TO FOCUS</span>
+        <button id="openSpecsBtn" style="font-size:11px; background:transparent; border:1px solid var(--border-glow); color:var(--cyan); padding:2px 8px; border-radius:4px; cursor:pointer;">SPECS MODAL</button>
       </div>
-      <div class="parts-accordion" id="partsListContainer">
-        <!-- Filled dynamically -->
+      <div class="parts-list" id="partsListContainer">
+        <!-- Injected via JavaScript -->
       </div>
     </div>
 
-    <!-- Virtual Laboratory Experiment Logger -->
+    <!-- Observation Data Logger -->
     <div class="glass-panel">
       <div class="panel-header">
-        <span class="panel-title">🧪 Observation Logger</span>
+        <span class="panel-title">📋 Observation Data Logger</span>
+        <span class="panel-tag">14-COL CSV</span>
       </div>
       <div class="exp-actions-strip">
         <button class="action-pill-btn primary" id="logDataPointBtn">➕ Record Reading</button>
@@ -870,82 +1293,106 @@ footer a:hover { text-decoration: underline; }
         <table class="live-obs">
           <thead>
             <tr>
-              <th>#</th>
-              <th>H (m)</th>
+              <th>Run</th>
+              <th>Head (m)</th>
               <th>Q (L/s)</th>
-              <th>N (rpm)</th>
-              <th>T (N·m)</th>
-              <th>Pₒ (kW)</th>
+              <th>Speed (RPM)</th>
+              <th>Torque (Nm)</th>
+              <th>Power (kW)</th>
               <th>ηₒ (%)</th>
             </tr>
           </thead>
           <tbody id="obsTableBody">
-            <tr>
-              <td>1</td>
-              <td>18.4</td>
-              <td>22.4</td>
-              <td>950</td>
-              <td>14.4</td>
-              <td>1.43</td>
-              <td>35.5</td>
-            </tr>
+            <!-- Dynamically populated -->
           </tbody>
         </table>
       </div>
     </div>
 
   </aside>
+
 </main>
+
+<!-- Components Specification Modal -->
+<div id="componentsModal" class="modal-overlay">
+  <div class="modal-card">
+    <div class="modal-header">
+      <div>
+        <h2 class="modal-title">Francis Turbine Component Engineering Specifications</h2>
+        <div style="font-size:12px; color:var(--text-muted); font-family:var(--font-mono); margin-top:4px;">DRG. NO. FT-001 · COEP TECHNOLOGICAL UNIVERSITY FLUID MACHINERY LAB</div>
+      </div>
+      <button class="modal-close-btn" id="closeComponentsModalBtn">&times;</button>
+    </div>
+    <div class="components-spec-grid" id="componentsSpecGrid">
+      <!-- 8 detailed component cards dynamically injected -->
+    </div>
+  </div>
+</div>
 
 <footer>
   <div>
-    <strong>FRANCIS TURBINE DIGITAL TWIN</strong> · Theory of Machines & Turbomachinery Laboratory, COEP Tech University.
+    <strong>COEP Technological University</strong> · Department of Mechanical Engineering · Fluid Machinery Laboratory
   </div>
   <div>
-    Designed for browser deployment on GitHub Pages (<span style="color:var(--cyan);">index.html</span>).
+    Interactive CAD Digital Twin · Direct 3D Raycasting · Euler Energy Walkthrough · Model Ref: DRG. NO. FT-001
   </div>
 </footer>
 
-<!-- Three.js + Loaders -->
-<script src="libs/three.min.js"></script>
-<script src="libs/GLTFLoader.js"></script>
+<!-- Three.js + GLTFLoader CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+
 <script>
 (function() {
-  // Theme Toggle
-  const themeBtn = document.getElementById('themeToggleBtn');
-  themeBtn.addEventListener('click', () => {
-    const isLight = document.documentElement.getAttribute('data-theme') === 'light';
-    document.documentElement.setAttribute('data-theme', isLight ? 'dark' : 'light');
-    if (renderer) {
-      scene.background = new THREE.Color(isLight ? 0x080c14 : 0xf1f5f9);
+  'use strict';
+
+  // Theme Management
+  const themeToggleBtn = document.getElementById('themeToggleBtn');
+  let currentTheme = localStorage.getItem('theme') || 'dark';
+  document.documentElement.setAttribute('data-theme', currentTheme);
+
+  themeToggleBtn.addEventListener('click', () => {
+    currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', currentTheme);
+    localStorage.setItem('theme', currentTheme);
+    if (scene) {
+      scene.background = currentTheme === 'light' ? new THREE.Color(0xf1f5f9) : new THREE.Color(0x080c14);
     }
   });
 
-  // Three.js Scene Setup
+  // Accessibility Font Scaling (A±)
+  const fontScaleBtn = document.getElementById('fontScaleBtn');
+  let isLargerText = false;
+  fontScaleBtn.addEventListener('click', () => {
+    isLargerText = !isLargerText;
+    document.body.classList.toggle('larger-text', isLargerText);
+    fontScaleBtn.style.borderColor = isLargerText ? 'var(--cyan)' : 'var(--border-subtle)';
+    fontScaleBtn.style.color = isLargerText ? 'var(--cyan)' : 'var(--text-main)';
+  });
+
+  // Setup Three.js Scene
   const canvas = document.getElementById('three-canvas');
   const wrapper = canvas.parentElement;
-
-  const scene = new THREE.Scene();
-  scene.background = new THREE.Color(0x080c14);
-
-  const camera = new THREE.PerspectiveCamera(40, wrapper.clientWidth / wrapper.clientHeight, 0.1, 100);
-  camera.position.set(5.5, 4.2, 6.8);
-
-  const renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true, preserveDrawingBuffer: true });
+  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, preserveDrawingBuffer: true });
   renderer.setSize(wrapper.clientWidth, wrapper.clientHeight);
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
-  renderer.toneMapping = THREE.ACESFilmicToneMapping;
-  renderer.toneMappingExposure = 1.35;
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
   renderer.shadowMap.enabled = true;
   renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
-  // Cinematic Lighting
-  const hemi = new THREE.HemisphereLight(0xffffff, 0x1e293b, 1.3);
-  scene.add(hemi);
+  const scene = new THREE.Scene();
+  scene.background = new THREE.Color(currentTheme === 'light' ? 0xf1f5f9 : 0x080c14);
 
-  const keyLight = new THREE.DirectionalLight(0xffffff, 1.6);
-  keyLight.position.set(8, 14, 10);
+  const camera = new THREE.PerspectiveCamera(42, wrapper.clientWidth / wrapper.clientHeight, 0.1, 100);
+
+  // Lighting Rig
+  const hemiLight = new THREE.HemisphereLight(0xffffff, 0x111827, 0.9);
+  scene.add(hemiLight);
+
+  const keyLight = new THREE.DirectionalLight(0xffffff, 1.25);
+  keyLight.position.set(8, 14, 12);
   keyLight.castShadow = true;
+  keyLight.shadow.mapSize.width = 2048;
+  keyLight.shadow.mapSize.height = 2048;
   scene.add(keyLight);
 
   const fillCyan = new THREE.DirectionalLight(0x00d2ff, 0.65);
@@ -960,21 +1407,108 @@ footer a:hover { text-decoration: underline; }
   const turbineRoot = new THREE.Group();
   scene.add(turbineRoot);
 
-  const partsCatalog = {
-    1: { id: 1, name: 'Foundation Bed Frame', desc: 'Rigid channel base dampens vibration and catches discharge', nodes: [] },
-    2: { name: 'Spiral / Volute Casing', desc: 'Decreasing logarithmic scroll distributes fluid with uniform pressure', nodes: [] },
-    3: { name: 'Stay Ring & Stay Vanes', desc: 'Structural aerofoils hold casing and guide fluid smoothly', nodes: [] },
-    4: { name: 'Wicket Gates Mechanism', desc: '20 pivoted aerofoils regulate flow discharge area and swirl angle α₁', nodes: [] },
-    5: { name: 'Francis Runner & Buckets', desc: 'Curved vanes turn water from radial to axial, extracting shaft torque', nodes: [] },
-    6: { name: 'Main Vertical Shaft & Bearings', desc: 'Heavy alloy steel shaft transmits mechanical torque to brake drum', nodes: [] },
-    7: { name: 'Draft Tube Diffuser', desc: 'Conical diffuser converts exit kinetic energy into suction head', nodes: [] },
-    8: { name: 'Brake Dynamometer & Linkages', desc: 'Water-cooled brake drum measures shaft power output', nodes: [] }
-  };
-
   const rotorGroup = new THREE.Group();
   rotorGroup.name = "Francis_Rotor_Assembly";
+
+  // Parts Catalog Definition (Ordered along hydrodynamic flow path)
+  const partsCatalog = {
+    1: {
+      id: 1,
+      name: 'Spiral / Volute Casing',
+      desc: 'Decreasing logarithmic scroll distributes fluid with uniform pressure and velocity',
+      mat: 'Cast Iron FG 260 / Fabricated IS 2062',
+      chk: 'Ultrasonic wall thickness test · silt erosion wear along inner scroll radius',
+      anchor: new THREE.Vector3(-1.40, 0.35, 0.05),
+      exZ: 0.0,
+      nodes: []
+    },
+    2: {
+      id: 2,
+      name: 'Stay Ring & Stay Vanes',
+      desc: '12 fixed structural aerofoils hold casing against hoop stress and streamline inflow',
+      mat: 'Cast Steel ASTM A216 Grade WCB',
+      chk: 'Dye-penetrant weld inspection · leading-edge impingement pit checks',
+      anchor: new THREE.Vector3(-0.65, 0.70, 0.08),
+      exZ: 0.0,
+      nodes: []
+    },
+    3: {
+      id: 3,
+      name: 'Wicket Gates Mechanism',
+      desc: '20 pivoted aerofoils regulate flow discharge area and inlet swirl angle α₁',
+      mat: 'High-tensile Cast Bronze / 13Cr-4Ni Stainless Steel',
+      chk: 'Pivot bushing clearance < 0.15mm · face seal rubber chord inspection',
+      anchor: new THREE.Vector3(0.55, 0.55, 0.12),
+      exZ: 0.25,
+      nodes: []
+    },
+    4: {
+      id: 4,
+      name: 'Francis Runner & Buckets',
+      desc: '14 double-curved vanes turn water from radial to axial, extracting shaft torque',
+      mat: '13Cr-4Ni Stainless Steel (CA6NM)',
+      chk: 'Suction edge cavitation pitting · labyrinth seal gap (0.25-0.35 mm)',
+      anchor: new THREE.Vector3(0.0, 0.0, 0.20),
+      exZ: 0.9,
+      nodes: []
+    },
+    5: {
+      id: 5,
+      name: 'Main Vertical Shaft & Bearings',
+      desc: 'Forged alloy steel shaft transmits mechanical torque to top brake drum',
+      mat: 'Forged Alloy Steel 40Cr4Mo2 (EN19 hardened & tempered)',
+      chk: 'Shaft runout TIR < 0.03mm · bearing temp < 65°C · gland leakage 15 drops/min',
+      anchor: new THREE.Vector3(0.0, 0.0, 1.45),
+      exZ: 1.8,
+      nodes: []
+    },
+    6: {
+      id: 6,
+      name: 'Draft Tube Diffuser',
+      desc: 'Conical diffuser converts exit kinetic energy (V₂²/2g) into static suction head',
+      mat: 'Mild Steel Plate Fabricated (IS 2062 Grade B)',
+      chk: 'Vacuum gauge calibration · vortex rope vibration · flange gasket sealing',
+      anchor: new THREE.Vector3(0.85, -0.65, -1.25),
+      exZ: -1.6,
+      nodes: []
+    },
+    7: {
+      id: 7,
+      name: 'Regulating Ring & Linkage',
+      desc: 'Synchronizes all 20 wicket gates via connecting levers and links from servomotor',
+      mat: 'SG Iron 400/18 / Bronze Bushings',
+      chk: 'Link pin backlash < 0.05mm · smooth governing stroke without binding',
+      anchor: new THREE.Vector3(-0.80, -0.60, 0.28),
+      exZ: 0.45,
+      nodes: []
+    },
+    8: {
+      id: 8,
+      name: 'Foundation Bed & Brake Drum',
+      desc: 'Heavy structural base frame dampens vibration; water-cooled brake absorbs load',
+      mat: 'Structural Steel C-Channel Frame & Cast Iron Brake Pulley',
+      chk: 'Brake belt rope wear · foundation anchor bolt torque 120 N·m',
+      anchor: new THREE.Vector3(-1.10, -1.10, -1.75),
+      exZ: -2.2,
+      nodes: []
+    }
+  };
+
+  // Camera Focus Presets for each Part
+  const partCameraFocus = {
+    1: { target: new THREE.Vector3(-0.5, 0.2, 0.0), spherical: { radius: 7.2, theta: 0.6, phi: 1.2 } },
+    2: { target: new THREE.Vector3(0.0, 0.2, 0.1), spherical: { radius: 5.4, theta: 0.5, phi: 0.9 } },
+    3: { target: new THREE.Vector3(0.0, 0.2, 0.1), spherical: { radius: 4.8, theta: 0.2, phi: 0.6 } },
+    4: { target: new THREE.Vector3(0.0, 0.15, 0.2), spherical: { radius: 3.5, theta: 0.8, phi: 1.25 } },
+    5: { target: new THREE.Vector3(0.0, 0.0, 1.0), spherical: { radius: 4.5, theta: 1.2, phi: 1.35 } },
+    6: { target: new THREE.Vector3(0.4, -0.3, -0.8), spherical: { radius: 6.5, theta: 2.1, phi: 1.45 } },
+    7: { target: new THREE.Vector3(-0.4, -0.3, 0.2), spherical: { radius: 5.2, theta: 2.8, phi: 0.9 } },
+    8: { target: new THREE.Vector3(0.0, 0.0, -0.5), spherical: { radius: 8.5, theta: 0.85, phi: 1.3 } }
+  };
+
   let modelLoaded = false;
   let activeSelectedPart = null;
+  const allMeshes = [];
 
   // Stator wicket gate and pivot tracking
   const wicketGatePairs = [];
@@ -988,12 +1522,11 @@ footer a:hover { text-decoration: underline; }
     const center = box.getCenter(new THREE.Vector3());
 
     // Machine Centerline Alignment:
-    // Physical shaft is natively centered at X=0, Y=0. Center only along Z so the machine revolves on its true axis
+    // Physical shaft is natively centered at X=0, Y=0. Center only along Z so machine revolves on true axis
     model.position.set(0, 0, -center.z);
     turbineRoot.add(model);
     model.add(rotorGroup);
 
-    const allMeshes = [];
     model.traverse((node) => {
       if (node.isMesh) {
         node.castShadow = true;
@@ -1006,28 +1539,30 @@ footer a:hover { text-decoration: underline; }
         allMeshes.push(node);
 
         const n = node.name || '';
-        // Catalog mapping and vertical axial explode displacement (exZ)
         if (n.includes('Foundation')) {
-          partsCatalog[1].nodes.push(node);
+          partsCatalog[8].nodes.push(node);
           node.userData.exZ = -2.2;
         } else if (n.includes('Spiral') || n.includes('Casing') || n.includes('Inlet')) {
-          partsCatalog[2].nodes.push(node);
+          partsCatalog[1].nodes.push(node);
           node.userData.exZ = 0.0;
         } else if (n.includes('Stay')) {
-          partsCatalog[3].nodes.push(node);
+          partsCatalog[2].nodes.push(node);
           node.userData.exZ = 0.0;
         } else if (n.includes('Guide') || n.includes('Wicket')) {
-          partsCatalog[4].nodes.push(node);
+          partsCatalog[3].nodes.push(node);
           node.userData.exZ = 0.25;
         } else if (n.includes('Runner')) {
-          partsCatalog[5].nodes.push(node);
+          partsCatalog[4].nodes.push(node);
           node.userData.exZ = 0.9;
         } else if (n.includes('Shaft') || n.includes('Bearing') || n.includes('Top_Cover')) {
-          partsCatalog[6].nodes.push(node);
+          partsCatalog[5].nodes.push(node);
           node.userData.exZ = 1.8;
         } else if (n.includes('Draft_Tube') || n.includes('Bottom')) {
-          partsCatalog[7].nodes.push(node);
+          partsCatalog[6].nodes.push(node);
           node.userData.exZ = -1.6;
+        } else if (n.includes('Ring') || n.includes('Lever') || n.includes('Link')) {
+          partsCatalog[7].nodes.push(node);
+          node.userData.exZ = 0.45;
         } else {
           partsCatalog[8].nodes.push(node);
           node.userData.exZ = 0.8;
@@ -1046,7 +1581,6 @@ footer a:hover { text-decoration: underline; }
     });
 
     // Reparent all Rotor components into the rigid rotor assembly
-    // Includes: 14 Runner blades, Hub, Crown, Band Shroud, Retainers, and Shaft
     allMeshes.forEach((mesh) => {
       const n = mesh.name || '';
       const isRotor = n.includes('Runner') ||
@@ -1058,7 +1592,7 @@ footer a:hover { text-decoration: underline; }
       }
     });
 
-    // Calibrate Wicket Gate Stator pivot pins (pivots around actual pin axis)
+    // Calibrate Wicket Gate Stator pivot pins
     wicketGatePairs.forEach(({ gate, num }) => {
       const pivot = pivotMap[num];
       if (pivot && gate.geometry) {
@@ -1076,17 +1610,18 @@ footer a:hover { text-decoration: underline; }
 
     modelLoaded = true;
     populatePartsExplorer();
+    createCalloutPins();
+    populateComponentsModal();
   });
 
-  // Clean CAD Model Scene (No particle clutter)
-
-  // Camera Orbit Controls
+  // Camera Orbit Controls & Smooth Transitions
   let isDragging = false;
   let previousMousePos = { x: 0, y: 0 };
+  let pointerDownPos = { x: 0, y: 0 };
   let spherical = { radius: 8.5, theta: 0.85, phi: 1.15 };
   let cameraTarget = new THREE.Vector3(0, 0.2, 0);
   let isTurntable = false;
-  
+  let cameraTransition = null;
 
   function updateCamera() {
     spherical.phi = Math.max(0.1, Math.min(Math.PI - 0.1, spherical.phi));
@@ -1097,9 +1632,21 @@ footer a:hover { text-decoration: underline; }
   }
   updateCamera();
 
+  function focusOnTarget(targetPos, targetSpherical, duration = 650) {
+    cameraTransition = {
+      startTime: performance.now(),
+      duration: duration,
+      startTarget: cameraTarget.clone(),
+      endTarget: targetPos.clone(),
+      startSpherical: { radius: spherical.radius, theta: spherical.theta, phi: spherical.phi },
+      endSpherical: { ...targetSpherical }
+    };
+  }
+
   canvas.addEventListener('pointerdown', (e) => {
     isDragging = true;
     previousMousePos = { x: e.clientX, y: e.clientY };
+    pointerDownPos = { x: e.clientX, y: e.clientY };
   });
 
   window.addEventListener('pointermove', (e) => {
@@ -1113,32 +1660,97 @@ footer a:hover { text-decoration: underline; }
   });
 
   window.addEventListener('pointerup', () => { isDragging = false; });
+
   canvas.addEventListener('wheel', (e) => {
     e.preventDefault();
     spherical.radius = Math.max(2.5, Math.min(18.0, spherical.radius + e.deltaY * 0.008));
     updateCamera();
   }, { passive: false });
 
+  // Direct 3D Raycasting (Tap / Click to Inspect)
+  const raycaster = new THREE.Raycaster();
+  const mouse = new THREE.Vector2();
+
+  canvas.addEventListener('pointermove', (e) => {
+    if (isDragging || !modelLoaded) return;
+    const rect = canvas.getBoundingClientRect();
+    mouse.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+    mouse.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
+    raycaster.setFromCamera(mouse, camera);
+    const intersects = raycaster.intersectObjects(allMeshes, true);
+    canvas.style.cursor = intersects.length > 0 ? 'pointer' : 'grab';
+  });
+
+  canvas.addEventListener('click', (e) => {
+    const dist = Math.hypot(e.clientX - pointerDownPos.x, e.clientY - pointerDownPos.y);
+    if (dist > 6 || !modelLoaded) return; // User was dragging to orbit, not clicking
+
+    const rect = canvas.getBoundingClientRect();
+    mouse.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+    mouse.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
+    raycaster.setFromCamera(mouse, camera);
+    const intersects = raycaster.intersectObjects(allMeshes, true);
+
+    if (intersects.length > 0) {
+      const hitMesh = intersects[0].object;
+      for (const [key, part] of Object.entries(partsCatalog)) {
+        if (part.nodes.includes(hitMesh)) {
+          selectPart(key);
+          break;
+        }
+      }
+    } else {
+      selectPart(null); // Clicked blank canvas background: deselect
+    }
+  });
+
   // Camera Presets
   window.setCameraPreset = function(preset) {
     document.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('active'));
-    event.target.classList.add('active');
+    if (event && event.target) event.target.classList.add('active');
 
     if (preset === 'isometric') {
-      spherical = { radius: 8.2, theta: 0.85, phi: 1.15 };
-      cameraTarget.set(0, 0.2, 0);
+      focusOnTarget(new THREE.Vector3(0, 0.2, 0), { radius: 8.2, theta: 0.85, phi: 1.15 });
     } else if (preset === 'top') {
-      spherical = { radius: 9.0, theta: 0.01, phi: 0.05 };
-      cameraTarget.set(0, 0, 0);
+      focusOnTarget(new THREE.Vector3(0, 0, 0), { radius: 9.0, theta: 0.01, phi: 0.05 });
     } else if (preset === 'cutaway') {
-      spherical = { radius: 6.0, theta: 1.57, phi: 1.3 };
-      cameraTarget.set(0, 0.1, 0);
+      focusOnTarget(new THREE.Vector3(0, 0.1, 0), { radius: 6.0, theta: 1.57, phi: 1.3 });
     } else if (preset === 'runner') {
-      spherical = { radius: 3.5, theta: 0.8, phi: 1.25 };
-      cameraTarget.set(0, 0.25, 0);
+      focusOnTarget(new THREE.Vector3(0, 0.25, 0), { radius: 3.5, theta: 0.8, phi: 1.25 });
     }
-    updateCamera();
   };
+
+  // Quick Camera Buttons (Reset, Zoom In, Zoom Out)
+  const resetCamBtn = document.getElementById('resetCamBtn');
+  resetCamBtn.addEventListener('click', () => {
+    focusOnTarget(new THREE.Vector3(0, 0.2, 0), { radius: 8.5, theta: 0.85, phi: 1.15 });
+  });
+
+  document.getElementById('zoomInBtn').addEventListener('click', () => {
+    spherical.radius = Math.max(2.5, spherical.radius * 0.82);
+    updateCamera();
+  });
+
+  document.getElementById('zoomOutBtn').addEventListener('click', () => {
+    spherical.radius = Math.min(18.0, spherical.radius * 1.22);
+    updateCamera();
+  });
+
+  // Keyboard Shortcuts: R for reset, L for labels, Space for cycle toggle
+  window.addEventListener('keydown', (e) => {
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT') return;
+    if (e.key === 'r' || e.key === 'R') {
+      resetCamBtn.click();
+    } else if (e.key === 'l' || e.key === 'L') {
+      labelsToggleBtn.click();
+    } else if (e.key === ' ') {
+      e.preventDefault();
+      cyclePlayBtn.click();
+    } else if (e.key === 'Escape') {
+      selectPart(null);
+      closeComponentsModal();
+    }
+  });
 
   // Rendering Modes (PBR, X-Ray, Wireframe)
   const renderModes = ['PBR', 'X-Ray', 'Wireframe'];
@@ -1147,30 +1759,328 @@ footer a:hover { text-decoration: underline; }
 
   renderModeBtn.addEventListener('click', () => {
     currentRenderModeIdx = (currentRenderModeIdx + 1) % renderModes.length;
-    const mode = renderModes[currentRenderModeIdx];
-    renderModeBtn.textContent = `👁️ Mode: ${mode}`;
+    renderModeBtn.textContent = `👁️ Mode: ${renderModes[currentRenderModeIdx]}`;
+    applyPartFilter();
+  });
 
+  // "Other Parts" Filter (Show all, Ghost others, Isolate selected)
+  const partFilterSelect = document.getElementById('partFilterSelect');
+  partFilterSelect.addEventListener('change', applyPartFilter);
+
+  function applyPartFilter() {
     if (!modelLoaded) return;
+    const filter = partFilterSelect.value;
+    const renderMode = renderModes[currentRenderModeIdx];
+
     turbineRoot.traverse((node) => {
       if (node.isMesh && node.material) {
-        if (mode === 'PBR') {
-          node.material.wireframe = false;
-          node.material.transparent = false;
-          node.material.opacity = 1.0;
-        } else if (mode === 'X-Ray') {
-          node.material.wireframe = false;
-          node.material.transparent = true;
-          node.material.opacity = 0.38;
-        } else if (mode === 'Wireframe') {
-          node.material.wireframe = true;
-          node.material.transparent = false;
-          node.material.opacity = 1.0;
+        if (!activeSelectedPart || filter === 'all') {
+          node.visible = true;
+          if (renderMode === 'PBR') {
+            node.material.wireframe = false;
+            node.material.transparent = false;
+            node.material.opacity = 1.0;
+          } else if (renderMode === 'X-Ray') {
+            node.material.wireframe = false;
+            node.material.transparent = true;
+            node.material.opacity = 0.38;
+          } else if (renderMode === 'Wireframe') {
+            node.material.wireframe = true;
+            node.material.transparent = false;
+            node.material.opacity = 1.0;
+          }
+        } else {
+          const isSelected = partsCatalog[activeSelectedPart] && partsCatalog[activeSelectedPart].nodes.includes(node);
+          if (filter === 'ghost') {
+            node.visible = true;
+            if (isSelected) {
+              node.material.wireframe = false;
+              node.material.transparent = false;
+              node.material.opacity = 1.0;
+            } else {
+              node.material.wireframe = false;
+              node.material.transparent = true;
+              node.material.opacity = 0.12;
+            }
+          } else if (filter === 'isolate') {
+            node.visible = isSelected;
+            if (isSelected) {
+              node.material.transparent = false;
+              node.material.opacity = 1.0;
+            }
+          }
         }
       }
     });
+  }
+
+  // Floating 3D Callout Pins
+  const calloutPinsContainer = document.getElementById('calloutPinsContainer');
+  const labelsToggleBtn = document.getElementById('labelsToggleBtn');
+  let showLabels = true;
+
+  labelsToggleBtn.addEventListener('click', () => {
+    showLabels = !showLabels;
+    labelsToggleBtn.classList.toggle('active', showLabels);
+    calloutPinsContainer.style.display = showLabels ? 'block' : 'none';
   });
 
-  // Turntable & Fluid flow toggles
+  const createdPins = [];
+  function createCalloutPins() {
+    calloutPinsContainer.innerHTML = '';
+    createdPins.length = 0;
+
+    Object.keys(partsCatalog).forEach((key) => {
+      const part = partsCatalog[key];
+      const pinEl = document.createElement('div');
+      pinEl.className = 'callout-pin';
+      pinEl.setAttribute('data-part-id', key);
+      pinEl.innerHTML = `<span class="callout-badge">${key}</span><span>${part.name.split(' ')[0]}</span>`;
+      pinEl.title = `${key}. ${part.name} - Click to inspect`;
+
+      pinEl.addEventListener('click', (e) => {
+        e.stopPropagation();
+        selectPart(key);
+      });
+
+      calloutPinsContainer.appendChild(pinEl);
+      createdPins.push({ el: pinEl, partId: key, anchor: part.anchor, exZ: part.exZ });
+    });
+  }
+
+  function updateCalloutPins() {
+    if (!showLabels || createdPins.length === 0) return;
+    const rect = canvas.getBoundingClientRect();
+    const explodeVal = parseFloat(rngExplode.value) / 100.0;
+
+    createdPins.forEach((pin) => {
+      const worldPos = pin.anchor.clone();
+      if (pin.partId === '4' || pin.partId === '5') {
+        worldPos.z += (rotorGroup.position.z || 0);
+      } else if (pin.exZ) {
+        worldPos.z += pin.exZ * explodeVal;
+      }
+
+      const p = worldPos.clone().project(camera);
+      if (p.z < 1.0 && p.z > -1.0) {
+        const x = (p.x * 0.5 + 0.5) * rect.width;
+        const y = (-(p.y * 0.5) + 0.5) * rect.height;
+        if (x >= 25 && x <= rect.width - 25 && y >= 25 && y <= rect.height - 25) {
+          pin.el.style.display = 'flex';
+          pin.el.style.left = `${x}px`;
+          pin.el.style.top = `${y}px`;
+        } else {
+          pin.el.style.display = 'none';
+        }
+      } else {
+        pin.el.style.display = 'none';
+      }
+    });
+  }
+
+  // Part Selection Logic
+  function selectPart(key, shouldFocus = true) {
+    if (activeSelectedPart === key && !shouldFocus) {
+      activeSelectedPart = null;
+    } else {
+      activeSelectedPart = key;
+    }
+
+    // Update Anatomy chip highlights
+    document.querySelectorAll('.part-chip').forEach(c => {
+      c.classList.toggle('selected', c.getAttribute('data-part-key') === activeSelectedPart);
+    });
+
+    // Update 3D Pin states
+    document.querySelectorAll('.callout-pin').forEach(p => {
+      p.classList.toggle('active', p.getAttribute('data-part-id') === activeSelectedPart);
+    });
+
+    // Apply Filter and Focus
+    applyPartFilter();
+
+    if (activeSelectedPart && shouldFocus && partCameraFocus[activeSelectedPart]) {
+      const cf = partCameraFocus[activeSelectedPart];
+      focusOnTarget(cf.target, cf.spherical);
+    }
+  }
+
+  // Populate Anatomy List in Sidebar
+  function populatePartsExplorer() {
+    const list = document.getElementById('partsListContainer');
+    list.innerHTML = '';
+    Object.keys(partsCatalog).forEach((key) => {
+      const p = partsCatalog[key];
+      const div = document.createElement('div');
+      div.className = 'part-chip';
+      div.setAttribute('data-part-key', key);
+      div.innerHTML = `<span><span class="idx">${key}</span>${p.name}</span><span style="font-size:10px; color:var(--cyan); font-weight:700;">HIGHLIGHT</span>`;
+      div.onclick = () => {
+        selectPart(activeSelectedPart === key ? null : key);
+      };
+      list.appendChild(div);
+    });
+  }
+
+  // 4-Stage Hydraulic Energy Cycle Stepper
+  const cycleStages = [
+    {
+      num: 'STAGE 1 OF 4',
+      name: 'Stage 1: Spiral Inflow',
+      title: 'High-Pressure Spiral Volute Inflow',
+      partId: '1',
+      desc: 'Water enters from the penstock into the logarithmic spiral casing. The continuously decreasing scroll cross-section ensures constant circumferential velocity and uniform pressure distribution around the stator.',
+      eq: 'Inflow Velocity: V₁ = 0.95 √(2gH) = 17.8 m/s · Q = 22.4 L/s',
+      focus: { target: new THREE.Vector3(-0.5, 0.2, 0.0), spherical: { radius: 7.2, theta: 0.6, phi: 1.2 } }
+    },
+    {
+      num: 'STAGE 2 OF 4',
+      name: 'Stage 2: Wicket Swirl',
+      title: 'Stay Ring & Wicket Gate Swirl Governing',
+      partId: '3',
+      desc: 'Stationary stay vanes streamline flow into 20 pivoted wicket gates. Regulating gate opening (α₁ = 15° to 35°) converts head into tangential whirl velocity Vw₁, imparting optimal angular momentum to the fluid.',
+      eq: 'Whirl Component: Vw₁ = V₁ cos(α₁) · Flow Angle α₁ = 24.5°',
+      focus: { target: new THREE.Vector3(0.0, 0.2, 0.1), spherical: { radius: 4.8, theta: 0.2, phi: 0.6 } }
+    },
+    {
+      num: 'STAGE 3 OF 4',
+      name: 'Stage 3: Euler Torque',
+      title: 'Francis Runner Reaction Torque Extraction',
+      partId: '4',
+      desc: 'High-velocity fluid impinges on 14 double-curved runner vanes, deflecting from radial to axial flow. Euler turbine equation governs angular momentum exchange, driving the shaft at up to 1480 RPM.',
+      eq: 'Euler Head: He = (u₁ Vw₁ - u₂ Vw₂) / g · Shaft Power P = 1.43 kW',
+      focus: { target: new THREE.Vector3(0.0, 0.15, 0.2), spherical: { radius: 3.5, theta: 0.8, phi: 1.25 } }
+    },
+    {
+      num: 'STAGE 4 OF 4',
+      name: 'Stage 4: Draft Diffuser',
+      title: 'Draft Tube Kinetic Energy Recovery',
+      partId: '6',
+      desc: 'Water exits the runner with high axial velocity into the diverging draft tube. The expanding cone decelerates discharge velocity, converting kinetic head (V₂²/2g) into static suction head to maximize overall efficiency.',
+      eq: 'Diffuser Recovery: Δh_rec = (V₂² - V₃²) / 2g · Negative Suction Head',
+      focus: { target: new THREE.Vector3(0.4, -0.3, -0.8), spherical: { radius: 6.5, theta: 2.1, phi: 1.45 } }
+    }
+  ];
+
+  let currentCycleIdx = 0;
+  let isCyclePlaying = false;
+  let cycleTimer = null;
+
+  const cyclePlayBtn = document.getElementById('cyclePlayBtn');
+  const cyclePrevBtn = document.getElementById('cyclePrevBtn');
+  const cycleNextBtn = document.getElementById('cycleNextBtn');
+  const cycleStepName = document.getElementById('cycleStepName');
+  const cycleStepperOverlay = document.getElementById('cycleStepperOverlay');
+  const cycleStageNum = document.getElementById('cycleStageNum');
+  const cycleStageTitle = document.getElementById('cycleStageTitle');
+  const cycleStageDesc = document.getElementById('cycleStageDesc');
+  const cycleStageEq = document.getElementById('cycleStageEq');
+  const cycleCloseBtn = document.getElementById('cycleCloseBtn');
+
+  function setCycleStage(idx) {
+    currentCycleIdx = (idx + cycleStages.length) % cycleStages.length;
+    const stage = cycleStages[currentCycleIdx];
+
+    cycleStepName.textContent = stage.name;
+    cycleStageNum.textContent = stage.num;
+    cycleStageTitle.textContent = stage.title;
+    cycleStageDesc.textContent = stage.desc;
+    cycleStageEq.textContent = stage.eq;
+    cycleStepperOverlay.style.display = 'block';
+
+    selectPart(stage.partId, false);
+    focusOnTarget(stage.focus.target, stage.focus.spherical, 900);
+  }
+
+  cyclePlayBtn.addEventListener('click', () => {
+    isCyclePlaying = !isCyclePlaying;
+    if (isCyclePlaying) {
+      cyclePlayBtn.innerHTML = '⏸ Pause cycle';
+      cyclePlayBtn.classList.add('active');
+      setCycleStage(currentCycleIdx);
+      cycleTimer = setInterval(() => {
+        setCycleStage(currentCycleIdx + 1);
+      }, 5500);
+    } else {
+      cyclePlayBtn.innerHTML = '▶ Play cycle';
+      cyclePlayBtn.classList.remove('active');
+      if (cycleTimer) clearInterval(cycleTimer);
+    }
+  });
+
+  cyclePrevBtn.addEventListener('click', () => {
+    if (isCyclePlaying) cyclePlayBtn.click();
+    setCycleStage(currentCycleIdx - 1);
+  });
+
+  cycleNextBtn.addEventListener('click', () => {
+    if (isCyclePlaying) cyclePlayBtn.click();
+    setCycleStage(currentCycleIdx + 1);
+  });
+
+  cycleCloseBtn.addEventListener('click', () => {
+    if (isCyclePlaying) cyclePlayBtn.click();
+    cycleStepperOverlay.style.display = 'none';
+  });
+
+  document.getElementById('navCycleBtn').addEventListener('click', () => {
+    setCycleStage(0);
+    if (!isCyclePlaying) cyclePlayBtn.click();
+  });
+
+  // Components Specification Modal
+  const componentsModal = document.getElementById('componentsModal');
+  const openSpecsBtn = document.getElementById('openSpecsBtn');
+  const closeComponentsModalBtn = document.getElementById('closeComponentsModalBtn');
+  const navComponentsBtn = document.getElementById('navComponentsBtn');
+  const navTwinBtn = document.getElementById('navTwinBtn');
+
+  function openComponentsModal() {
+    componentsModal.classList.add('open');
+  }
+  function closeComponentsModal() {
+    componentsModal.classList.remove('open');
+  }
+
+  openSpecsBtn.addEventListener('click', openComponentsModal);
+  navComponentsBtn.addEventListener('click', openComponentsModal);
+  closeComponentsModalBtn.addEventListener('click', closeComponentsModal);
+  navTwinBtn.addEventListener('click', () => {
+    closeComponentsModal();
+    cycleStepperOverlay.style.display = 'none';
+    resetCamBtn.click();
+  });
+
+  componentsModal.addEventListener('click', (e) => {
+    if (e.target === componentsModal) closeComponentsModal();
+  });
+
+  function populateComponentsModal() {
+    const grid = document.getElementById('componentsSpecGrid');
+    grid.innerHTML = '';
+    Object.keys(partsCatalog).forEach((key) => {
+      const p = partsCatalog[key];
+      const card = document.createElement('div');
+      card.className = 'comp-spec-card';
+      card.innerHTML = `
+        <div class="comp-spec-badge-row">
+          <span class="comp-spec-num">PART 0${key}</span>
+          <button class="comp-spec-action" data-part="${key}">INSPECT IN 3D</button>
+        </div>
+        <div class="comp-spec-name">${p.name}</div>
+        <div class="comp-spec-desc">${p.desc}</div>
+        <div class="comp-spec-meta"><b>Material:</b> ${p.mat}</div>
+        <div class="comp-spec-chk"><b>Inspection:</b> ${p.chk}</div>
+      `;
+      card.querySelector('.comp-spec-action').addEventListener('click', () => {
+        closeComponentsModal();
+        selectPart(key);
+      });
+      grid.appendChild(card);
+    });
+  }
+
+  // Turntable & Explode Quick Toggles
   const turntableBtn = document.getElementById('turntableToggle');
   turntableBtn.addEventListener('click', () => {
     isTurntable = !isTurntable;
@@ -1192,33 +2102,11 @@ footer a:hover { text-decoration: underline; }
     const dataURL = canvas.toDataURL('image/png');
     const a = document.createElement('a');
     a.href = dataURL;
-    a.download = 'francis_turbine_cad_snapshot.png';
+    a.download = 'francis_turbine_twin_snapshot.png';
     a.click();
   });
 
-  // Populate Parts Accordion
-  function populatePartsExplorer() {
-    const list = document.getElementById('partsListContainer');
-    list.innerHTML = '';
-    Object.keys(partsCatalog).forEach((key) => {
-      const p = partsCatalog[key];
-      const div = document.createElement('div');
-      div.className = 'part-chip';
-      div.innerHTML = `<span><span class="idx">${key}</span>${p.name}</span><span style="font-size:10px; color:var(--cyan); font-weight:700;">HIGHLIGHT</span>`;
-      div.onclick = () => {
-        document.querySelectorAll('.part-chip').forEach(c => c.classList.remove('selected'));
-        if (activeSelectedPart === key) {
-          activeSelectedPart = null;
-        } else {
-          activeSelectedPart = key;
-          div.classList.add('selected');
-        }
-      };
-      list.appendChild(div);
-    });
-  }
-
-  // Physics Calculations & Slider Listeners
+  // Physics Calculations & Slider Regulators
   const rngExplode = document.getElementById('rngExplode');
   const rngGates = document.getElementById('rngGates');
   const rngHead = document.getElementById('rngHead');
@@ -1252,8 +2140,8 @@ footer a:hover { text-decoration: underline; }
     dspBrake.textContent = `${brakeW.toFixed(1)} kg`;
 
     // Engineering Turbomachinery Formulae
-    const R_eff = 0.15; // m
-    const springS = 2.2; // kg
+    const R_eff = 0.15; // m (effective brake drum radius)
+    const springS = 2.2; // kg (tare spring balance reading)
     const netBrakeKg = Math.max(0, brakeW - springS);
     curT = netBrakeKg * 9.81 * R_eff;
 
@@ -1271,7 +2159,7 @@ footer a:hover { text-decoration: underline; }
     curPo = (2 * Math.PI * curN * curT) / 60000.0;
     curEff = curPin > 0 ? Math.min(88.0, Math.max(0, (curPo / curPin) * 100.0)) : 0;
 
-    // Update UI DOM
+    // Update Telemetry Display
     valEff.textContent = curEff.toFixed(1);
     valN.textContent = Math.round(curN);
     valQ.textContent = curQ.toFixed(1);
@@ -1297,37 +2185,32 @@ footer a:hover { text-decoration: underline; }
       regimeBadge.textContent = 'STABLE REGIME';
     }
 
-    // 3D Explode transforms (along Machine Centerline Z axis)
+    // 3D Explode transforms along vertical Machine Centerline Z axis
     if (modelLoaded) {
-      // Explode the entire spinning rotor group as a single rigid assembly
       rotorGroup.position.z = 1.0 * explodeVal;
 
-      // Explode other stationary stator parts along machine vertical axis
       Object.keys(partsCatalog).forEach((k) => {
         partsCatalog[k].nodes.forEach((node) => {
-          // If part is NOT in rotorGroup (rotorGroup handles its own explode displacement)
           if (node.parent !== rotorGroup && node.userData.exZ !== undefined) {
             node.position.z = (node.originalZ || 0) + node.userData.exZ * explodeVal;
           }
         });
       });
 
-      // Hydrodynamic Wicket Gate Governing (pivot angle around pin, stator element)
-      // Design opening is 75%. Gate pivots ±0.20 rad around pin to regulate throat area.
+      // Hydrodynamic Wicket Gate Governing: pivot around pin axis
       const gatePivotAngle = ((gatePercent - 75) / 100.0) * 0.28;
       wicketGatePairs.forEach(({ gate }) => {
         gate.rotation.z = gatePivotAngle;
       });
     }
 
-    // Update Visualizers
     updateVelocityTriangle(headH, curN, gatePercent);
     updateCharacteristicCurve(curN, curEff);
   }
 
   [rngExplode, rngGates, rngHead, rngBrake].forEach(r => r.addEventListener('input', recalculateTelemetry));
 
-  // Dynamic Inlet Velocity Triangle Visualizer (SVG)
+  // Dynamic Inlet Velocity Triangle SVG
   function updateVelocityTriangle(head, rpm, gatePct) {
     const D1 = 0.15; // m
     const u1 = (Math.PI * D1 * rpm) / 60; // blade speed
@@ -1343,7 +2226,6 @@ footer a:hover { text-decoration: underline; }
     document.getElementById('lblBeta1').textContent = `${beta1Deg.toFixed(1)}°`;
     document.getElementById('lblVw1').textContent = `${Vw1.toFixed(1)} m/s`;
 
-    // Draw SVG Vectors
     const svg = document.getElementById('vectorSvg');
     const scale = 5.8;
     const baseX = 30;
@@ -1353,33 +2235,27 @@ footer a:hover { text-decoration: underline; }
     const Vf1Px = Math.min(110, Math.max(25, Vf1 * scale * 0.8));
 
     svg.innerHTML = `
-      <!-- Base Line -->
       <line x1="${baseX}" y1="${baseY}" x2="${baseX + Vw1Px + 40}" y2="${baseY}" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
-      <!-- u1 Blade Speed (Blue) -->
       <line x1="${baseX + (Vw1Px - u1Px)}" y1="${baseY}" x2="${baseX + Vw1Px}" y2="${baseY}" stroke="var(--blue)" stroke-width="3"/>
       <polygon points="${baseX + Vw1Px},${baseY} ${baseX + Vw1Px - 8},${baseY - 4} ${baseX + Vw1Px - 8},${baseY + 4}" fill="var(--blue)"/>
       <text x="${baseX + Vw1Px - u1Px / 2}" y="${baseY + 16}" fill="var(--blue)" font-size="10" font-family="'JetBrains Mono'" text-anchor="middle">u₁ = ${u1.toFixed(1)}</text>
 
-      <!-- Vw1 Whirl (Dashed) -->
       <line x1="${baseX}" y1="${baseY + 22}" x2="${baseX + Vw1Px}" y2="${baseY + 22}" stroke="var(--text-dim)" stroke-width="1.2" stroke-dasharray="3,3"/>
       <text x="${baseX + Vw1Px / 2}" y="${baseY + 34}" fill="var(--text-dim)" font-size="9" font-family="'JetBrains Mono'" text-anchor="middle">Vw₁ = ${Vw1.toFixed(1)}</text>
 
-      <!-- V1 Absolute Velocity (Coral) -->
       <line x1="${baseX}" y1="${baseY - Vf1Px}" x2="${baseX + Vw1Px}" y2="${baseY}" stroke="var(--coral)" stroke-width="3"/>
       <polygon points="${baseX + Vw1Px},${baseY} ${baseX + Vw1Px - 8},${baseY - 5} ${baseX + Vw1Px - 5},${baseY + 3}" fill="var(--coral)"/>
       <text x="${baseX + Vw1Px / 2 - 10}" y="${baseY - Vf1Px / 2 - 4}" fill="var(--coral)" font-size="11" font-weight="700" font-family="'JetBrains Mono'">V₁ = ${V1.toFixed(1)}</text>
 
-      <!-- Vr1 Relative Velocity (Teal) -->
       <line x1="${baseX}" y1="${baseY - Vf1Px}" x2="${baseX + (Vw1Px - u1Px)}" y2="${baseY}" stroke="var(--teal)" stroke-width="2.5"/>
       <polygon points="${baseX + (Vw1Px - u1Px)},${baseY} ${baseX + (Vw1Px - u1Px) - 6},${baseY - 6} ${baseX + (Vw1Px - u1Px) + 2},${baseY - 5}" fill="var(--teal)"/>
       <text x="${baseX + (Vw1Px - u1Px) / 2}" y="${baseY - Vf1Px / 2 + 10}" fill="var(--teal)" font-size="10" font-family="'JetBrains Mono'">Vr₁</text>
 
-      <!-- Angles -->
       <text x="${baseX + 18}" y="${baseY - Vf1Px - 6}" fill="var(--text-main)" font-size="10" font-family="'JetBrains Mono'">Entry Flow Vector</text>
     `;
   }
 
-  // Update Operating Beacon on Performance Curve
+  // Operating Point Beacon on Curve
   function updateCharacteristicCurve(rpm, eff) {
     const minRpm = 0, maxRpm = 1600;
     const minEff = 0, maxEff = 100;
@@ -1456,7 +2332,7 @@ footer a:hover { text-decoration: underline; }
     runStep();
   });
 
-  // AR Camera Mode
+  // AR Camera Mode (Benchtop Overlay)
   let cameraStream = null;
   const arBtn = document.getElementById('arModeBtn');
   const camVideo = document.getElementById('cam-feed');
@@ -1466,9 +2342,9 @@ footer a:hover { text-decoration: underline; }
       cameraStream.getTracks().forEach(t => t.stop());
       cameraStream = null;
       camVideo.style.display = 'none';
-      arBtn.textContent = '📱 AR Table View';
-      scene.background = new THREE.Color(0x080c14);
-      renderer.setClearColor(0x080c14, 1);
+      arBtn.textContent = '▣ AR Bench View';
+      scene.background = new THREE.Color(currentTheme === 'light' ? 0xf1f5f9 : 0x080c14);
+      renderer.setClearColor(currentTheme === 'light' ? 0xf1f5f9 : 0x080c14, 1);
       return;
     }
 
@@ -1487,17 +2363,13 @@ footer a:hover { text-decoration: underline; }
         scene.background = null;
         renderer.setClearColor(0x000000, 0);
 
-        // Ensure canvas matches viewport upon camera activation
         const w = wrapper.clientWidth;
         const h = wrapper.clientHeight;
         camera.aspect = w / h;
         camera.updateProjectionMatrix();
         renderer.setSize(w, h);
 
-        // Adjust camera angle for tabletop bench display
-        spherical = { radius: 6.8, theta: 0.85, phi: 1.18 };
-        cameraTarget.set(0, 0, 0);
-        updateCamera();
+        focusOnTarget(new THREE.Vector3(0, 0, 0), { radius: 6.8, theta: 0.85, phi: 1.18 });
 
         stateBanner.className = 'state-banner';
         stateBannerText.textContent = 'AR MODE ACTIVE: Point your phone at a table. Drag to orbit, pinch/wheel to scale.';
@@ -1515,7 +2387,6 @@ footer a:hover { text-decoration: underline; }
 
   // Animation Loop
   let lastTime = performance.now();
-  let runnerAngle = 0;
   let pulseTimer = 0;
 
   function animate(now) {
@@ -1523,25 +2394,41 @@ footer a:hover { text-decoration: underline; }
     const dt = Math.min(0.05, (now - lastTime) / 1000);
     lastTime = now;
 
+    // Smooth Camera Interpolation
+    if (cameraTransition) {
+      const elapsed = now - cameraTransition.startTime;
+      const progress = Math.min(1.0, elapsed / cameraTransition.duration);
+      const ease = 1 - Math.pow(1 - progress, 3);
+
+      cameraTarget.lerpVectors(cameraTransition.startTarget, cameraTransition.endTarget, ease);
+      spherical.radius = cameraTransition.startSpherical.radius + (cameraTransition.endSpherical.radius - cameraTransition.startSpherical.radius) * ease;
+      spherical.theta = cameraTransition.startSpherical.theta + (cameraTransition.endSpherical.theta - cameraTransition.startSpherical.theta) * ease;
+      spherical.phi = cameraTransition.startSpherical.phi + (cameraTransition.endSpherical.phi - cameraTransition.startSpherical.phi) * ease;
+      updateCamera();
+
+      if (progress >= 1.0) cameraTransition = null;
+    }
+
     // Turntable Auto Rotation
-    if (isTurntable) {
+    if (isTurntable && !cameraTransition) {
       spherical.theta += dt * 0.4;
       updateCamera();
     }
 
     // Rigid Rotor Assembly Dynamic RPM Rotation around Machine Centerline (Z Axis)
-    // Fluid enters tangentially at (+X, -Y) in +Y direction, driving runner in counter-clockwise swirl around +Z
+    // Counter-clockwise swirl matching volute tangential entry
     if (curN > 0 && modelLoaded) {
-      const omega = (curN * 2 * Math.PI) / 60; // rad/s
+      const omega = (curN * 2 * Math.PI) / 60;
       rotorGroup.rotation.z += omega * dt;
     }
 
-    // Clean CAD Model Animation
+    // Update 3D Floating Callout Pins Coordinates
+    updateCalloutPins();
 
-    // Parts Highlighting (Luminous Cyan Pulse)
+    // Active Part Luminous Cyan Pulse
     pulseTimer += dt * 5;
     if (activeSelectedPart && partsCatalog[activeSelectedPart]) {
-      const glow = 0.25 + 0.2 * Math.sin(pulseTimer);
+      const glow = 0.35 + 0.25 * Math.sin(pulseTimer);
       partsCatalog[activeSelectedPart].nodes.forEach((n) => {
         if (n.material && n.material.emissive) {
           n.material.emissive.setRGB(0, glow, glow * 1.3);
@@ -1561,7 +2448,7 @@ footer a:hover { text-decoration: underline; }
     renderer.render(scene, camera);
   }
 
-  // Handle Resize
+  // Handle Window Resize
   window.addEventListener('resize', () => {
     const w = wrapper.clientWidth;
     const h = wrapper.clientHeight;
