@@ -64,7 +64,7 @@ body {
   opacity: 0.15;
 }
 .orb-1 { width: 500px; height: 500px; background: var(--cyan); top: -100px; left: -100px; }
-.orb-2 { width: 600px; height: 600px; background: var(--blue); bottom: -150px; right: -150px; }
+.orb-2 { width: 600px; height: min(72vh, 600px); min-height: 400px; background: var(--blue); bottom: -150px; right: -150px; }
 
 /* Top Navigation Bar */
 .navbar {
@@ -181,7 +181,7 @@ body {
 .canvas-wrapper {
   position: relative;
   width: 100%;
-  height: 600px;
+  height: min(72vh, 600px); min-height: 400px;
   background: radial-gradient(circle at 50% 50%, rgba(15, 23, 42, 0.8), rgba(8, 12, 20, 0.98));
   border: 1px solid var(--border-subtle);
   border-radius: var(--card-radius);
@@ -193,11 +193,15 @@ body {
 }
 
 #three-canvas {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   display: block;
   touch-action: none;
   cursor: grab;
+  z-index: 2;
+  background: transparent;
 }
 #three-canvas:active { cursor: grabbing; }
 
@@ -1464,6 +1468,7 @@ footer a:hover { text-decoration: underline; }
       camVideo.style.display = 'none';
       arBtn.textContent = '📱 AR Table View';
       scene.background = new THREE.Color(0x080c14);
+      renderer.setClearColor(0x080c14, 1);
       return;
     }
 
@@ -1480,9 +1485,27 @@ footer a:hover { text-decoration: underline; }
         camVideo.play();
         arBtn.textContent = '❌ Stop AR';
         scene.background = null;
+        renderer.setClearColor(0x000000, 0);
+
+        // Ensure canvas matches viewport upon camera activation
+        const w = wrapper.clientWidth;
+        const h = wrapper.clientHeight;
+        camera.aspect = w / h;
+        camera.updateProjectionMatrix();
+        renderer.setSize(w, h);
+
+        // Adjust camera angle for tabletop bench display
+        spherical = { radius: 6.8, theta: 0.85, phi: 1.18 };
+        cameraTarget.set(0, 0, 0);
+        updateCamera();
+
+        stateBanner.className = 'state-banner';
+        stateBannerText.textContent = 'AR MODE ACTIVE: Point your phone at a table. Drag to orbit, pinch/wheel to scale.';
+        regimeBadge.textContent = 'AR OVERLAY ACTIVE';
       })
-      .catch(() => {
-        alert('Camera permission denied or camera unavailable.');
+      .catch((err) => {
+        console.warn('Camera error:', err);
+        alert('Camera access was blocked or is unavailable. Please allow camera access in your browser settings.');
       });
   });
 
